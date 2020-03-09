@@ -42,6 +42,6 @@ function getHeaderTitle(route) {
     case 'Home':
       return 'How to get started';
     case 'Map':
-      return 'Links to learn more';
+      return 'COVID-19 World View';
   }
 }

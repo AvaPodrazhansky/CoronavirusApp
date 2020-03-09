@@ -4,6 +4,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 import {MonoText} from '../components/StyledText';
 import SurveyLocationTextInput from "../components/text-input/survey-location";
+import {TextField} from "@material-ui/core";
 
 export default function SymptomSurveyScreen() {
     return (
@@ -11,10 +12,15 @@ export default function SymptomSurveyScreen() {
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <Text style={styles.locationText}>Current Location:</Text>
                 <SurveyLocationTextInput/>
-                <Text>Please inform us if you have the following symptoms. Please only click the symptoms that you are
+                <Text>1. Please inform us if you have the following symptoms. Please only click the symptoms that you
+                    are
                     experiencing (It will appear green after click).</Text>
                 <Button
-                    title="Elevated body temperature"
+                    title="1.1	Elevated body temperature. Oral temperature higher than 99.1 °F, or armpit temperature
+                    higher than 98.6 °F or ear temperature higher than 100.0 °F are considered elevated body
+                    temperature. (Elevated body temperature can also due to sports, eating or sweating, so it better to
+                    measure body temperature under ambient environment and avoiding sweating activity before
+                    measurement. Be sure to wipe the sweat underarm before measuring the armpit temperature)."
                 />
                 <Button
                     title="Extreme fatigue, exhaustion and  muscle soreness"
@@ -48,6 +54,80 @@ export default function SymptomSurveyScreen() {
                 />
                 <Button
                     title="I am experiencing other uncomfortableness but not listed above."
+                />
+                <Text>2. During the past two weeks, have you been visited China, South Korean, Italy, Iran or
+                    Japan?</Text>
+                <Button
+                    title="Yes"
+                />
+                <Button
+                    title="No"
+                />
+                <Text>3. During the past two weeks, how many times do you take public transportations (airplane, bus,
+                    subway, train, taxi, cruises ) with confirmed COVID-19 case(s) on board and you are not wearing a
+                    facial mask or not wearing a facial mask properly? Please write that number.
+                    (If you leave this as blank, it will be considered as 0 times.)
+                </Text>
+                <SurveyLocationTextInput/>
+                <Text>4. During the past two weeks, have you been to the places or make contacts with people or wild
+                    animals
+                    listed below? Please click if you did. (It will appear green after click).
+                </Text>
+                <Button
+                    title="Wild animal like bat, marmot, civets, camel, rats"
+                />
+                <Button
+                    title="People from Hubei China, South Korean, Italy, Iran or Japan. If you make close contact with
+                    them without properly wearing a mask, please click this. (close contact includes but not limited to
+                    talking, eating or studying together, or taking public transportation together)"
+                />
+                <Button
+                    title="Other people who are experiencing the symptoms listed on the first question"
+                />
+                <Button
+                    title="Make close contact with suspected or confirmed COVID-19 case(s)"
+                />
+                <Button
+                    title="confirmed COVID-19 case(s) in your community"
+                />
+                <Text>5. What is your age?</Text>
+                <SurveyLocationTextInput/>
+                <Text>6. What is your sex?</Text>
+                <Button
+                    title="Male"
+                />
+                <Button
+                    title="Female"
+                />
+                <Text>7. Do you have existing conditions or diseases listed below? Please click if you do. (It will
+                    appear green after click).</Text>
+                <Button
+                    title="High blood pressure"
+                />
+                <Button
+                    title="Coronary heart disease/heart failure"
+                />
+                <Button
+                    title="Diabetes"
+                />
+                <Button
+                    title="Chronic kidney disease/ kidney disease"
+                />
+                <Button
+                    title="Currently on medication of hormone or immunosuppressor"
+                />
+                <Button
+                    title="Cancer"
+                />
+                <Button
+                    title="Liver cirrhosis"
+                />
+                <Button
+                    title="Chronic lung disease such as pulmonary fibrosis, chronic obstructive pulmonary disease
+                    ( COPD ) or respiratory failure"
+                />
+                <Button
+                    title="Cerebrovascular disease"
                 />
             </ScrollView>
         </View>

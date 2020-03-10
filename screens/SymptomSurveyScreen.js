@@ -15,11 +15,10 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                 <Text style={styles.locationText}>Current Location:</Text>
                 <TextInput style={styles.inputText} onChange={e => setLocation(e.nativeEvent.text.trim())}
                            value={location}></TextInput>
-                <Text>1. Please inform us if you have the following symptoms. Please only click the symptoms that you
-                    are
-                    experiencing (It will appear green after click).</Text>
+                <Text>1. Please inform us if you have the following symptoms. Please only press the symptoms that you
+                    are experiencing (It will appear green after being pressed).</Text>
                 <Button
-                    title="1.1	Elevated body temperature. Oral temperature higher than 99.1 °F, or armpit temperature
+                    title="Elevated body temperature. Oral temperature higher than 99.1 °F, or armpit temperature
                     higher than 98.6 °F or ear temperature higher than 100.0 °F are considered elevated body
                     temperature. (Elevated body temperature can also due to sports, eating or sweating, so it better to
                     measure body temperature under ambient environment and avoiding sweating activity before
@@ -58,23 +57,22 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                 <Button
                     title="I am experiencing other uncomfortableness but not listed above."
                 />
-                <Text>2. During the past two weeks, have you been visited China, South Korean, Italy, Iran or
-                    Japan?</Text>
+                <Text>2. During the past two weeks, have you visited China, South Korea, Italy, Iran, or Japan?</Text>
                 <Button
                     title="Yes"
                 />
                 <Button
                     title="No"
                 />
-                <Text>3. During the past two weeks, how many times do you take public transportations (airplane, bus,
-                    subway, train, taxi, cruises ) with confirmed COVID-19 case(s) on board and you are not wearing a
-                    facial mask or not wearing a facial mask properly? Please write that number.
+                <Text>3. During the past two weeks, how many times have you taken public transportation (airplanes,
+                    buses, subways, trains, taxis, cruises, etc.) with confirmed COVID-19 case(s) on board in which you
+                    are not wearing a facial mask or not wearing a facial mask properly? Please write that number.
                     (If you leave this as blank, it will be considered as 0 times.)
                 </Text>
                 <TextInput style={styles.inputText}></TextInput>
-                <Text>4. During the past two weeks, have you been to the places or make contacts with people or wild
-                    animals
-                    listed below? Please click if you did. (It will appear green after click).
+                <Text>4. During the past two weeks, have you been to the following places or made contact with people
+                    or wild animals listed below? Please press the respective buttons if you did. (It will appear green
+                    after being pressed).
                 </Text>
                 <Button
                     title="Wild animal like bat, marmot, civets, camel, rats"
@@ -91,7 +89,7 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                     title="Make close contact with suspected or confirmed COVID-19 case(s)"
                 />
                 <Button
-                    title="confirmed COVID-19 case(s) in your community"
+                    title="Confirmed COVID-19 case(s) in your community"
                 />
                 <Text>5. What is your age?</Text>
                 <TextInput style={styles.inputText}></TextInput>

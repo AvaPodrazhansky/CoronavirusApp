@@ -56,7 +56,7 @@ const HomeScreen = ({increment, count}) => {
       </View>
     </View>
   );
-}
+};
 
 HomeScreen.navigationOptions = {
   header: null,

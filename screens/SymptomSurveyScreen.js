@@ -3,15 +3,18 @@ import {Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button} from 
 import {ScrollView} from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 import {MonoText} from '../components/StyledText';
-import SurveyLocationTextInput from "../components/text-input/survey-location";
-import {TextField} from "@material-ui/core";
+import {TextInput} from "react-native";
+import {connect} from "react-redux";
+import {setLocation} from "../actions/symptom-survey/symptoms";
+import {getLocation} from "../selectors/symptom-survey/symptoms";
 
-export default function SymptomSurveyScreen() {
+const SymptomSurveyScreen = ({location, setLocation}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <Text style={styles.locationText}>Current Location:</Text>
-                <SurveyLocationTextInput/>
+                <TextInput style={styles.inputText} onChange={e => setLocation(e.nativeEvent.text.trim())}
+                           value={location}></TextInput>
                 <Text>1. Please inform us if you have the following symptoms. Please only click the symptoms that you
                     are
                     experiencing (It will appear green after click).</Text>
@@ -68,7 +71,7 @@ export default function SymptomSurveyScreen() {
                     facial mask or not wearing a facial mask properly? Please write that number.
                     (If you leave this as blank, it will be considered as 0 times.)
                 </Text>
-                <SurveyLocationTextInput/>
+                <TextInput style={styles.inputText}></TextInput>
                 <Text>4. During the past two weeks, have you been to the places or make contacts with people or wild
                     animals
                     listed below? Please click if you did. (It will appear green after click).
@@ -91,7 +94,7 @@ export default function SymptomSurveyScreen() {
                     title="confirmed COVID-19 case(s) in your community"
                 />
                 <Text>5. What is your age?</Text>
-                <SurveyLocationTextInput/>
+                <TextInput style={styles.inputText}></TextInput>
                 <Text>6. What is your sex?</Text>
                 <Button
                     title="Male"
@@ -132,7 +135,7 @@ export default function SymptomSurveyScreen() {
             </ScrollView>
         </View>
     );
-}
+};
 
 SymptomSurveyScreen.navigationOptions = {
     header: null,
@@ -229,5 +232,20 @@ const styles = StyleSheet.create({
         fontSize: 17,
         color: "blue",
         paddingHorizontal: 20
+    },
+    inputText: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1
     }
 });
+
+const mapStateToProps = state => ({
+    location: getLocation(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+    setLocation: location => dispatch(setLocation(location))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SymptomSurveyScreen);

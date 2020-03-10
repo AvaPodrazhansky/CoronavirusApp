@@ -16,7 +16,7 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                 <TextInput style={styles.inputText} onChange={e => setLocation(e.nativeEvent.text.trim())}
                            value={location}></TextInput>
                 <Text>1. Please inform us if you have the following symptoms. Please only press the symptoms that you
-                    are experiencing (It will appear green after being pressed).</Text>
+                    are experiencing. (It will appear green after being pressed.)</Text>
                 <Button
                     title="Elevated body temperature. Oral temperature higher than 99.1 °F, or armpit temperature
                     higher than 98.6 °F or ear temperature higher than 100.0 °F are considered elevated body
@@ -66,13 +66,13 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                 />
                 <Text>3. During the past two weeks, how many times have you taken public transportation (airplanes,
                     buses, subways, trains, taxis, cruises, etc.) with confirmed COVID-19 case(s) on board in which you
-                    are not wearing a facial mask or not wearing a facial mask properly? Please write that number.
+                    are not wearing a facial mask properly? Please write that number.
                     (If you leave this as blank, it will be considered as 0 times.)
                 </Text>
                 <TextInput style={styles.inputText}></TextInput>
-                <Text>4. During the past two weeks, have you been to the following places or made contact with people
-                    or wild animals listed below? Please press the respective buttons if you did. (It will appear green
-                    after being pressed).
+                <Text>4. During the past two weeks, have you been to the following places or made contact with the
+                    people or wild animals listed below? If so, please press the following specific buttons. (It will
+                    appear green after being pressed.)
                 </Text>
                 <Button
                     title="Wild animal like bat, marmot, civets, camel, rats"
@@ -100,13 +100,13 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                 <Button
                     title="Female"
                 />
-                <Text>7. Do you have existing conditions or diseases listed below? Please click if you do. (It will
-                    appear green after click).</Text>
+                <Text>7. Do you have existing conditions or diseases listed below? If so, please press the following
+                    specific buttons. (It will appear green after being pressed.)</Text>
                 <Button
-                    title="High blood pressure"
+                    title="High Blood Pressure"
                 />
                 <Button
-                    title="Coronary heart disease/heart failure"
+                    title="Coronary Heart Disease/heart failure"
                 />
                 <Button
                     title="Diabetes"

@@ -9,18 +9,18 @@
 // } from '../../selectors/home-page/sign-in-auth';
 // import signInAuth from "../../reducers/home-page/sign-in-auth";
 //
-// const SHOW_SIGN_UP = 'SHOW_SIGN_UP';
-// const showSignUp = () => {
-//     return {
-//         type: SHOW_SIGN_UP,
-//     }
-// };
+const INCREMENT = 'INCREMENT';
+const increment = () => {
+    return {
+        type: INCREMENT,
+    }
+};
 //
 // function signUp() {
 //
 // }
 //
-// export {
-//     SHOW_SIGN_UP,
-//     showSignUp
-// }
+export {
+    INCREMENT,
+    increment
+}

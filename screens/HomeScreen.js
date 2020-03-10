@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
+import {connect} from 'react-redux';
 
 import { MonoText } from '../components/StyledText';
+import {increment} from "../actions/symptom-survey/symptoms";
+import {getCount} from "../selectors/symptom-survey/symptoms";
 
-export default function HomeScreen() {
+const HomeScreen = ({increment, count}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -22,6 +25,9 @@ export default function HomeScreen() {
 
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
+
+          <Text style={styles.getStartedText}>{count}</Text>
+          <Button title={'increment'} onPress={increment}/>
 
           <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
 
@@ -177,3 +183,13 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+const mapStateToProps = state => ({
+  count: getCount(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  increment: () => dispatch(increment())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

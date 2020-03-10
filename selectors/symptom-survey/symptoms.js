@@ -1,5 +1,5 @@
-// const getHomeComponent = state => state.homePage.signInAuth.homeComponent;
-//
-// export {
-//     getHomeComponent
-// };
+const getCount = state => state.symptomSurvey.symptoms.count;
+
+export {
+    getCount
+};

@@ -15,7 +15,7 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                 <Text style={styles.locationText}>Current Location:</Text>
                 <TextInput style={styles.inputText} onChange={e => setLocation(e.nativeEvent.text.trim())}
                            value={location}></TextInput>
-                <Text>1. Please inform us if you have the following symptoms. Please only press the symptoms that you
+                <Text>1. Please inform us if you have the following mapRegions. Please only press the mapRegions that you
                     are experiencing. (It will appear green after being pressed.)</Text>
                 <Button
                     title="Elevated body temperature. Oral temperature higher than 99.1 °F, or armpit temperature
@@ -83,7 +83,7 @@ const SymptomSurveyScreen = ({location, setLocation}) => {
                     talking, eating or studying together, or taking public transportation together)"
                 />
                 <Button
-                    title="Other people who are experiencing the symptoms listed on the first question"
+                    title="Other people who are experiencing the mapRegions listed on the first question"
                 />
                 <Button
                     title="Make close contact with suspected or confirmed COVID-19 case(s)"

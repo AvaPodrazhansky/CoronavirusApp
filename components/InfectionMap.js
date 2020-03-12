@@ -11,7 +11,7 @@ const InfectionMap = ({region, setRegion}) => {
     return (
         <MapView
             provider={PROVIDER_GOOGLE}
-            region={region}
+            initialRegion={region}
             onRegionChange={setRegion}
             style={styles.mapStyle}
         />

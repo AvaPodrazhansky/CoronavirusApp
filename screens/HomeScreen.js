@@ -3,10 +3,7 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } fro
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 import {connect} from 'react-redux';
-
 import { MonoText } from '../components/StyledText';
-import {increment} from "../actions/symptom-survey/symptoms";
-import {getCount} from "../selectors/symptom-survey/symptoms";
 
 const HomeScreen = ({increment, count}) => {
   return (

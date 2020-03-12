@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {setLocation} from "../../actions/symptom-survey/symptoms";
-import {getLocation} from "../../selectors/symptom-survey/symptoms";
+import {setLocation} from "../../actions/symptom-survey/question1";
+import {getLocation} from "../../selectors/symptom-survey/question1";
 import {TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";

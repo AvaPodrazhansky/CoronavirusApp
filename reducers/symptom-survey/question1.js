@@ -1,17 +1,13 @@
-import {INCREMENT, SET_LOCATION} from "../../actions/symptom-survey/symptoms";
+import {
+    SET_LOCATION
+} from "../../actions/symptom-survey/question1";
 
 const defaultState = {
-    count: 0,
     location: ''
 };
 
-const symptoms = (state = defaultState, action) => {
+const question1 = (state = defaultState, action) => {
     switch (action.type) {
-        case INCREMENT:
-            return {
-                ...state,
-                count: state.count + 1
-            };
         case SET_LOCATION:
             console.log(action.payload);
             return {
@@ -23,4 +19,4 @@ const symptoms = (state = defaultState, action) => {
     }
 };
 
-export default symptoms;
+export default question1;

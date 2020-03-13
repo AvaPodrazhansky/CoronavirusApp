@@ -5,7 +5,7 @@ import * as WebBrowser from 'expo-web-browser';
 import {connect} from 'react-redux';
 import { MonoText } from '../components/StyledText';
 
-const HomeScreen = ({increment, count}) => {
+const HomeScreen = ({increment, count, toSurvey}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -25,7 +25,8 @@ const HomeScreen = ({increment, count}) => {
 
           <Text style={styles.getStartedText}>{count}</Text>
           <Button title={'increment'} onPress={increment}/>
-
+          <Button title={'Survey Page'}
+                  onPress={toSurvey}/>
           <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
 
           <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
@@ -182,11 +183,12 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  count: getCount(state)
+  count: getCount(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch(increment())
+const mapDispatchToProps = (dispatch, props) => ({
+  increment: () => dispatch(increment()),
+  toSurvey: () => props.navigation.navigate('SymptomSurvey')
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

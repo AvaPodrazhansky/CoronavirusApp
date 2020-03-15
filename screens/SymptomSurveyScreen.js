@@ -331,7 +331,7 @@ const mapDispatchToProps = dispatch => ({
     setLocation: location => dispatch(setLocation(location)),
     setPublicTransportation: number => dispatch(setPublicTransportation(number)),
     setAge: age => dispatch(setAge(age)),
-    elevatedBodyTemperaturePressed: () => elevatedBodyTemperaturePressed(),
+    elevatedBodyTemperaturePressed: () => dispatch(elevatedBodyTemperaturePressed()), // TODO: Jay DON'T FORGET TO DISPATCH ACTIONS
     extremeFatiguePressed: () => extremeFatiguePressed(),
     symptomChillsPressed: () => symptomChillsPressed(),
     soreThroatPressed: () => soreThroatPressed(),

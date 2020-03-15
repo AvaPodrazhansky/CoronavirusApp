@@ -15,10 +15,11 @@ import allReducers from './reducers';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
+import thunk from "redux-thunk";
 
 const Stack = createStackNavigator();
 
-const store = createStore(allReducers);
+const store = createStore(allReducers, applyMiddleware(thunk));
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);

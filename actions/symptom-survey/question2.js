@@ -1,6 +1,5 @@
 const QUESTION_TWO_ANSWER_ONE = 'QUESTION_TWO_ANSWER_ONE';
 const elevatedBodyTemperaturePressed = () => {
-    console.log(QUESTION_TWO_ANSWER_ONE);
     return {
         type: QUESTION_TWO_ANSWER_ONE
     }

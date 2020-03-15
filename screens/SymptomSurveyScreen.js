@@ -70,7 +70,7 @@ const SymptomSurveyScreen = ({
                 <Button
                     title="Elevated Body Temperature (Oral temperature higher than 99.1 °F, Armpit Temperature
                     higher than 98.6 °F or Ear Temperature higher than 100.0 °F)"
-                    onPress={elevatedBodyTemperaturePressed}
+                    onPress={() => elevatedBodyTemperaturePressed}
                 />
                 <Button
                     title="Extreme Fatigue, Exhaustion and Muscle Soreness"
@@ -331,35 +331,35 @@ const mapDispatchToProps = dispatch => ({
     setLocation: location => dispatch(setLocation(location)),
     setPublicTransportation: number => dispatch(setPublicTransportation(number)),
     setAge: age => dispatch(setAge(age)),
-    elevatedBodyTemperaturePressed: () => dispatch(elevatedBodyTemperaturePressed()), // TODO: Jay DON'T FORGET TO DISPATCH ACTIONS
-    extremeFatiguePressed: () => extremeFatiguePressed(),
-    symptomChillsPressed: () => symptomChillsPressed(),
-    soreThroatPressed: () => soreThroatPressed(),
-    coughingPressed: () => coughingPressed(),
-    shortnessOfBreathPressed: () => shortnessOfBreathPressed(),
-    diarrheaPressed: () => diarrheaPressed(),
-    conjunctivitisPressed: () => conjunctivitisPressed(),
-    feelingFlusteredPressed: () => feelingFlusteredPressed(),
-    persistentHeadachePressed: () => persistentHeadachePressed(),
-    decreasedSweatingPressed: () => decreasedSweatingPressed(),
-    notListedAbovePressed: () => notListedAbovePressed(),
-    visitedForeignCountriesPressed: value => visitedForeignCountriesPressed(value),
-    wildAnimalsPressed: () => wildAnimalsPressed(),
-    foreignContactPressed: () => foreignContactPressed(),
-    firstQuestionSymptomsPressed: () => firstQuestionSymptomsPressed(),
-    suspectedCOVIDPressed: () => suspectedCOVIDPressed(),
-    presenceConfirmedCOVIDPressed: () => presenceConfirmedCOVIDPressed(),
-    setSex: value => setSex(value),
-    highBloodPressurePressed: () => highBloodPressurePressed(),
-    coronaryHeartDiseasePressed: () => coronaryHeartDiseasePressed(),
-    diabetesPressed: () => diabetesPressed(),
-    chronicKidneyDiseasePressed: () => chronicKidneyDiseasePressed(),
-    hormoneMedicationPressed: () => hormoneMedicationPressed(),
-    cancerPressed: () => cancerPressed(),
-    liverCirrhosisPressed: () => liverCirrhosisPressed(),
-    lungDiseasePressed: () => lungDiseasePressed(),
-    cerebrovascularDiseasePressed: () => cerebrovascularDiseasePressed(),
-    submitSurvey: () => submitSurvey()
+    elevatedBodyTemperaturePressed: () => dispatch(elevatedBodyTemperaturePressed()),
+    extremeFatiguePressed: () => dispatch(extremeFatiguePressed()),
+    symptomChillsPressed: () => dispatch(symptomChillsPressed()),
+    soreThroatPressed: () => dispatch(soreThroatPressed()),
+    coughingPressed: () => dispatch(coughingPressed()),
+    shortnessOfBreathPressed: () => dispatch(shortnessOfBreathPressed()),
+    diarrheaPressed: () => dispatch(diarrheaPressed()),
+    conjunctivitisPressed: () => dispatch(conjunctivitisPressed()),
+    feelingFlusteredPressed: () => dispatch(feelingFlusteredPressed()),
+    persistentHeadachePressed: () => dispatch(persistentHeadachePressed()),
+    decreasedSweatingPressed: () => dispatch(decreasedSweatingPressed()),
+    notListedAbovePressed: () => dispatch(notListedAbovePressed()),
+    visitedForeignCountriesPressed: value => dispatch(visitedForeignCountriesPressed(value)),
+    wildAnimalsPressed: () => dispatch(wildAnimalsPressed()),
+    foreignContactPressed: () => dispatch(foreignContactPressed()),
+    firstQuestionSymptomsPressed: () => dispatch(firstQuestionSymptomsPressed()),
+    suspectedCOVIDPressed: () => dispatch(suspectedCOVIDPressed()),
+    presenceConfirmedCOVIDPressed: () => dispatch(presenceConfirmedCOVIDPressed()),
+    setSex: value => dispatch(setSex(value)),
+    highBloodPressurePressed: () => dispatch(highBloodPressurePressed()),
+    coronaryHeartDiseasePressed: () => dispatch(coronaryHeartDiseasePressed()),
+    diabetesPressed: () => dispatch(diabetesPressed()),
+    chronicKidneyDiseasePressed: () => dispatch(chronicKidneyDiseasePressed()),
+    hormoneMedicationPressed: () => dispatch(hormoneMedicationPressed()),
+    cancerPressed: () => dispatch(cancerPressed()),
+    liverCirrhosisPressed: () => dispatch(liverCirrhosisPressed()),
+    lungDiseasePressed: () => dispatch(lungDiseasePressed()),
+    cerebrovascularDiseasePressed: () => dispatch(cerebrovascularDiseasePressed()),
+    submitSurvey: () => dispatch(submitSurvey())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SymptomSurveyScreen);

@@ -5,9 +5,10 @@ import connect from "react-redux/lib/connect/connect";
 import {getRegion} from '../selectors/summary-map/map-regions';
 import { Text, StyleSheet } from 'react-native';
 import { Dimensions } from "react-native";
+import {getConfirmedCases} from "../actions/summary-map/confirmed-cases";
 
 const InfectionMap = ({region, setRegion}) => {
-
+    // getConfirmedCases();
     return (
         <MapView
             provider={PROVIDER_GOOGLE}

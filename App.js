@@ -15,10 +15,12 @@ import allReducers from './reducers';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
+import {getConfirmedCases} from "./actions/summary-map/confirmed-cases";
+import thunk from "redux-thunk";
 
 const Stack = createStackNavigator();
 
-const store = createStore(allReducers);
+const store = createStore(allReducers, applyMiddleware(thunk));
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -40,6 +42,17 @@ export default function App(props) {
                     ...Ionicons.font,
                     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
                 });
+
+
+                // const hello = await fetch(
+                //     'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-11-2020.csv',
+                //     {
+                //         method: 'GET',
+                //     })
+                //     .then(res => res.text())
+                //     .then(res => console.log(res))
+                await getConfirmedCases();
+
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
                 console.warn(e);

@@ -31,6 +31,7 @@ const defaultState = {
 const question2 = (state = defaultState, action) => {
     switch (action.type) {
         case QUESTION_TWO_ANSWER_ONE:
+            console.log(QUESTION_TWO_ANSWER_ONE);
             return {
                 ...state,
                 questionTwoAnswerOne: !state.questionTwoAnswerOne

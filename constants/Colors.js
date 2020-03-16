@@ -29,5 +29,9 @@ export default {
 
     // General
     RED: "#FF0000",
-    GREEN: "#00FF00"
+    GREEN: "#00FF00",
+
+    CONFIRMED: "#F7B62D",
+    RECOVERED: "#00FF00",
+    DEAD: "#FF0000"
 };

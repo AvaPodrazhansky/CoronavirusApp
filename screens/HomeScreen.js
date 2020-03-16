@@ -5,14 +5,16 @@ import {connect} from 'react-redux';
 import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
 import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
 import CaseSummary from '../components/case-summary';
+import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
 
 const HomeScreen = ({toSurvey}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <CaseSummary/>
+                <OutcomeOfInfectedPieChart/>
                 <CaseByStateBarGraph/>
-                <CaseSummary/>
+                {/*<CaseSummary/>*/}
                 <TotalCasesLineChart/>
             </ScrollView>
 

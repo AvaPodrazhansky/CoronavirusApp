@@ -45,7 +45,7 @@ const CaseByStateBarGraph = ({}) => {
     };
     return (
         <View>
-            <Text style={{justifyContent: 'center', alignItems: 'center'}}>Breakdown by Top 5 States</Text>
+            <Text style={{textAlign: 'center'}}>Breakdown by Top 5 States</Text>
             <StackedBarChart
                 // style={graphStyle}
                 data={data}

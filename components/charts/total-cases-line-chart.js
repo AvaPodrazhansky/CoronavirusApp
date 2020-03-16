@@ -3,26 +3,32 @@ import connect from "react-redux/lib/connect/connect";
 import {Text, StyleSheet, View, Dimensions} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 import {ScrollView} from 'react-native-gesture-handler';
-// import colors from '../../constants/Colors';
+import colors from '../../constants/Colors';
 
-const LIGHT_BACKGROUND = "#E6F3F9";
-const LIGHT_BLUE = "#038FDA";
-const DARK_BLUE = "#143D97";
-const LIGHT_ORANGE = "#F7B62D";
-const DARK_ORANGE = "#ED741D";
-const VERY_DARK_ORANGE = "#CB4E12";
-const DARK_BROWN = "#733B08";
-const WHITE = "#FFFFFF";
-const DARK_GRAY = "#7B7B7B";
-const LIGHT_GRAY = "#cbcbcb";
+// const LIGHT_BACKGROUND = "#E6F3F9";
+// const LIGHT_BLUE = "#038FDA";
+// const DARK_BLUE = "#143D97";
+// const LIGHT_ORANGE = "#F7B62D";
+// const DARK_ORANGE = "#ED741D";
+// const VERY_DARK_ORANGE = "#CB4E12";
+// const DARK_BROWN = "#733B08";
+// const WHITE = "#FFFFFF";
+// const DARK_GRAY = "#7B7B7B";
+// const LIGHT_GRAY = "#cbcbcb";
+
+const {
+    LIGHT_ORANGE,
+    DARK_ORANGE,
+    DARK_BROWN,
+    WHITE,
+    DARK_GRAY,
+    LIGHT_GRAY,
+    CONFIRMED,
+    RECOVERED,
+    DEAD
+} = colors;
 
 const TotalCasesLineChart = ({}) => {
-
-    // const {
-    //     LIGHT_ORANGE,
-    //     DARK_ORANGE,
-    //     DARK_BROWN
-    // } = colors;
 
     function generateLine(COLOR) {
         return {
@@ -39,11 +45,11 @@ const TotalCasesLineChart = ({}) => {
 
     return (
         <View>
-            <Text>Total Cases Over Time</Text>
+            <Text style={{textAlign: 'center'}}>Total Cases Over Time</Text>
             <LineChart
                 data={{
                     labels: ["December", "January", "February", "March"],
-                    datasets: [generateLine(LIGHT_ORANGE), generateLine(DARK_ORANGE), generateLine(DARK_BROWN)],
+                    datasets: [generateLine(CONFIRMED), generateLine(RECOVERED), generateLine(DEAD)],
                     legend: ["Confirmed", "Recovered", "Deaths"] // optional
                 }}
                 width={Dimensions.get("window").width} // from react-native

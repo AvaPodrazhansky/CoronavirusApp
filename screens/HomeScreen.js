@@ -1,16 +1,14 @@
 import * as React from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import * as WebBrowser from 'expo-web-browser';
 import {connect} from 'react-redux';
-
-import {increment} from "../actions/symptom-survey/symptoms";
+import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
 
 const HomeScreen = ({toSurvey}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-
+                <TotalCasesLineChart/>
             </ScrollView>
 
             <View style={styles.tabBarInfoContainer}>
@@ -117,11 +115,9 @@ const styles = StyleSheet.create({
     },
 });
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    increment: () => dispatch(increment()),
     toSurvey: () => props.navigation.navigate('SymptomSurvey')
 });
 

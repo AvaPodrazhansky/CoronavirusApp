@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import {increment} from "../actions/symptom-survey/symptoms";
 import {getCount} from "../selectors/symptom-survey/symptoms";
-import InfectionMap from "../components/InfectionMap";
+import InfectionMap from "../components/map/InfectionMap";
 import View from "react-native-web/src/exports/View";
 
 const MapScreen = ({increment, count, toSurvey}) => {

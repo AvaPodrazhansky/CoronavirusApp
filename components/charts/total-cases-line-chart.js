@@ -52,7 +52,7 @@ const TotalCasesLineChart = ({}) => {
                     datasets: [generateLine(CONFIRMED), generateLine(RECOVERED), generateLine(DEAD)],
                     legend: ["Confirmed", "Recovered", "Deaths"] // optional
                 }}
-                width={Dimensions.get("window").width} // from react-native
+                width={Dimensions.get("window").width} // TODO: Get layout width instead of screen width
                 height={220}
                 yAxisLabel=""
                 yAxisSuffix="k"

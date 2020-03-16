@@ -49,7 +49,7 @@ const CaseByStateBarGraph = ({}) => {
             <StackedBarChart
                 // style={graphStyle}
                 data={data}
-                width={Dimensions.get("window").width}
+                width={Dimensions.get("window").width} // TODO: Get layout width instead of screen width
                 height={220}
                 chartConfig={{
                     backgroundColor: WHITE,

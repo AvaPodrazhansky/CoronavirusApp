@@ -1,7 +1,7 @@
 import * as React from 'react';
 import connect from "react-redux/lib/connect/connect";
 import {Text, StyleSheet, View, Dimensions} from 'react-native';
-import {PieChart} from "react-native-chart-kit";
+import {PieChart, StackedBarChart} from "react-native-chart-kit";
 import colors from '../../constants/Colors';
 
 // const LIGHT_BACKGROUND = "#E6F3F9";
@@ -37,7 +37,7 @@ const OutcomeOfInfectedPieChart = ({data}) => {
             <Text style={{textAlign: 'center'}}>Breakdown by Top 5 States</Text>
             <PieChart
                 data={data}
-                width={Dimensions.get("window").width}
+                width={Dimensions.get("window").width} // TODO: Get layout width instead of screen width
                 height={220}
                 chartConfig={chartConfig}
                 accessor="population"

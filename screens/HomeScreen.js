@@ -4,12 +4,15 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
 import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
+import CaseSummary from '../components/case-summary';
 
 const HomeScreen = ({toSurvey}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                <CaseSummary/>
                 <CaseByStateBarGraph/>
+                <CaseSummary/>
                 <TotalCasesLineChart/>
             </ScrollView>
 

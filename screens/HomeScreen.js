@@ -7,6 +7,7 @@ import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
 import CaseSummary from '../components/case-summary';
 import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
 
+//TODO: Change view with survey page button. It hides content at the bottom of the scroll view
 const HomeScreen = ({toSurvey}) => {
     return (
         <View style={styles.container}>

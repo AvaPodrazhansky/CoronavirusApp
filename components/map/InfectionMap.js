@@ -18,14 +18,6 @@ const InfectionMap = ({region, setRegion}) => {
             style={styles.mapStyle}
             customMapStyle={myMapStyle}
         />
-        // <Text style={styles.baseText}>
-        //     <Text style={styles.titleText}>
-        //         {'Title'}{'\n'}{'\n'}
-        //     </Text>
-        //     <Text numberOfLines={5}>
-        //         {region.longitude}
-        //     </Text>
-        // </Text>
     );
 
 };
@@ -38,10 +30,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     mapStyle: {
-        // width: Dimensions.get('window').width,
-        // height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
         // flex: 1.
-        ...StyleSheet.absoluteFillObject,
+        // ...StyleSheet.absoluteFillObject,
 
 
     },

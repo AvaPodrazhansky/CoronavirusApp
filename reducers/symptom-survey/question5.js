@@ -7,11 +7,11 @@ import {
 } from "../../actions/symptom-survey/question5";
 
 const defaultState = {
-    questionFiveAnswerOne: false,
-    questionFiveAnswerTwo: false,
-    questionFiveAnswerThree: false,
-    questionFiveAnswerFour: false,
-    questionFiveAnswerFive: false
+    question5Answer1: false,
+    question5Answer2: false,
+    question5Answer3: false,
+    question5Answer4: false,
+    question5Answer5: false
 };
 
 const question5 = (state = defaultState, action) => {
@@ -19,27 +19,27 @@ const question5 = (state = defaultState, action) => {
         case QUESTION_FIVE_ANSWER_ONE:
             return {
                 ...state,
-                questionFiveAnswerOne: !state.questionFiveAnswerOne
+                question5Answer1: !state.question5Answer1
             };
         case QUESTION_FIVE_ANSWER_TWO:
             return {
                 ...state,
-                questionFiveAnswerTwo: !state.questionFiveAnswerTwo
+                question5Answer2: !state.question5Answer2
             };
         case QUESTION_FIVE_ANSWER_THREE:
             return {
                 ...state,
-                questionFiveAnswerThree: !state.questionFiveAnswerThree
+                question5Answer3: !state.question5Answer3
             };
         case QUESTION_FIVE_ANSWER_FOUR:
             return {
                 ...state,
-                questionFiveAnswerFour: !state.questionFiveAnswerFour
+                question5Answer4: !state.question5Answer4
             };
         case QUESTION_FIVE_ANSWER_FIVE:
             return {
                 ...state,
-                questionFiveAnswerFive: !state.questionFiveAnswerFive
+                question5Answer5: !state.question5Answer5
             };
         default:
             return state;

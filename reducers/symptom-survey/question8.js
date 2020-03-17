@@ -11,15 +11,15 @@ import {
 } from "../../actions/symptom-survey/question8";
 
 const defaultState = {
-    questionEightAnswerOne: false,
-    questionEightAnswerTwo: false,
-    questionEightAnswerThree: false,
-    questionEightAnswerFour: false,
-    questionEightAnswerFive: false,
-    questionEightAnswerSix: false,
-    questionEightAnswerSeven: false,
-    questionEightAnswerEight: false,
-    questionEightAnswerNine: false
+    question8Answer1: false,
+    question8Answer2: false,
+    question8Answer3: false,
+    question8Answer4: false,
+    question8Answer5: false,
+    question8Answer6: false,
+    question8Answer7: false,
+    question8Answer8: false,
+    question8Answer9: false
 };
 
 const question8 = (state = defaultState, action) => {
@@ -27,47 +27,47 @@ const question8 = (state = defaultState, action) => {
         case QUESTION_EIGHT_ANSWER_ONE:
             return {
                 ...state,
-                questionEightAnswerOne: !state.questionEightAnswerOne
+                question8Answer1: !state.question8Answer1
             };
         case QUESTION_EIGHT_ANSWER_TWO:
             return {
                 ...state,
-                questionEightAnswerTwo: !state.questionEightAnswerTwo
+                question8Answer2: !state.question8Answer2
             };
         case QUESTION_EIGHT_ANSWER_THREE:
             return {
                 ...state,
-                questionEightAnswerThree: !state.questionEightAnswerThree
+                question8Answer3: !state.question8Answer3
             };
         case QUESTION_EIGHT_ANSWER_FOUR:
             return {
                 ...state,
-                questionEightAnswerFour: !state.questionEightAnswerFour
+                question8Answer4: !state.question8Answer4
             };
         case QUESTION_EIGHT_ANSWER_FIVE:
             return {
                 ...state,
-                questionEightAnswerFive: !state.questionEightAnswerFive
+                question8Answer5: !state.question8Answer5
             };
         case QUESTION_EIGHT_ANSWER_SIX:
             return {
                 ...state,
-                questionEightAnswerSix: !state.questionEightAnswerSix
+                question8Answer6: !state.question8Answer6
             };
         case QUESTION_EIGHT_ANSWER_SEVEN:
             return {
                 ...state,
-                questionEightAnswerSeven: !state.questionEightAnswerSeven
+                question8Answer7: !state.question8Answer7
             };
         case QUESTION_EIGHT_ANSWER_EIGHT:
             return {
                 ...state,
-                questionEightAnswerEight: !state.questionEightAnswerEight
+                question8Answer8: !state.question8Answer8
             };
         case QUESTION_EIGHT_ANSWER_NINE:
             return {
                 ...state,
-                questionEightAnswerNine: !state.questionEightAnswerNine
+                question8Answer9: !state.question8Answer9
             };
         default:
             return state;

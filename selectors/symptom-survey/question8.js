@@ -1,20 +1,20 @@
-const getQuestionEightAnswerOne = state => state.symptomSurvey.question8.questionEightAnswerOne;
+const getQuestionEightAnswerOne = state => state.symptomSurvey.question8.question8Answer1;
 
-const getQuestionEightAnswerTwo = state => state.symptomSurvey.question8.questionEightAnswerTwo;
+const getQuestionEightAnswerTwo = state => state.symptomSurvey.question8.question8Answer2;
 
-const getQuestionEightAnswerThree = state => state.symptomSurvey.question8.questionEightAnswerThree;
+const getQuestionEightAnswerThree = state => state.symptomSurvey.question8.question8Answer3;
 
-const getQuestionEightAnswerFour = state => state.symptomSurvey.question8.questionEightAnswerFour;
+const getQuestionEightAnswerFour = state => state.symptomSurvey.question8.question8Answer4;
 
-const getQuestionEightAnswerFive = state => state.symptomSurvey.question8.questionEightAnswerFive;
+const getQuestionEightAnswerFive = state => state.symptomSurvey.question8.question8Answer5;
 
-const getQuestionEightAnswerSix = state => state.symptomSurvey.question8.questionEightAnswerSix;
+const getQuestionEightAnswerSix = state => state.symptomSurvey.question8.question8Answer6;
 
-const getQuestionEightAnswerSeven = state => state.symptomSurvey.question8.questionEightAnswerSeven;
+const getQuestionEightAnswerSeven = state => state.symptomSurvey.question8.question8Answer7;
 
-const getQuestionEightAnswerEight = state => state.symptomSurvey.question8.questionEightAnswerEight;
+const getQuestionEightAnswerEight = state => state.symptomSurvey.question8.question8Answer8;
 
-const getQuestionEightAnswerNine = state => state.symptomSurvey.question8.questionEightAnswerNine;
+const getQuestionEightAnswerNine = state => state.symptomSurvey.question8.question8Answer9;
 
 export {
     getQuestionEightAnswerOne,

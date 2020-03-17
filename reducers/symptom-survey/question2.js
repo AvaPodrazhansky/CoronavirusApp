@@ -14,83 +14,82 @@ import {
 } from "../../actions/symptom-survey/question2";
 
 const defaultState = {
-    questionTwoAnswerOne: false,
-    questionTwoAnswerTwo: false,
-    questionTwoAnswerThree: false,
-    questionTwoAnswerFour: false,
-    questionTwoAnswerFive: false,
-    questionTwoAnswerSix: false,
-    questionTwoAnswerSeven: false,
-    questionTwoAnswerEight: false,
-    questionTwoAnswerNine: false,
-    questionTwoAnswerTen: false,
-    questionTwoAnswerEleven: false,
-    questionTwoAnswerTwelve: false
+    question2Answer1: false,
+    question2Answer2: false,
+    question2Answer3: false,
+    question2Answer4: false,
+    question2Answer5: false,
+    question2Answer6: false,
+    question2Answer7: false,
+    question2Answer8: false,
+    question2Answer9: false,
+    question2Answer10: false,
+    question2Answer11: false,
+    question2Answer12: false
 };
 
 const question2 = (state = defaultState, action) => {
     switch (action.type) {
         case QUESTION_TWO_ANSWER_ONE:
-            console.log(QUESTION_TWO_ANSWER_ONE);
             return {
                 ...state,
-                questionTwoAnswerOne: !state.questionTwoAnswerOne
+                question2Answer1: !state.question2Answer1
             };
         case QUESTION_TWO_ANSWER_TWO:
             return {
                 ...state,
-                questionTwoAnswerTwo: !state.questionTwoAnswerTwo
+                question2Answer2: !state.question2Answer2
             };
         case QUESTION_TWO_ANSWER_THREE:
             return {
                 ...state,
-                questionTwoAnswerThree: !state.questionTwoAnswerThree
+                question2Answer3: !state.question2Answer3
             };
         case QUESTION_TWO_ANSWER_FOUR:
             return {
                 ...state,
-                questionTwoAnswerFour: !state.questionTwoAnswerFour
+                question2Answer4: !state.question2Answer4
             };
         case QUESTION_TWO_ANSWER_FIVE:
             return {
                 ...state,
-                questionTwoAnswerFive: !state.questionTwoAnswerFive
+                question2Answer5: !state.question2Answer5
             };
         case QUESTION_TWO_ANSWER_SIX:
             return {
                 ...state,
-                questionTwoAnswerSix: !state.questionTwoAnswerSix
+                question2Answer6: !state.question2Answer6
             };
         case QUESTION_TWO_ANSWER_SEVEN:
             return {
                 ...state,
-                questionTwoAnswerSeven: !state.questionTwoAnswerSeven
+                question2Answer7: !state.question2Answer7
             };
         case QUESTION_TWO_ANSWER_EIGHT:
             return {
                 ...state,
-                questionTwoAnswerEight: !state.questionTwoAnswerEight
+                question2Answer8: !state.question2Answer8
             };
         case QUESTION_TWO_ANSWER_NINE:
             return {
                 ...state,
-                questionTwoAnswerNine: !state.questionTwoAnswerNine
+                question2Answer9: !state.question2Answer9
             };
         case QUESTION_TWO_ANSWER_TEN:
             console.log(action.payload);
             return {
                 ...state,
-                questionTwoAnswerTen: !state.questionTwoAnswerTen
+                question2Answer10: !state.question2Answer10
             };
         case QUESTION_TWO_ANSWER_ELEVEN:
             return {
                 ...state,
-                questionTwoAnswerEleven: !state.questionTwoAnswerEleven
+                question2Answer11: !state.question2Answer11
             };
         case QUESTION_TWO_ANSWER_TWELVE:
             return {
                 ...state,
-                questionTwoAnswerTwelve: !state.questionTwoAnswerTwelve
+                question2Answer12: !state.question2Answer12
             };
         default:
             return state;

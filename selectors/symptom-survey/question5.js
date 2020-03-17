@@ -1,12 +1,12 @@
-const getQuestionFiveAnswerOne = state => state.symptomSurvey.question5.questionFiveAnswerOne;
+const getQuestionFiveAnswerOne = state => state.symptomSurvey.question5.question5Answer1;
 
-const getQuestionFiveAnswerTwo = state => state.symptomSurvey.question5.questionFiveAnswerTwo;
+const getQuestionFiveAnswerTwo = state => state.symptomSurvey.question5.question5Answer2;
 
-const getQuestionFiveAnswerThree = state => state.symptomSurvey.question5.questionFiveAnswerThree;
+const getQuestionFiveAnswerThree = state => state.symptomSurvey.question5.question5Answer3;
 
-const getQuestionFiveAnswerFour = state => state.symptomSurvey.question5.questionFiveAnswerFour;
+const getQuestionFiveAnswerFour = state => state.symptomSurvey.question5.question5Answer4;
 
-const getQuestionFiveAnswerFive = state => state.symptomSurvey.question5.questionFiveAnswerFive;
+const getQuestionFiveAnswerFive = state => state.symptomSurvey.question5.question5Answer5;
 
 export {
     getQuestionFiveAnswerOne,

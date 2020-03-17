@@ -1,44 +1,29 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {setLocation} from "../../actions/symptom-survey/question1";
 import {getLocation} from "../../selectors/symptom-survey/question1";
-import {TextInput} from 'react-native';
+import {Platform, StyleSheet, TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import View from "react-native-web/dist/exports/View";
-import Text from "react-native-web/src/exports/Text";
-import {ScrollView} from "react-native-web";
 
 const SurveyLocationTextInput = ({setLocation, location}) => {
-    // return (
-    //     <View>
-    //         <TextInput
-    //             style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-    //             onChangeText={text => setLocation(text)}
-    //             value={location}
-    //         />
-    //     </View>
-    // );
     return (
-        <View>
-            <ScrollView>
-                <Text>Hello</Text>
-            </ScrollView>
-        </View>
+        <TextInput
+            style={styles.inputText}
+            onChange={e => setLocation(e.nativeEvent.text.trim())}
+            value={location}>
+        </TextInput>
     )
 };
 
-// export default function SurveyLocationTextInput() {
-//     const [value, onChangeText] = React.useState('');
-//
-//     return (
-//         <TextInput
-//             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-//             onChangeText={text => onChangeText(text)}
-//             value={value}
-//         />
-//     );
-// }
-//
+const styles = StyleSheet.create({
+    inputText: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        flex: 1
+    }
+});
+
 SurveyLocationTextInput.propTypes = {
     location: PropTypes.string.isRequired,
     setLocation: PropTypes.func.isRequired

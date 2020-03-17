@@ -3,11 +3,12 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {submitSurvey} from "../../../actions/symptom-survey/submit-survey";
+import {SUBMIT_BUTTON_TEXT} from "../../../constants/constant-list";
 
 const SubmitButton = ({submitSurvey}) => {
     return (
         <Button
-            title="Submit"
+            title={SUBMIT_BUTTON_TEXT}
             onPress={() => submitSurvey()}
         />
     )

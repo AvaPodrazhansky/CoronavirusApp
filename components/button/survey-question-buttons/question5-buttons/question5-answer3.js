@@ -3,12 +3,13 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {firstQuestionSymptomsPressed} from "../../../../actions/symptom-survey/question5";
+import {QUESTION_FIVE_BUTTON_ANSWER_THREE} from "../../../../constants/constant-list";
 
 
 const QuestionFiveAnswerThreeButton = ({firstQuestionSymptomsPressed}) => {
     return (
         <Button
-            title="Other people who are experiencing the symptoms listed on the first question"
+            title={QUESTION_FIVE_BUTTON_ANSWER_THREE}
             onPress={() => firstQuestionSymptomsPressed()}
         />
     )

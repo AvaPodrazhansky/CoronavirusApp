@@ -64,20 +64,26 @@ import QuestionEightAnswerEightButton
 import QuestionEightAnswerNineButton
     from "../components/button/survey-question-buttons/question8-buttons/question8-answer9";
 import SubmitButton from "../components/button/survey-question-buttons/submit-button";
+import {
+    QUESTION_EIGHT,
+    QUESTION_FIVE,
+    QUESTION_FOUR,
+    QUESTION_ONE,
+    QUESTION_SEVEN,
+    QUESTION_SIX,
+    QUESTION_THREE,
+    QUESTION_TWO
+} from "../constants/constant-list";
 
-const SymptomSurveyScreen = ({
-                                 highBloodPressurePressed,
-                                 coronaryHeartDiseasePressed, diabetesPressed, chronicKidneyDiseasePressed,
-                                 hormoneMedicationPressed, cancerPressed, liverCirrhosisPressed, lungDiseasePressed,
-                                 cerebrovascularDiseasePressed, submitSurvey
-                             }) => {
+// TODO Fix the Question 1 Answer 1 Button (not changing from false)
+
+const SymptomSurveyScreen = ({}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <Text style={styles.locationText}>1. What is your current location?</Text>
+                <Text style={styles.locationText}>{QUESTION_ONE}</Text>
                 <SurveyLocationTextInput/>
-                <Text>2. Please inform us if you have the following symptoms. Please only press the symptoms that you
-                    are experiencing. (It will appear green after being pressed.)</Text>
+                <Text>{QUESTION_TWO}</Text>
                 <QuestionTwoAnswerOneButton/>
                 <QuestionTwoAnswerTwoButton/>
                 <QuestionTwoAnswerThreeButton/>
@@ -90,31 +96,23 @@ const SymptomSurveyScreen = ({
                 <QuestionTwoAnswerTenButton/>
                 <QuestionTwoAnswerElevenButton/>
                 <QuestionTwoAnswerTwelveButton/>
-                <Text>3. During the past two weeks, have you visited China, South Korea, Italy, Iran, or Japan?</Text>
+                <Text>{QUESTION_THREE}</Text>
                 <QuestionThreeYesButton/>
                 <QuestionThreeNoButton/>
-                <Text>4. During the past two weeks, how many times have you taken public transportation (airplanes,
-                    buses, subways, trains, taxis, cruises, etc.) with confirmed COVID-19 case(s) on board in which you
-                    are not wearing a facial mask properly? Please write that number.
-                    (If you leave this as blank, it will be considered as 0 times.)
-                </Text>
+                <Text>{QUESTION_FOUR}</Text>
                 <PublicTransportationTextInput/>
-                <Text>5. During the past two weeks, have you been to the following places or made contact with the
-                    people or wild animals listed below? If so, please press the following specific buttons. (It will
-                    appear green after being pressed.)
-                </Text>
+                <Text>{QUESTION_FIVE}</Text>
                 <QuestionFiveAnswerOneButton/>
                 <QuestionFiveAnswerTwoButton/>
                 <QuestionFiveAnswerThreeButton/>
                 <QuestionFiveAnswerFourButton/>
                 <QuestionFiveAnswerFiveButton/>
-                <Text>6. What is your age?</Text>
+                <Text>{QUESTION_SIX}</Text>
                 <AgeTextInput/>
-                <Text>7. What is your sex?</Text>
+                <Text>{QUESTION_SEVEN}</Text>
                 <QuestionSevenMaleButton/>
                 <QuestionSevenFemaleButton/>
-                <Text>8. Do you have existing conditions or diseases listed below? If so, please press the following
-                    specific buttons. (It will appear green after being pressed.)</Text>
+                <Text>{QUESTION_EIGHT}</Text>
                 <QuestionEightAnswerOneButton/>
                 <QuestionEightAnswerTwoButton/>
                 <QuestionEightAnswerThreeButton/>
@@ -147,12 +145,6 @@ const styles = StyleSheet.create({
         color: "blue",
         paddingHorizontal: 20
     },
-    inputText: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        flex: 1
-    }
 });
 
 const mapStateToProps = state => ({});

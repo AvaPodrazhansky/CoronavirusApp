@@ -3,11 +3,12 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {notListedAbovePressed} from "../../../../actions/symptom-survey/question2";
+import {QUESTION_TWO_BUTTON_ANSWER_TWELVE} from "../../../../constants/constant-list";
 
 const QuestionTwoAnswerTwelveButton = ({notListedAbovePressed}) => {
     return (
         <Button
-            title="I am experiencing other types of uncomfortableness not listed above."
+            title={QUESTION_TWO_BUTTON_ANSWER_TWELVE}
             onPress={() => notListedAbovePressed()}
         />
     )

@@ -3,11 +3,12 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {setSex} from "../../../../actions/symptom-survey/question7";
+import {QUESTION_SEVEN_BUTTON_FEMALE} from "../../../../constants/constant-list";
 
 const QuestionSevenFemaleButton = ({setSex}) => {
     return (
         <Button
-            title="Female"
+            title={QUESTION_SEVEN_BUTTON_FEMALE}
             onPress={() => setSex(true)}
         />
     )

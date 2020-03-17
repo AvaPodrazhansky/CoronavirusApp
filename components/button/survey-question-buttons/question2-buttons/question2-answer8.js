@@ -3,11 +3,12 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {conjunctivitisPressed} from "../../../../actions/symptom-survey/question2";
+import {QUESTION_TWO_BUTTON_ANSWER_EIGHT} from "../../../../constants/constant-list";
 
 const QuestionTwoAnswerEightButton = ({conjunctivitisPressed}) => {
     return (
         <Button
-            title="Conjunctivitis or Pink Eye"
+            title={QUESTION_TWO_BUTTON_ANSWER_EIGHT}
             onPress={() => conjunctivitisPressed()}
         />
     )

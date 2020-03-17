@@ -3,12 +3,13 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {wildAnimalsPressed} from "../../../../actions/symptom-survey/question5";
+import {QUESTION_FIVE_BUTTON_ANSWER_ONE} from "../../../../constants/constant-list";
 
 
 const QuestionFiveAnswerOneButton = ({wildAnimalsPressed}) => {
     return (
         <Button
-            title="Wild animals (Bats, Marmots, Civets, Camels, or Rats)"
+            title={QUESTION_FIVE_BUTTON_ANSWER_ONE}
             onPress={() => wildAnimalsPressed()}
         />
     )

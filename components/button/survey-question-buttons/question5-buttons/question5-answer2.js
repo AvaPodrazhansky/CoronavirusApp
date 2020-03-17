@@ -3,14 +3,13 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {foreignContactPressed} from "../../../../actions/symptom-survey/question5";
+import {QUESTION_FIVE_BUTTON_ANSWER_TWO} from "../../../../constants/constant-list";
 
 
 const QuestionFiveAnswerTwoButton = ({foreignContactPressed}) => {
     return (
         <Button
-            title="Close contact with people from Hubei China, South Korea, Italy, Iran or Japan without
-                    properly wearing a mask. (Close contact includes but is not limited to talking, eating, studying,
-                    or taking public transportation together.)"
+            title={QUESTION_FIVE_BUTTON_ANSWER_TWO}
             onPress={() => foreignContactPressed()}
         />
     )

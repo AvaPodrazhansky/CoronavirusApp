@@ -3,12 +3,12 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {lungDiseasePressed} from "../../../../actions/symptom-survey/question8";
+import {QUESTION_EIGHT_BUTTON_ANSWER_EIGHT} from "../../../../constants/constant-list";
 
 const QuestionEightAnswerEightButton = ({lungDiseasePressed}) => {
     return (
         <Button
-            title="Chronic Lung Disease (Pulmonary Fibrosis, Chronic Obstructive Pulmonary Disease
-                    (C.O.P.D.), or Respiratory Failure)"
+            title={QUESTION_EIGHT_BUTTON_ANSWER_EIGHT}
             onPress={() => lungDiseasePressed()}
         />
     )

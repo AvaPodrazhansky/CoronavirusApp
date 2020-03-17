@@ -3,12 +3,13 @@ import {Button, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {extremeFatiguePressed} from "../../../../actions/symptom-survey/question2";
+import {QUESTION_TWO_BUTTON_ANSWER_TWO} from "../../../../constants/constant-list";
 
 
 const QuestionTwoAnswerTwoButton = ({extremeFatiguePressed}) => {
     return (
         <Button
-            title="Extreme Fatigue, Exhaustion and Muscle Soreness"
+            title={QUESTION_TWO_BUTTON_ANSWER_TWO}
             onPress={() => extremeFatiguePressed()}
         />
     )

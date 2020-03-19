@@ -2,9 +2,13 @@ import * as React from 'react';
 import connect from "react-redux/lib/connect/connect";
 import {Text, StyleSheet, View} from 'react-native';
 import colors from '../../constants/Colors';
-
-const CaseSummary = ({confirmedCount, recoveredCount, deathCount}) => {
-
+import {getCurrentCasesUSData} from "../../selectors/dashboard/current-cases-us";
+import {fetchCurrentDataUS} from '../../actions/dashboard/current-cases-us';
+const CaseSummary = ({confirmedCount, recoveredCount, deathCount, getData}) => {
+    React.useEffect(() => {
+        getData();
+        // console.log(data);
+    });
     const {
         LIGHT_ORANGE,
         RED,
@@ -13,7 +17,7 @@ const CaseSummary = ({confirmedCount, recoveredCount, deathCount}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Cumulative Cases</Text>
+            <Text style={styles.header}>Cumulative Cases in United States</Text>
             <View style={styles.blockContainer}>
                 <View style={{...styles.countBlock, borderColor: LIGHT_ORANGE}}>
                     <Text>Confirmed: {confirmedCount}</Text>
@@ -59,9 +63,12 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     confirmedCount: 100,
     recoveredCount: 30,
-    deathCount: 12
+    deathCount: 12,
+    // data: getCurrentCasesUSData(state)
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    getData: () => dispatch(fetchCurrentDataUS())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CaseSummary);

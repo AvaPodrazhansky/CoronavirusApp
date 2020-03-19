@@ -18,6 +18,7 @@ import useLinking from './navigation/useLinking';
 import {getConfirmedCases} from "./actions/summary-map/confirmed-cases";
 import thunk from "redux-thunk";
 import {fetchCurrentDataUS} from "./actions/dashboard/current-cases-us";
+import {fetchCurrentDataByState} from "./actions/dashboard/current-cases-by-state";
 
 const Stack = createStackNavigator();
 
@@ -54,6 +55,8 @@ export default function App(props) {
                 //     .then(res => console.log(res))
                 // await getConfirmedCases();
 
+                // fetchCurrentDataUS();
+                // fetchCurrentDataByState();
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
                 console.warn(e);

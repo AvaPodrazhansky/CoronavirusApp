@@ -4,24 +4,8 @@ import {Text, StyleSheet, View, Dimensions} from 'react-native';
 import {PieChart, StackedBarChart} from "react-native-chart-kit";
 import colors from '../../constants/Colors';
 
-// const LIGHT_BACKGROUND = "#E6F3F9";
-// const LIGHT_BLUE = "#038FDA";
-// const DARK_BLUE = "#143D97";
-// const LIGHT_ORANGE = "#F7B62D";
-// const DARK_ORANGE = "#ED741D";
-// const VERY_DARK_ORANGE = "#CB4E12";
-// const DARK_BROWN = "#733B08";
-// const WHITE = "#FFFFFF";
-// const DARK_GRAY = "#7B7B7B";
-// const LIGHT_GRAY = "#cbcbcb";
-
 const OutcomeOfInfectedPieChart = ({data}) => {
 
-    // const {
-    //     LIGHT_ORANGE,
-    //     DARK_ORANGE,
-    //     DARK_BROWN
-    // } = colors;
     const chartConfig = {
         backgroundGradientFrom: "#1E2923",
         backgroundGradientFromOpacity: 0,

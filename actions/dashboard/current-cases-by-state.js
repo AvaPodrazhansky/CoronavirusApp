@@ -24,9 +24,12 @@ const receiveCurrentCaseByStateDataError = error => {
 
 function fetchCurrentDataByState() {
     return async dispatch => {
+        console.log('here')
         dispatch(setIsFetchingCurrentCasesByState(true));
         return await fetch('https://covidtracking.com/api/states')
-            .then(res => res.json())
+            .then(res => {
+                return res.json()
+            })
             .then(res => dispatch(receiveCurrentCaseByStateDataSuccess(res)))
             .catch(err => dispatch(receiveCurrentCaseByStateDataError(err))) //TODO: have error do something
     }

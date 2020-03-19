@@ -4,11 +4,12 @@ import {Text, StyleSheet, View} from 'react-native';
 import colors from '../../constants/Colors';
 import {getCurrentCasesUSData, getIsFetchingCurrentCasesUS} from "../../selectors/dashboard/current-cases-us";
 import {fetchCurrentDataUS} from '../../actions/dashboard/current-cases-us';
-import isEmpty from "react-native-web/dist/vendor/react-native/isEmpty";
 
 const CaseSummary = ({getData, data, isFetching}) => {
     React.useEffect(() => {
-        if(isEmpty(data)) getData();
+        // if(data['positive'] === undefined || data['death'] === undefined) {
+            getData();
+        // }
     }, []);
 
     const {

@@ -2,11 +2,11 @@ import * as React from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
-import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
-import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
+// import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
+// import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
 import CaseSummary from '../components/case-summary';
-import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
-import CaseByStatePieChart from '../components/charts/case-by-state-pie-chart';
+// import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
+// import CaseByStatePieChart from '../components/charts/case-by-state-pie-chart';
 import StateList from '../components/lists/state-list';
 
 //TODO: Change view with survey page button. It hides content at the bottom of the scroll view
@@ -20,7 +20,7 @@ const HomeScreen = ({toSurvey}) => {
                 {/*<OutcomeOfInfectedPieChart/>*/}
                 {/*<CaseByStateBarGraph/>*/}
                 {/*<CaseSummary/>*/}
-                <TotalCasesLineChart/>
+                {/*<TotalCasesLineChart/>*/}
             </ScrollView>
 
             <View style={styles.tabBarInfoContainer}>

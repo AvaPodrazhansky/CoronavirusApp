@@ -16,7 +16,7 @@ const StateList = ({data, getData}) => {
                 data.map((item, i) => (
                     <ListItem
                         key={i}
-                        title={item.state}
+                        title={item.name}
                         // leftIcon={{ name: item.icon }}
                         topDivider
                         bottomDivider

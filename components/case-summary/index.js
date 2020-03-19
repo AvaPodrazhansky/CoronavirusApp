@@ -2,34 +2,35 @@ import * as React from 'react';
 import connect from "react-redux/lib/connect/connect";
 import {Text, StyleSheet, View} from 'react-native';
 import colors from '../../constants/Colors';
-import {getCurrentCasesUSData} from "../../selectors/dashboard/current-cases-us";
+import {getCurrentCasesUSData, getIsFetchingCurrentCasesUS} from "../../selectors/dashboard/current-cases-us";
 import {fetchCurrentDataUS} from '../../actions/dashboard/current-cases-us';
-const CaseSummary = ({confirmedCount, recoveredCount, deathCount, getData}) => {
+import isEmpty from "react-native-web/dist/vendor/react-native/isEmpty";
+
+const CaseSummary = ({getData, data, isFetching}) => {
     React.useEffect(() => {
-        getData();
-        // console.log(data);
-    });
+        if(isEmpty(data)) getData();
+    }, []);
+
     const {
-        LIGHT_ORANGE,
-        RED,
-        GREEN
+        CONFIRMED,
+        DEAD
     } = colors;
 
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Cumulative Cases in United States</Text>
             <View style={styles.blockContainer}>
-                <View style={{...styles.countBlock, borderColor: LIGHT_ORANGE}}>
-                    <Text>Confirmed: {confirmedCount}</Text>
+                <View style={{...styles.countBlock, borderColor: CONFIRMED}}>
+                    <Text>Confirmed: {isFetching ? '--' : data['positive']}</Text>
                 </View>
 
-                <View style={{...styles.countBlock, borderColor: RED}}>
-                    <Text>Dead: {deathCount}</Text>
+                <View style={{...styles.countBlock, borderColor: DEAD}}>
+                    <Text>Dead: {isFetching ? '--' : data['death']}</Text>
                 </View>
 
-                <View style={{...styles.countBlock, borderColor: GREEN}}>
-                    <Text>Recovered: {recoveredCount}</Text>
-                </View>
+                {/*<View style={{...styles.countBlock, borderColor: GREEN}}>*/}
+                {/*    <Text>Recovered: {data['positive']}</Text>*/}
+                {/*</View>*/}
 
             </View>
         </View>
@@ -61,10 +62,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    confirmedCount: 100,
-    recoveredCount: 30,
-    deathCount: 12,
-    // data: getCurrentCasesUSData(state)
+    data: getCurrentCasesUSData(state),
+    isFetching: getIsFetchingCurrentCasesUS(state)
 });
 
 const mapDispatchToProps = dispatch => ({

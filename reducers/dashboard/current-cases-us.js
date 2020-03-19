@@ -6,7 +6,7 @@ import {
 
 const defaultState = {
     isFetching: false,
-    data: [],
+    data: {},
     error: null
 };
 

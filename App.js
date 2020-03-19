@@ -17,6 +17,7 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import {getConfirmedCases} from "./actions/summary-map/confirmed-cases";
 import thunk from "redux-thunk";
+import {fetchCurrentDataUS} from "./actions/dashboard/current-cases-us";
 
 const Stack = createStackNavigator();
 

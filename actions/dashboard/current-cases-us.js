@@ -28,7 +28,7 @@ function fetchCurrentDataUS() {
         return await fetch('https://covidtracking.com/api/us')
             .then(res => res.json())
             .then(res => dispatch(receiveCurrentCaseUSDataSuccess(res)))
-            .catch(err => dispatch(receiveCurrentCaseUSDataError(err)))
+            .catch(err => dispatch(receiveCurrentCaseUSDataError(err))) //TODO: have error do something
     }
 }
 

@@ -18,4 +18,6 @@ ReactNativeCheckbox.propTypes = {
     title: PropTypes.string.isRequired
 };
 
+//TODO: Make Stylesheet
+
 export default ReactNativeCheckbox;

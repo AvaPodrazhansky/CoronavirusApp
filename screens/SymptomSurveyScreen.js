@@ -2,20 +2,15 @@ import * as React from 'react';
 import {Image, Platform, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
-import SurveyLocationTextInput from "../components/text-input/survey-location";
-import PublicTransportationTextInput from "../components/text-input/public-transportation";
-import AgeTextInput from "../components/text-input/age";
 import SubmitButton from "../components/button/survey-question-buttons/submit-button";
-import {
-    QUESTION_FOUR,
-    QUESTION_ONE,
-    QUESTION_SIX
-} from "../constants/constant-list";
 import QuestionTwoCheckbox from "../components/checkbox/survey-question-checkboxes/question2-checkboxes";
 import QuestionThreeCheckbox from "../components/checkbox/survey-question-checkboxes/question3-checkboxes";
 import QuestionFiveCheckbox from "../components/checkbox/survey-question-checkboxes/question5-checkboxes";
 import QuestionSevenCheckbox from "../components/checkbox/survey-question-checkboxes/question7-checkboxes";
 import QuestionEightCheckbox from "../components/checkbox/survey-question-checkboxes/question8-checkboxes";
+import QuestionOneInput from "../components/text-input/survey-question-inputs/question1-input";
+import QuestionFourInput from "../components/text-input/survey-question-inputs/question4-input";
+import QuestionSixInput from "../components/text-input/survey-question-inputs/question6-input";
 
 // TODO Fix the Question 1 Answer 1 Button (not changing from false)
 
@@ -23,15 +18,12 @@ const SymptomSurveyScreen = ({}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <Text style={styles.locationText}>{QUESTION_ONE}</Text>
-                <SurveyLocationTextInput/>
+                <QuestionOneInput/>
                 <QuestionTwoCheckbox/>
                 <QuestionThreeCheckbox/>
-                <Text>{QUESTION_FOUR}</Text>
-                <PublicTransportationTextInput/>
+                <QuestionFourInput/>
                 <QuestionFiveCheckbox/>
-                <Text>{QUESTION_SIX}</Text>
-                <AgeTextInput/>
+                <QuestionSixInput/>
                 <QuestionSevenCheckbox/>
                 <QuestionEightCheckbox/>
                 <SubmitButton/>
@@ -51,11 +43,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: 30,
-    },
-    locationText: {
-        fontSize: 17,
-        color: "blue",
-        paddingHorizontal: 20
     },
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {elevatedBodyTemperaturePressed} from "../../../../actions/symptom-survey/question2";
@@ -8,14 +8,26 @@ import {QUESTION_TWO_BUTTON_ANSWER_ONE} from "../../../../constants/constant-lis
 
 const QuestionTwoAnswerOneButton = ({elevatedBodyTemperaturePressed}) => {
     return (
-        <Button
-            title={QUESTION_TWO_BUTTON_ANSWER_ONE}
-            onPress={() => elevatedBodyTemperaturePressed}
-        />
+        <TouchableOpacity onPress={elevatedBodyTemperaturePressed}>
+            <Text style={styles.button}>{QUESTION_TWO_BUTTON_ANSWER_ONE}</Text>
+        </TouchableOpacity>
     )
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: 'blue',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 12,
+        color: 'white',
+        fontSize: 24,
+        fontWeight: 'bold',
+        overflow: 'hidden',
+        padding: 12,
+        textAlign: 'center',
+    }
+});
 
 QuestionTwoAnswerOneButton.propTypes = {
     elevatedBodyTemperaturePressed: PropTypes.func.isRequired

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {submitSurvey} from "../../../actions/symptom-survey/submit-survey";
 import {SUBMIT_BUTTON_TEXT} from "../../../constants/constant-list";
+import styles from './survey-button-styles'
 
 const SubmitButton = ({submitSurvey}) => {
     return (
@@ -12,21 +13,6 @@ const SubmitButton = ({submitSurvey}) => {
         </TouchableOpacity>
     )
 };
-
-const styles = StyleSheet.create({
-    button: {
-        backgroundColor: 'blue',
-        borderColor: 'white',
-        borderWidth: 1,
-        borderRadius: 12,
-        color: 'white',
-        fontSize: 24,
-        fontWeight: 'bold',
-        overflow: 'hidden',
-        padding: 12,
-        textAlign: 'center',
-    }
-});
 
 SubmitButton.propTypes = {
     submitSurvey: PropTypes.func.isRequired

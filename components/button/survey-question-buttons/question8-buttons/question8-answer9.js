@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {cerebrovascularDiseasePressed} from "../../../../actions/symptom-survey/question8";
 import {QUESTION_EIGHT_BUTTON_ANSWER_NINE} from "../../../../constants/constant-list";
+import styles from '../survey-button-styles'
 
 const QuestionEightAnswerNineButton = ({cerebrovascularDiseasePressed}) => {
     return (
@@ -12,21 +13,6 @@ const QuestionEightAnswerNineButton = ({cerebrovascularDiseasePressed}) => {
         </TouchableOpacity>
     )
 };
-
-const styles = StyleSheet.create({
-    button: {
-        backgroundColor: 'blue',
-        borderColor: 'white',
-        borderWidth: 1,
-        borderRadius: 12,
-        color: 'white',
-        fontSize: 24,
-        fontWeight: 'bold',
-        overflow: 'hidden',
-        padding: 12,
-        textAlign: 'center',
-    }
-});
 
 QuestionEightAnswerNineButton.propTypes = {
     cerebrovascularDiseasePressed: PropTypes.func.isRequired

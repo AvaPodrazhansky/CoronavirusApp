@@ -32,7 +32,7 @@ export const QUESTION_TWO_BUTTON_ANSWER_TEN = 'Persistent Headache';
 export const QUESTION_TWO_BUTTON_ANSWER_ELEVEN = 'Decreased Sweating or Urination';
 export const QUESTION_TWO_BUTTON_ANSWER_TWELVE = 'I am experiencing other types of uncomfortableness not listed above.';
 
-export const question2AnswerArray = [
+export const questionTwoAnswerArray = [
     QUESTION_TWO_BUTTON_ANSWER_ONE,
     QUESTION_TWO_BUTTON_ANSWER_TWO,
     QUESTION_TWO_BUTTON_ANSWER_THREE,
@@ -61,6 +61,14 @@ export const QUESTION_FIVE_BUTTON_ANSWER_THREE = 'Other people who are experienc
 export const QUESTION_FIVE_BUTTON_ANSWER_FOUR = 'Close contact with suspected or confirmed COVID-19 case(s)';
 export const QUESTION_FIVE_BUTTON_ANSWER_FIVE = 'Presence of confirmed COVID-19 case(s) in your community';
 
+export const questionFiveAnswerArray = [
+    QUESTION_FIVE_BUTTON_ANSWER_ONE,
+    QUESTION_FIVE_BUTTON_ANSWER_TWO,
+    QUESTION_FIVE_BUTTON_ANSWER_THREE,
+    QUESTION_FIVE_BUTTON_ANSWER_FOUR,
+    QUESTION_FIVE_BUTTON_ANSWER_FIVE
+];
+
 // Survey Button Answers (Question 7)
 export const QUESTION_SEVEN_BUTTON_FEMALE = 'Female';
 export const QUESTION_SEVEN_BUTTON_MALE = 'Male';
@@ -76,6 +84,18 @@ export const QUESTION_EIGHT_BUTTON_ANSWER_SEVEN = 'Liver Cirrhosis';
 export const QUESTION_EIGHT_BUTTON_ANSWER_EIGHT = 'Chronic Lung Disease (Pulmonary Fibrosis, Chronic Obstructive ' +
     'Pulmonary Disease (C.O.P.D.), or Respiratory Failure)';
 export const QUESTION_EIGHT_BUTTON_ANSWER_NINE = 'Cerebrovascular Disease';
+
+export const questionEightAnswerArray = [
+    QUESTION_EIGHT_BUTTON_ANSWER_ONE,
+    QUESTION_EIGHT_BUTTON_ANSWER_TWO,
+    QUESTION_EIGHT_BUTTON_ANSWER_THREE,
+    QUESTION_EIGHT_BUTTON_ANSWER_FOUR,
+    QUESTION_EIGHT_BUTTON_ANSWER_FIVE,
+    QUESTION_EIGHT_BUTTON_ANSWER_SIX,
+    QUESTION_EIGHT_BUTTON_ANSWER_SEVEN,
+    QUESTION_EIGHT_BUTTON_ANSWER_EIGHT,
+    QUESTION_EIGHT_BUTTON_ANSWER_NINE
+];
 
 // Survey Submit Button
 export const SUBMIT_BUTTON_TEXT = 'Submit';

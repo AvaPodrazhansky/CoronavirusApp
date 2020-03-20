@@ -1,22 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
 import CheckBox from './index';
-import {toggleQuestionTwoAnswer} from '../../../actions/symptom-survey/question2';
-import {getQuestionTwoAnswerStatuses} from "../../../selectors/symptom-survey/question2";
 import {View, Text} from 'react-native';
-import {questionTwoAnswerArray, QUESTION_TWO} from "../../../constants/constant-list";
+import {questionEightAnswerArray, QUESTION_EIGHT} from "../../../constants/constant-list";
 import PropTypes, {bool} from 'prop-types';
+import {toggleQuestionEightAnswer} from "../../../actions/symptom-survey/question8";
+import {getQuestionEightAnswerStatuses} from "../../../selectors/symptom-survey/question8";
 
-const QuestionTwoCheckbox = ({answerStatuses, toggleAnswer}) => {
+const QuestionEightCheckbox = ({answerStatuses, toggleAnswer}) => {
     // 2 Arrays:
-    // questionTwoAnswerArray: array of strings for the answers (text values)
+    // questionEightAnswerArray: array of strings for the answers (text values)
     // answerStatuses: array indicating if answer is checked or not (reducer array)
     // The indices of these arrays go together
     return (
         <View>
-            <Text>{QUESTION_TWO}</Text>
+            <Text>{QUESTION_EIGHT}</Text>
             {
-                questionTwoAnswerArray.map((answer, index) => (
+                questionEightAnswerArray.map((answer, index) => (
                     <CheckBox isChecked={answerStatuses[index]}
                               toggleCheck={() => toggleAnswer(index)}
                               title={answer}/>
@@ -26,17 +26,17 @@ const QuestionTwoCheckbox = ({answerStatuses, toggleAnswer}) => {
     )
 };
 
-QuestionTwoCheckbox.propTypes = {
+QuestionEightCheckbox.propTypes = {
     toggleAnswer: PropTypes.func.isRequired,
     answerStatuses: PropTypes.arrayOf(bool).isRequired
 };
 
 const mapStateToProps = state => ({
-    answerStatuses: getQuestionTwoAnswerStatuses(state)
+    answerStatuses: getQuestionEightAnswerStatuses(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggleAnswer: index => dispatch(toggleQuestionTwoAnswer(index))
+    toggleAnswer: index => dispatch(toggleQuestionEightAnswer(index))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionTwoCheckbox);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionEightCheckbox);

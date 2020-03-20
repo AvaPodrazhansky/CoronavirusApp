@@ -1,49 +1,27 @@
-import {
-    QUESTION_FIVE_ANSWER_ONE,
-    QUESTION_FIVE_ANSWER_TWO,
-    QUESTION_FIVE_ANSWER_THREE,
-    QUESTION_FIVE_ANSWER_FOUR,
-    QUESTION_FIVE_ANSWER_FIVE
-} from "../../actions/symptom-survey/question5";
+import {TOGGLE_QUESTION_FIVE_ANSWER} from "../../actions/symptom-survey/question5";
+import {questionFiveAnswerArray} from "../../constants/constant-list";
 
 const defaultState = {
-    question5Answer1: false,
-    question5Answer2: false,
-    question5Answer3: false,
-    question5Answer4: false,
-    question5Answer5: false
+    questionFiveAnswerStatuses: Array.apply(false, Array(questionFiveAnswerArray.length)) // initializing array
+    // of answerArrayLength of false values
 };
 
 const question5 = (state = defaultState, action) => {
     switch (action.type) {
-        case QUESTION_FIVE_ANSWER_ONE:
+        case TOGGLE_QUESTION_FIVE_ANSWER:
             return {
                 ...state,
-                question5Answer1: !state.question5Answer1
-            };
-        case QUESTION_FIVE_ANSWER_TWO:
-            return {
-                ...state,
-                question5Answer2: !state.question5Answer2
-            };
-        case QUESTION_FIVE_ANSWER_THREE:
-            return {
-                ...state,
-                question5Answer3: !state.question5Answer3
-            };
-        case QUESTION_FIVE_ANSWER_FOUR:
-            return {
-                ...state,
-                question5Answer4: !state.question5Answer4
-            };
-        case QUESTION_FIVE_ANSWER_FIVE:
-            return {
-                ...state,
-                question5Answer5: !state.question5Answer5
+                questionFiveAnswerStatuses: toggleArrayIndex(state.questionFiveAnswerStatuses, action.payload)
             };
         default:
             return state;
     }
 };
+
+function toggleArrayIndex(array, index) {
+    let result = [...array]; // Copy array
+    result[index] = !array[index]; // Toggle index boolean value
+    return result;
+}
 
 export default question5;

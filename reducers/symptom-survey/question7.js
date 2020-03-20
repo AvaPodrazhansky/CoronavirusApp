@@ -1,18 +1,15 @@
-import {
-    SET_SEX
-} from "../../actions/symptom-survey/question7";
+import {SET_SEX} from "../../actions/symptom-survey/question7";
 
 const defaultState = {
-    isFemale: false
+    sex: null
 };
 
 const question7 = (state = defaultState, action) => {
     switch (action.type) {
         case SET_SEX:
-            console.log(action.payload);
             return {
                 ...state,
-                isFemale: action.payload
+                sex: action.payload
             };
         default:
             return state;

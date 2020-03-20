@@ -1,5 +1,5 @@
-const getIsFemale = state => state.symptomSurvey.question7.isFemale;
+const getSex = state => state.symptomSurvey.question7.sex;
 
 export {
-    getIsFemale
+    getSex
 };

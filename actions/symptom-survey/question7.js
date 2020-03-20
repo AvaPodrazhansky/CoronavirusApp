@@ -1,8 +1,8 @@
 const SET_SEX = 'SET_SEX';
-const setSex = isFemale => {
+const setSex = sex => {
     return {
         type: SET_SEX,
-        payload: isFemale
+        payload: sex
     }
 };
 

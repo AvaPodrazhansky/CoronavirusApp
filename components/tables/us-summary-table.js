@@ -20,7 +20,7 @@ const StateTableSummary = ({data}) => {
                             key={index}
                             data={[item.name, item.positive, (item.death === null ? 0 : item.death)]}
                             flexArr={[2, 1, 1]}
-                            style={[styles.row, index % 2 && {backgroundColor: '#F7F6E7'}]}
+                            style={[styles.row, index % 2 && {backgroundColor: colors.LIGHT_BACKGROUND}]}
                             textStyle={styles.rowText}
                         />
                     ))
@@ -32,12 +32,12 @@ const StateTableSummary = ({data}) => {
 };
 
 const styles = StyleSheet.create({
-    container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: colors.WHITE},
+    container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: colors.WHITE, marginBottom: 75},
     head: {height: 40, backgroundColor: colors.LIGHT_BLUE},
     wrapper: {flexDirection: 'row'},
-    title: {flex: 1, backgroundColor: '#f6f8fa'},
+    title: {flex: 1, backgroundColor: colors.LIGHT_BLUE},
     row: {height: 35},
-    text: {textAlign: 'center', color: colors.WHITE, fontWeight: '100'},
+    text: {textAlign: 'center', color: colors.WHITE, fontWeight: 'bold', fontSize: 15},
     rowText: {textAlign: 'center'}
 });
 

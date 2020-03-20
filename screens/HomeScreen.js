@@ -17,7 +17,7 @@ const HomeScreen = ({toSurvey}) => {
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <CaseSummary/>
                 <StateTableSummary/>
-                <StateList/>
+                {/*<StateList/>*/}
                 {/*<CaseByStatePieChart/>*/}
                 {/*<OutcomeOfInfectedPieChart/>*/}
                 {/*<CaseByStateBarGraph/>*/}

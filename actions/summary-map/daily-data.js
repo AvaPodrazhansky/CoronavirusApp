@@ -81,19 +81,70 @@ import {
 //         }
 //     );
 // }
+//
+// function _getFiles() {
+//     return fetch(
+//         'https://github.com/CSSEGISandData/COVID-19/commits',
+//         {
+//             method: 'GET',
+//         })
+// }
 
-function _getFiles() {
-    return fetch(
-        'https://github.com/CSSEGISandData/COVID-19/commits',
-        {
-            method: 'GET',
-        })
+const REQUEST_DAILY_DATA = 'REQUEST_DAILY_DATA';
+const requestDailyData = () => {
+    return {
+        type: REQUEST_DAILY_DATA
+    }
+};
+
+const RECEIVE_DAILY_DATA_SUCCESS = 'RECEIVE_DAILY_DATA_SUCCESS';
+const receiveDailyDataSuccess = data => {
+    return {
+        type: RECEIVE_DAILY_DATA_SUCCESS,
+        payload: data
+    }
+};
+
+const RECEIVE_DAILY_DATA_ERROR = 'RECEIVE_DAILY_DATA_ERROR';
+const receiveDailyDataError = errorMessage => {
+    return {
+        type: RECEIVE_DAILY_DATA_ERROR,
+        payload: errorMessage
+    }
+};
+
+function _splitArray(array) {
+    array = array.map(item => {
+        let result = item.split('\"');
+        if (result.length > 1) {
+            let temp = result.pop();
+            temp = temp.split(',').slice(1);
+            return result.concat(temp);
+        } else {
+            return item.split(',')
+        }
+    });
+    array.pop();
+    return array;
 }
 
+function _formatArrayDisasterToActualUsableJavascriptObject(array){
+    return array.map(item => ({
+        provinceOrState: item[0],
+        countryOrRegion: item[1],
+        lastUpdate: item[2],
+        confirmed: item[3],
+        deaths: item[4],
+        recovered: item[5],
+        latitude: item[6],
+        longitude: item[7]
+    }))
+}
 
 function getDailyData() {
-    // let d = new Date();
     // TODO: Ensure that we are getting the most recent data
+    // TODO: Add something if the array is split into a size other than 8
+    // TODO: Add catch
     return fetch(
         'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-19-2020.csv',
         {
@@ -101,34 +152,17 @@ function getDailyData() {
         })
         .then(res => res.text())
         .then(res => res.split('\n'))
-        .then(res => (
-            res.map((item, index) => {
-                let result = item.split('\"');
-                if (result.length > 1) {
-                    let temp = result.pop();
-                    temp = temp.split(',').slice(1);
-                    return result.concat(temp);
-                } else {
-                    return item.split(',')
-                }
-            })
-        ))
-        .then(res => {
-            res.pop();
-            return res;
-        })
-        .then(res => res.map(item => ({
-            provinceOrState: item[0],
-            countryOrRegion: item[1],
-            lastUpdate: item[2],
-            confirmed: item[3],
-            deaths: item[4],
-            recovered: item[5],
-            latitude: item[6],
-            longitude: item[7]
-        })))
+        .then(res => _splitArray(res))
+        .then(res => _formatArrayDisasterToActualUsableJavascriptObject(res))
+        .then(res => console.log(res))
 }
 
 export {
-    getDailyData
+    getDailyData,
+    REQUEST_DAILY_DATA,
+    requestDailyData,
+    RECEIVE_DAILY_DATA_SUCCESS,
+    receiveDailyDataSuccess,
+    RECEIVE_DAILY_DATA_ERROR,
+    receiveDailyDataError
 }

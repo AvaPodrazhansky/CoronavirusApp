@@ -7,9 +7,15 @@ import { Text, StyleSheet } from 'react-native';
 import { Dimensions } from "react-native";
 import {getConfirmedCases} from "../../actions/summary-map/confirmed-cases";
 import myMapStyle from './map-styles';
+import {getData} from "../../selectors/summary-map/daily-data";
+import {getDailyData} from "../../actions/summary-map/daily-data";
 
-const InfectionMap = ({region, setRegion}) => {
-    // getConfirmedCases();
+const InfectionMap = ({region, setRegion, data, getData}) => {
+
+    React.useEffect(() => {
+        if(data.length === 0) getData();
+    }, []);
+
     return (
         <MapView
             provider={PROVIDER_GOOGLE}
@@ -40,11 +46,13 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    region: getRegion(state)
+    region: getRegion(state),
+    data: getData(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    setRegion: region => dispatch(setRegion(region))
+    setRegion: region => dispatch(setRegion(region)),
+    getData: () => dispatch(getDailyData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InfectionMap);

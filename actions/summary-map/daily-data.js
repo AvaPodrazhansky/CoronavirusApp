@@ -128,7 +128,7 @@ function _splitArray(array) {
     return array;
 }
 
-function _formatArrayDisasterToActualUsableJavascriptObject(array){
+function _formatArrayDisasterToActualUsableJavascriptObject(array) {
     return array.map(item => ({
         provinceOrState: item[0],
         countryOrRegion: item[1],
@@ -141,20 +141,28 @@ function _formatArrayDisasterToActualUsableJavascriptObject(array){
     }))
 }
 
+function _formatResult(result) {
+    let temp = result.split('\n');
+    temp = _splitArray(temp);
+    return _formatArrayDisasterToActualUsableJavascriptObject(temp)
+}
+
 function getDailyData() {
     // TODO: Ensure that we are getting the most recent data
     // TODO: Add something if the array is split into a size other than 8
     // TODO: Add catch
-    return fetch(
-        'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-19-2020.csv',
-        {
-            method: 'GET',
-        })
-        .then(res => res.text())
-        .then(res => res.split('\n'))
-        .then(res => _splitArray(res))
-        .then(res => _formatArrayDisasterToActualUsableJavascriptObject(res))
-        .then(res => console.log(res))
+    return dispatch => {
+        dispatch(requestDailyData());
+        return fetch(
+            'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-19-2020.csv',
+            {
+                method: 'GET',
+            })
+            .then(res => res.text())
+            .then(res => _formatResult(res))
+            .then(data => dispatch(receiveDailyDataSuccess(data)))
+            .catch(err => dispatch(receiveDailyDataError(err)))
+    }
 }
 
 export {

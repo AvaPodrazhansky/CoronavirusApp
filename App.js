@@ -53,7 +53,7 @@ export default function App(props) {
                 //     .then(res => res.text())
                 //     .then(res => console.log(res))
                 // await getConfirmedCases();
-                await getDailyData();
+                // await getDailyData();
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
                 console.warn(e);

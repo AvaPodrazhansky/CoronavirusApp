@@ -17,6 +17,7 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import {getConfirmedCases} from "./actions/summary-map/confirmed-cases";
 import thunk from "redux-thunk";
+import {getDailyData} from "./actions/summary-map/daily-data";
 
 const Stack = createStackNavigator();
 
@@ -51,8 +52,8 @@ export default function App(props) {
                 //     })
                 //     .then(res => res.text())
                 //     .then(res => console.log(res))
-                await getConfirmedCases();
-
+                // await getConfirmedCases();
+                await getDailyData();
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
                 console.warn(e);

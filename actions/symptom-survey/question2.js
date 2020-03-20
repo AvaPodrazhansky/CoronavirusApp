@@ -82,6 +82,14 @@ const notListedAbovePressed = () => {
     }
 };
 
+const TOGGLE_QUESTION_TWO_ANSWER = 'TOGGLE_QUESTION_TWO_ANSWER';
+const toggleQuestionTwoAnswer = answerIndex => {
+    return {
+        type: TOGGLE_QUESTION_TWO_ANSWER,
+        payload: answerIndex
+    }
+};
+
 export {
     QUESTION_TWO_ANSWER_ONE,
     elevatedBodyTemperaturePressed,
@@ -106,5 +114,7 @@ export {
     QUESTION_TWO_ANSWER_ELEVEN,
     decreasedSweatingPressed,
     QUESTION_TWO_ANSWER_TWELVE,
-    notListedAbovePressed
+    notListedAbovePressed,
+    TOGGLE_QUESTION_TWO_ANSWER,
+    toggleQuestionTwoAnswer
 }

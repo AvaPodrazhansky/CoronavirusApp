@@ -22,6 +22,8 @@ const getQuestionTwoAnswerEleven = state => state.symptomSurvey.question2.questi
 
 const getQuestionTwoAnswerTwelve = state => state.symptomSurvey.question2.question2Answer12;
 
+const getQuestionTwoAnswerStatuses = state => state.symptomSurvey.question2.answerStatuses;
+
 export {
     getQuestionTwoAnswerOne,
     getQuestionTwoAnswerTwo,
@@ -34,5 +36,6 @@ export {
     getQuestionTwoAnswerNine,
     getQuestionTwoAnswerTen,
     getQuestionTwoAnswerEleven,
-    getQuestionTwoAnswerTwelve
+    getQuestionTwoAnswerTwelve,
+    getQuestionTwoAnswerStatuses
 };

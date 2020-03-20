@@ -74,6 +74,8 @@ import {
     QUESTION_THREE,
     QUESTION_TWO
 } from "../constants/constant-list";
+import ReactNativeCheckbox from "../components/checkbox/survey-question-checkboxes";
+import QuestionTwo from "../components/checkbox/survey-question-checkboxes/question2-checkboxes";
 
 // TODO Fix the Question 1 Answer 1 Button (not changing from false)
 
@@ -81,6 +83,7 @@ const SymptomSurveyScreen = ({}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                <QuestionTwo/>
                 <Text style={styles.locationText}>{QUESTION_ONE}</Text>
                 <SurveyLocationTextInput/>
                 <Text>{QUESTION_TWO}</Text>

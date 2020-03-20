@@ -10,7 +10,8 @@ import {
     QUESTION_TWO_ANSWER_NINE,
     QUESTION_TWO_ANSWER_TEN,
     QUESTION_TWO_ANSWER_ELEVEN,
-    QUESTION_TWO_ANSWER_TWELVE
+    QUESTION_TWO_ANSWER_TWELVE,
+    TOGGLE_QUESTION_TWO_ANSWER
 } from "../../actions/symptom-survey/question2";
 
 const defaultState = {
@@ -25,11 +26,28 @@ const defaultState = {
     question2Answer9: false,
     question2Answer10: false,
     question2Answer11: false,
-    question2Answer12: false
+    question2Answer12: false,
+    answerStatuses: [false, false,false,false,false,false,false,false,false,false,false,false,]
 };
+import {question2AnswerArray} from '../../constants/constant-list';
+//
+// const defaultState = {
+//     answerList: new Array(question2AnswerArray.length).map(item => false)
+// };
+
+function _toggleArrayIndex(array, index){
+    let result = [...array];
+    result[index] = !array[index];
+    return result;
+}
 
 const question2 = (state = defaultState, action) => {
     switch (action.type) {
+        case TOGGLE_QUESTION_TWO_ANSWER:
+            return {
+                ...state,
+                answerStatuses: _toggleArrayIndex(state.answerList, action.payload)
+            };
         case QUESTION_TWO_ANSWER_ONE:
             return {
                 ...state,

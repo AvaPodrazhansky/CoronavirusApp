@@ -1,6 +1,7 @@
 const tintColor = '#2f95dc';
 
 export default {
+  // Default Built In Colors
   tintColor,
   tabIconDefault: '#ccc',
   tabIconSelected: tintColor,
@@ -11,4 +12,29 @@ export default {
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
+
+  // Logo Colors
+  LIGHT_BACKGROUND: "#E6F3F9",
+  LIGHT_BLUE: "#038FDA",
+  DARK_BLUE: "#143D97",
+  LIGHT_ORANGE: "#F7B62D",
+  DARK_ORANGE: "#ED741D",
+  VERY_DARK_ORANGE: "#CB4E12",
+  DARK_BROWN: "#733B08",
+
+  // Grayscale
+  WHITE: "#FFFFFF",
+  DARK_GRAY: "#7B7B7B",
+  LIGHT_GRAY: "#cbcbcb",
+
+  // General
+  RED: "#FF0000",
+  GREEN: "#00FF00",
+
+  CONFIRMED: "#F7B62D",
+  RECOVERED: "#00FF00",
+  DEAD: "#FF0000",
+  CONFIRMED_TRANSPARENT: "rgba(247,182,45,0.39)",
+  RECOVERED_TRANSPARENT: "rgba(0,255,0,0.38)",
+  DEAD_TRANSPARENT: "rgba(255,0,0,0.39)",
 };

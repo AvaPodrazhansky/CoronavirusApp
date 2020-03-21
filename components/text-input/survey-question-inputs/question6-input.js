@@ -18,7 +18,7 @@ const QuestionSixInput = ({setAge, age}) => {
 };
 
 QuestionSixInput.propTypes = {
-    age: PropTypes.number.isRequired,
+    age: PropTypes.any,
     setAge: PropTypes.func.isRequired
 };
 

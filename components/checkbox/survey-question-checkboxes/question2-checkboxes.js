@@ -18,7 +18,8 @@ const QuestionTwoCheckbox = ({answerStatuses, toggleAnswer}) => {
             <Text style={styles.questionText}>{QUESTION_TWO}</Text>
             {
                 questionTwoAnswerArray.map((answer, index) => (
-                    <CheckBox isChecked={answerStatuses[index]}
+                    <CheckBox key={index}
+                              isChecked={answerStatuses[index]}
                               toggleCheck={() => toggleAnswer(index)}
                               title={answer}/>
                 ))

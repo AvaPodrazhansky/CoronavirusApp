@@ -18,9 +18,11 @@ const QuestionFiveCheckbox = ({answerStatuses, toggleAnswer}) => {
             <Text style={styles.questionText}>{QUESTION_FIVE}</Text>
             {
                 questionFiveAnswerArray.map((answer, index) => (
-                    <CheckBox isChecked={answerStatuses[index]}
-                              toggleCheck={() => toggleAnswer(index)}
-                              title={answer}/>
+                    <CheckBox
+                        key={index}
+                        isChecked={answerStatuses[index]}
+                        toggleCheck={() => toggleAnswer(index)}
+                        title={answer}/>
                 ))
             }
         </View>

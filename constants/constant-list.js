@@ -1,7 +1,7 @@
 // Survey Questions
 export const QUESTION_ONE = '1. What is your current location?';
 export const QUESTION_TWO = '2. Please inform us if you have the following symptoms. Please only press the symptoms ' +
-    'that you are experiencing. (It will appear green after being pressed.)';
+    'that you are experiencing.';
 export const QUESTION_THREE = '3. During the past two weeks, have you visited China, South Korea, Italy, Iran, or ' +
     'Japan?';
 export const QUESTION_FOUR = '4. During the past two weeks, how many times have you taken public transportation ' +
@@ -9,12 +9,11 @@ export const QUESTION_FOUR = '4. During the past two weeks, how many times have 
     'you are not wearing a facial mask properly? Please write that number. (If you leave this as blank, it will be ' +
     'considered as 0 times.)';
 export const QUESTION_FIVE = '5. During the past two weeks, have you been to the following places or made contact ' +
-    'with the people or wild animals listed below? If so, please press the following specific buttons. (It will ' +
-    'appear green after being pressed.)';
+    'with the people or wild animals listed below? If so, please press the following specific buttons.';
 export const QUESTION_SIX = '6. What is your age?';
 export const QUESTION_SEVEN = '7. What is your sex?';
 export const QUESTION_EIGHT = '8. Do you have existing conditions or diseases listed below? If so, please press the ' +
-    'following specific buttons. (It will appear green after being pressed.)';
+    'following specific buttons.';
 
 // Survey Button Answers (Question 2)
 export const QUESTION_TWO_BUTTON_ANSWER_ONE = 'Elevated Body Temperature (Oral temperature higher than 99.1 °F, ' +

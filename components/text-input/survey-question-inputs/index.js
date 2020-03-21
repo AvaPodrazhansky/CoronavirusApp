@@ -15,9 +15,9 @@ const ReactNativeInput = ({title, titleStyle, actionFunction, value}) => {
 
 ReactNativeInput.propTypes = {
     actionFunction: PropTypes.func.isRequired,
-    titleStyle: PropTypes.object.isRequired,
+    titleStyle: PropTypes.object,
     title: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired
+    value: PropTypes.any
 };
 
 export default ReactNativeInput;

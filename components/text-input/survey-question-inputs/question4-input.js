@@ -19,7 +19,7 @@ const QuestionFourInput = ({setPublicTransportation, number}) => {
 };
 
 QuestionFourInput.propTypes = {
-    number: PropTypes.number.isRequired,
+    number: PropTypes.any,
     setPublicTransportation: PropTypes.func.isRequired
 };
 

@@ -27,7 +27,7 @@ const QuestionSevenCheckbox = ({sexChecked, toggleAnswer}) => {
 
 QuestionSevenCheckbox.propTypes = {
     toggleAnswer: PropTypes.func.isRequired,
-    sexChecked: PropTypes.string.isRequired
+    sexChecked: PropTypes.string
 };
 
 const mapStateToProps = state => ({

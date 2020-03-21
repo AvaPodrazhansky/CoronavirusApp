@@ -14,7 +14,7 @@ const ReactNativeCheckbox = ({title, isChecked, toggleCheck}) => {
 
 ReactNativeCheckbox.propTypes = {
     toggleCheck: PropTypes.func.isRequired,
-    isChecked: PropTypes.bool.isRequired,
+    isChecked: PropTypes.bool,
     title: PropTypes.string.isRequired
 };
 

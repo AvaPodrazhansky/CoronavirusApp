@@ -26,7 +26,7 @@ const QuestionThreeCheckbox = ({visitedForeignCountriesChecked, toggleAnswer}) =
 
 QuestionThreeCheckbox.propTypes = {
     toggleAnswer: PropTypes.func.isRequired,
-    visitedForeignCountriesChecked: PropTypes.bool.isRequired
+    visitedForeignCountriesChecked: PropTypes.bool
 };
 
 const mapStateToProps = state => ({

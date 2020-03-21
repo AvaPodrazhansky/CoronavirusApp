@@ -6,11 +6,12 @@ import {QUESTION_THREE, QUESTION_THREE_BUTTON_YES, QUESTION_THREE_BUTTON_NO} fro
 import PropTypes from 'prop-types';
 import {visitedForeignCountriesPressed} from "../../../actions/symptom-survey/question3";
 import {getVisitedForeignCountries} from "../../../selectors/symptom-survey/question3";
+import styles from './checkbox-styles'
 
 const QuestionThreeCheckbox = ({visitedForeignCountriesChecked, toggleAnswer}) => {
     return (
         <View>
-            <Text>{QUESTION_THREE}</Text>
+            <Text style={styles.questionText}>{QUESTION_THREE}</Text>
             <CheckBox isChecked={(visitedForeignCountriesChecked === true)}
                       toggleCheck={() => toggleAnswer(true)}
                       title={QUESTION_THREE_BUTTON_YES}

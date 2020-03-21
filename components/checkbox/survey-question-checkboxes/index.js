@@ -1,4 +1,4 @@
-import { CheckBox } from 'react-native-elements'
+import {CheckBox} from 'react-native-elements'
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -17,7 +17,5 @@ ReactNativeCheckbox.propTypes = {
     isChecked: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired
 };
-
-//TODO: Make Stylesheet
 
 export default ReactNativeCheckbox;

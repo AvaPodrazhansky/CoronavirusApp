@@ -6,6 +6,7 @@ import {questionFiveAnswerArray, QUESTION_FIVE} from "../../../constants/constan
 import PropTypes, {bool} from 'prop-types';
 import {toggleQuestionFiveAnswer} from "../../../actions/symptom-survey/question5";
 import {getQuestionFiveAnswerStatuses} from "../../../selectors/symptom-survey/question5";
+import styles from './checkbox-styles'
 
 const QuestionFiveCheckbox = ({answerStatuses, toggleAnswer}) => {
     // 2 Arrays:
@@ -14,7 +15,7 @@ const QuestionFiveCheckbox = ({answerStatuses, toggleAnswer}) => {
     // The indices of these arrays go together
     return (
         <View>
-            <Text>{QUESTION_FIVE}</Text>
+            <Text style={styles.questionText}>{QUESTION_FIVE}</Text>
             {
                 questionFiveAnswerArray.map((answer, index) => (
                     <CheckBox isChecked={answerStatuses[index]}

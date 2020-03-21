@@ -17,7 +17,7 @@ ReactNativeInput.propTypes = {
     actionFunction: PropTypes.func.isRequired,
     titleStyle: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.any.isRequired
 };
 
 //TODO: Make Stylesheet

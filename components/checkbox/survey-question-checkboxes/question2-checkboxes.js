@@ -6,6 +6,7 @@ import {getQuestionTwoAnswerStatuses} from "../../../selectors/symptom-survey/qu
 import {View, Text} from 'react-native';
 import {questionTwoAnswerArray, QUESTION_TWO} from "../../../constants/constant-list";
 import PropTypes, {bool} from 'prop-types';
+import styles from './checkbox-styles'
 
 const QuestionTwoCheckbox = ({answerStatuses, toggleAnswer}) => {
     // 2 Arrays:
@@ -14,7 +15,7 @@ const QuestionTwoCheckbox = ({answerStatuses, toggleAnswer}) => {
     // The indices of these arrays go together
     return (
         <View>
-            <Text>{QUESTION_TWO}</Text>
+            <Text style={styles.questionText}>{QUESTION_TWO}</Text>
             {
                 questionTwoAnswerArray.map((answer, index) => (
                     <CheckBox isChecked={answerStatuses[index]}

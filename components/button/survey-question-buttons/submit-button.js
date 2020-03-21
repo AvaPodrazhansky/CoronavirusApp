@@ -1,16 +1,15 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {submitSurvey} from "../../../actions/symptom-survey/submit-survey";
 import {SUBMIT_BUTTON_TEXT} from "../../../constants/constant-list";
-import styles from './survey-button-styles'
+import Button from './index'
 
 const SubmitButton = ({submitSurvey}) => {
     return (
-        <TouchableOpacity onPress={submitSurvey}>
-            <Text style={styles.button}>{SUBMIT_BUTTON_TEXT}</Text>
-        </TouchableOpacity>
+        <Button
+            title={SUBMIT_BUTTON_TEXT}
+            actionFunction={submitSurvey}/>
     )
 };
 

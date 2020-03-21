@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image, Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
 import SubmitButton from "../components/button/survey-question-buttons/submit-button";

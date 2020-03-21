@@ -7,11 +7,12 @@ import {QUESTION_SEVEN_BUTTON_FEMALE, QUESTION_SEVEN_BUTTON_MALE, QUESTION_SEVEN
 import PropTypes from 'prop-types';
 import {setSex} from "../../../actions/symptom-survey/question7";
 import {getSex} from "../../../selectors/symptom-survey/question7";
+import styles from './checkbox-styles'
 
 const QuestionSevenCheckbox = ({sexChecked, toggleAnswer}) => {
     return (
         <View>
-            <Text>{QUESTION_SEVEN}</Text>
+            <Text style={styles.questionText}>{QUESTION_SEVEN}</Text>
             <CheckBox isChecked={(sexChecked === QUESTION_SEVEN_BUTTON_FEMALE)}
                       toggleCheck={() => toggleAnswer(QUESTION_SEVEN_BUTTON_FEMALE)}
                       title={QUESTION_SEVEN_BUTTON_FEMALE}

@@ -5,6 +5,7 @@ import {setLocation} from "../../../actions/symptom-survey/question1";
 import {getLocation} from "../../../selectors/symptom-survey/question1";
 import Input from './index'
 import {QUESTION_ONE} from "../../../constants/constant-list";
+import styles from './input-styles'
 
 const QuestionOneInput = ({setLocation, location}) => {
     return (

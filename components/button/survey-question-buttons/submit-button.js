@@ -4,12 +4,16 @@ import {connect} from "react-redux";
 import {submitSurvey} from "../../../actions/symptom-survey/submit-survey";
 import {SUBMIT_BUTTON_TEXT} from "../../../constants/constant-list";
 import Button from './index'
+import styles from './button-styles'
 
 const SubmitButton = ({submitSurvey}) => {
     return (
         <Button
             title={SUBMIT_BUTTON_TEXT}
-            actionFunction={submitSurvey}/>
+            actionFunction={submitSurvey}
+            buttonStyle={styles.button}
+            color={'#ED741D'}
+        />
     )
 };
 

@@ -10,6 +10,7 @@ const QuestionSixInput = ({setAge, age}) => {
     return (
         <Input
             title={QUESTION_SIX}
+            titleStyle={styles.questionInputText}
             actionFunction={e => setAge(e.nativeEvent.text.trim())}
             value={age}
         />

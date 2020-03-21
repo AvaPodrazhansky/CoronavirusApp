@@ -5,11 +5,13 @@ import Input from './index'
 import {QUESTION_FOUR} from "../../../constants/constant-list";
 import {getNumber} from "../../../selectors/symptom-survey/question4";
 import {setPublicTransportation} from "../../../actions/symptom-survey/question4";
+import styles from './input-styles'
 
 const QuestionFourInput = ({setPublicTransportation, number}) => {
     return (
         <Input
             title={QUESTION_FOUR}
+            titleStyle={styles.questionInputText}
             actionFunction={e => setPublicTransportation(e.nativeEvent.text.trim())}
             value={number}
         />

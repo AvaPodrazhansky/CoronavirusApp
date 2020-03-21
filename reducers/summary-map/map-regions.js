@@ -2,11 +2,17 @@ import {SET_REGION} from '../../actions/summary-map/map-regions';
 
 const defaultState = {
     region: {
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0,
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
     }
+    // region: {
+    //     latitude: 0,
+    //     longitude: 0,
+    //     latitudeDelta: 0.5,
+    //     longitudeDelta: 0.2,
+    // }
 };
 
 const mapRegions = (state = defaultState, action) => {

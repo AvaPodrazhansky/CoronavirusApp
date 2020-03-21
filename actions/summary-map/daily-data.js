@@ -153,9 +153,10 @@ function getDailyData() {
     // TODO: Add something if the array is split into a size other than 8
     // TODO: Add catch
     return dispatch => {
+        console.log('fetchData');
         dispatch(requestDailyData());
         return fetch(
-            'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-19-2020.csv',
+            'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-20-2020.csv',
             {
                 method: 'GET',
             })

@@ -15,8 +15,8 @@ const dailyData = (state = defaultState, action) => {
     switch (action.type) {
         case REQUEST_DAILY_DATA:
             return {
+                ...state,
                 isFetching: true,
-                data: [],
                 errorMessage: null
             };
         case RECEIVE_DAILY_DATA_SUCCESS:

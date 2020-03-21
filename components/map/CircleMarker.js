@@ -5,11 +5,14 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import PropTypes from 'prop-types';
 
 function CircleMarker(props) {
-    const {coord, size, color} = props;
+    const {coordinate, size, color, value} = props;
+    if(value === 0){
+        return;
+    }
     return (
         <Marker
-                coordinate={coord}
-                pinColor={colors.CONFIRMED}
+                coordinate={coordinate}
+                // pinColor={colors.CONFIRMED}
                 tracksViewChanges={false}
         >
             <MaterialCommunityIcons name={'circle'} size={size || 12} color={color}/>
@@ -19,9 +22,10 @@ function CircleMarker(props) {
 }
 
 CircleMarker.propTypes = {
-    coord: PropTypes.object.isRequired,
+    coordinate: PropTypes.object.isRequired,
     size: PropTypes.number,
-    color: PropTypes.string.isRequired
+    color: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired
 };
 
 export default React.memo(CircleMarker);

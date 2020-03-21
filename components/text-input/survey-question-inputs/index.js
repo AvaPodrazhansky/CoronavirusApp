@@ -20,6 +20,4 @@ ReactNativeInput.propTypes = {
     value: PropTypes.any.isRequired
 };
 
-//TODO: Make Stylesheet
-
 export default ReactNativeInput;

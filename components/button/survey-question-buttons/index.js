@@ -2,7 +2,7 @@ import {Button} from 'react-native-elements'
 import React from "react";
 import PropTypes from "prop-types";
 
-const ReactNativeButton = ({title, actionFunction, buttonStyle, color}) => {
+const ReactNativeButton = ({title, actionFunction, buttonStyle}) => {
     return (
         <Button
             title={title}
@@ -17,7 +17,5 @@ ReactNativeButton.propTypes = {
     title: PropTypes.string.isRequired,
     buttonStyle: PropTypes.object.isRequired
 };
-
-//TODO: Make Stylesheet
 
 export default ReactNativeButton;

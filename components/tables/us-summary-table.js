@@ -1,12 +1,26 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Table, Row} from 'react-native-table-component';
-import {getCurrentCasesByStateData} from '../../selectors/dashboard/current-cases-by-state';
+import {
+    getCurrentCasesByStateData,
+    getIsFetchingCurrentCasesByState
+} from '../../selectors/dashboard/current-cases-by-state';
 import {fetchCurrentDataByState} from '../../actions/dashboard/current-cases-by-state';
 import connect from 'react-redux/lib/connect/connect';
 import colors from '../../constants/Colors';
 
-const StateTableSummary = ({data}) => {
+const StateTableSummary = ({data, getData, isFetching}) => {
+
+    React.useEffect(() => {
+        if(data.length === 0 && isFetching === false) getData();
+        // console.log(data)
+    }, []);
+
+    if(isFetching === true){
+        return (
+            <Text>Loading</Text>
+        )
+    }
 
     const tableHead = ['State', 'Confirmed', 'Deaths'];
 
@@ -43,7 +57,8 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = state => ({
-    data: getCurrentCasesByStateData(state)
+    data: getCurrentCasesByStateData(state),
+    isFetching: getIsFetchingCurrentCasesByState(state)
 });
 
 const mapDispatchToProps = dispatch => ({

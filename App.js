@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Platform, StatusBar, StyleSheet, View} from 'react-native';
 import {SplashScreen} from 'expo';
 import * as Font from 'expo-font';
-import {FontAwesome, Ionicons} from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -18,6 +18,8 @@ import useLinking from './navigation/useLinking';
 import {getConfirmedCases} from "./actions/summary-map/confirmed-cases";
 import thunk from "redux-thunk";
 import {getDailyData} from "./actions/summary-map/daily-data";
+import {fetchCurrentDataUS} from "./actions/dashboard/current-cases-us";
+import {fetchCurrentDataByState} from "./actions/dashboard/current-cases-by-state";
 
 const Stack = createStackNavigator();
 
@@ -43,17 +45,6 @@ export default function App(props) {
                     ...Ionicons.font,
                     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
                 });
-
-
-                // const hello = await fetch(
-                //     'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-11-2020.csv',
-                //     {
-                //         method: 'GET',
-                //     })
-                //     .then(res => res.text())
-                //     .then(res => console.log(res))
-                // await getConfirmedCases();
-                // await getDailyData();
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
                 console.warn(e);

@@ -49,7 +49,7 @@ function getHeaderTitle(route) {
 
     switch (routeName) {
         case 'Home':
-            return 'How to get started';
+            return 'COVID-19 Data';
         case 'Map':
             return 'COVID-19 World View';
         case 'SymptomSurvey':

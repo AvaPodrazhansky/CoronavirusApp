@@ -102,13 +102,15 @@ const InfectionMap = ({region, setRegion, data, getData, isFetching}) => {
             {/*    })*/}
             {/*}*/}
             {
-                data.map((item, index) => (
+                data.map((item, index) => {
+                    // if(item.latitude)
+                    return (
                     <CircleMarker key={index}
                                   coordinate={{latitude: item.latitude, longitude: item.longitude}}
                                   color={colors.CONFIRMED_TRANSPARENT}
                                   value={item.confirmed}
                     />
-                ))
+                )})
             }
         </MapView>
     );

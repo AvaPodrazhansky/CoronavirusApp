@@ -20,9 +20,6 @@ const SymptomSurveyScreen = ({}) => {
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <QuestionOneInput/>
                 <QuestionTwoCheckbox/>
-                <QuestionThreeCheckbox/>
-                <QuestionFourInput/>
-                <QuestionFiveCheckbox/>
                 <QuestionSixInput/>
                 <QuestionSevenCheckbox/>
                 <QuestionEightCheckbox/>

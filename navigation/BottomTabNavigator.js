@@ -4,6 +4,9 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import SymptomSurveyScreen from '../screens/SymptomSurveyScreen'
+import NewsScreen from "../screens/NewsScreen";
+import ChatScreen from "../screens/ChatScreen";
+import HealthCenterScreen from "../screens/HealthCenterScreen";
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -33,11 +36,35 @@ export default function BottomTabNavigator({navigation, route}) {
                 }}
             />
             <BottomTab.Screen
-                name="SymptomSurvey"
+                name="Self-Diagnosis"
                 component={SymptomSurveyScreen}
                 options={{
-                    title: 'Survey',
+                    title: 'Self-Diagnosis',
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-sad"/>,
+                }}
+            />
+            <BottomTab.Screen
+                name="Health Centers"
+                component={HealthCenterScreen}
+                options={{
+                    title: 'Health Centers',
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-pulse"/>,
+                }}
+            />
+            <BottomTab.Screen
+                name="News"
+                component={NewsScreen}
+                options={{
+                    title: 'News',
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-today"/>,
+                }}
+            />
+            <BottomTab.Screen
+                name="Chat"
+                component={ChatScreen}
+                options={{
+                    title: 'Chat',
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-chatboxes"/>,
                 }}
             />
         </BottomTab.Navigator>
@@ -52,7 +79,13 @@ function getHeaderTitle(route) {
             return 'COVID-19 Data';
         case 'Map':
             return 'COVID-19 World View';
-        case 'SymptomSurvey':
-            return 'Symptom Survey';
+        case 'Self-Diagnosis':
+            return 'COVID-19 Self-Diagnosis';
+        case 'Health Centers':
+            return 'National Health Centers';
+        case 'News':
+            return 'COVID-19 Latest News';
+        case 'Chat':
+            return 'COVID-19 Chatroom';
     }
 }

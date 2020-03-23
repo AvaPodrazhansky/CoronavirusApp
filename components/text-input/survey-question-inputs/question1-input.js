@@ -11,6 +11,7 @@ const QuestionOneInput = ({setLocation, location}) => {
     return (
         <Input
             title={QUESTION_ONE}
+            titleStyle={styles.firstQuestionInputText}
             actionFunction={e => setLocation(e.nativeEvent.text.trim())}
             value={location}
         />

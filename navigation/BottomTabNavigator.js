@@ -36,18 +36,18 @@ export default function BottomTabNavigator({navigation, route}) {
                 }}
             />
             <BottomTab.Screen
-                name="Self-Diagnosis"
+                name="Diagnosis"
                 component={SymptomSurveyScreen}
                 options={{
-                    title: 'Self-Diagnosis',
-                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-sad"/>,
+                    title: 'Diagnosis',
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-create"/>,
                 }}
             />
             <BottomTab.Screen
-                name="Health Centers"
+                name="Clinics"
                 component={HealthCenterScreen}
                 options={{
-                    title: 'Health Centers',
+                    title: 'Clinics',
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-pulse"/>,
                 }}
             />
@@ -79,9 +79,9 @@ function getHeaderTitle(route) {
             return 'COVID-19 Data';
         case 'Map':
             return 'COVID-19 World View';
-        case 'Self-Diagnosis':
+        case 'Diagnosis':
             return 'COVID-19 Self-Diagnosis';
-        case 'Health Centers':
+        case 'Clinics':
             return 'National Health Centers';
         case 'News':
             return 'COVID-19 Latest News';

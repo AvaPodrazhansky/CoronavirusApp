@@ -4,7 +4,8 @@ import React from 'react';
 import connect from 'react-redux/lib/connect/connect';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import colors from '../../constants/Colors';
-import {getNHCListData} from '../../selectors/national-health-center/nhc-list-retrieval';
+import {getNHCListData, isFetchingNHCListSelector} from '../../selectors/national-health-center/nhc-list-retrieval';
+import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
 
 const IconView = ({name, text}) => {
     return (
@@ -15,7 +16,19 @@ const IconView = ({name, text}) => {
     )
 };
 
-const NHCList = ({data}) => {
+const NHCList = ({isFetching, data, getData}) => {
+    React.useEffect(() => {
+        if (data.length === 0 && !isFetching){
+            getData();
+        }
+    }, []);
+
+    if(isFetching === true){
+        return (
+            <Text>Loading</Text>
+        )
+    }
+
     return (
         <View>
             {
@@ -62,9 +75,11 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     data: getNHCListData(state),
+    isFetching: isFetchingNHCListSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({
+    getData: () => dispatch(fetchNHCList())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NHCList);

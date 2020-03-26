@@ -1,4 +1,6 @@
 import {fetchGoogleData} from '../../constants/api';
+import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
+import {setRegion} from "../summary-map/map-regions";
 
 const REQUEST_NHC_LIST = 'REQUEST_NHC_LIST';
 const requestNHCList = () => {
@@ -24,19 +26,34 @@ const receiveNHCListError = error => {
 };
 
 function fetchNHCList() {
-    return async dispatch => {
+    return async (dispatch, getState) => {
 
+        const state = getState();
+        const userLocationData = getUserLocationData(state);
+
+        // TODO: Possibly change this to a 'nearbySearch' request
         const route = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
 
         const params = {
             query: 'National Health Centers',
-            location: '42.3675294,-71.186966',
+            // location: '42.3675294,-71.186966',
+            location: userLocationData.lat + ',' + userLocationData.lng
             // radius: '1000',
         };
 
         dispatch(requestNHCList());
         return await fetchGoogleData(route, params)
             .then(res => res.results)
+            .then(res => {
+                dispatch(setRegion({
+                    latitude: res[0].geometry.location.lat,
+                    longitude: res[0].geometry.location.lng,
+                    latitudeDelta: 0.1,
+                    longitudeDelta: 0.05,
+
+                }));
+                return res;
+            })
             .then(res => dispatch(receiveNHCListSuccess(res)))
             .catch(res => dispatch(receiveNHCListError(res)))
     }

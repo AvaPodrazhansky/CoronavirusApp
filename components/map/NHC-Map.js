@@ -5,9 +5,25 @@ import connect from "react-redux/lib/connect/connect";
 import {getRegion} from '../../selectors/summary-map/map-regions';
 import {Text, StyleSheet} from 'react-native';
 import {Marker} from 'react-native-maps';
-import {getNHCListData} from "../../selectors/national-health-center/nhc-list-retrieval";
+import {getNHCListData, isFetchingNHCListSelector} from "../../selectors/national-health-center/nhc-list-retrieval";
+import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
+import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
 
-const NHCMap = ({region, setRegion, data}) => {
+const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
+
+    React.useEffect(() => {
+        if (data.length === 0 && !isFetching) {
+            getData();
+        }
+    }, []);
+
+    if (isFetching === true) {
+        return (
+            <Text>Loading</Text>
+        )
+    }
+
+    // TODO: Add max zoom out
     return (
         <MapView
             provider={PROVIDER_GOOGLE}
@@ -45,11 +61,13 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     region: getRegion(state),
-    data: getNHCListData(state)
+    data: getNHCListData(state),
+    isFetching: isFetchingNHCListSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    setRegion: region => dispatch(setRegion(region))
+    setRegion: region => dispatch(setRegion(region)),
+    getData: () => dispatch(fetchNHCList())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NHCMap);

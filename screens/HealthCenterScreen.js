@@ -1,13 +1,17 @@
 import * as React from 'react';
-import {Button, Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import * as WebBrowser from 'expo-web-browser';
 import {connect} from "react-redux";
+import NHCMap from '../components/map/NHC-Map';
 
 const HealthCenterScreen = () => {
     return (
         <View style={styles.container}>
+            <View style={styles.mapContainer}>
+                <NHCMap/>
+            </View>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+
             </ScrollView>
         </View>
     );
@@ -21,6 +25,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    mapContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+        margin: 15,
+
     },
     contentContainer: {
         paddingTop: 30,

@@ -103,14 +103,19 @@ const InfectionMap = ({region, setRegion, data, getData, isFetching}) => {
             {/*}*/}
             {
                 data.map((item, index) => {
-                    // if(item.latitude)
-                    return (
-                    <CircleMarker key={index}
-                                  coordinate={{latitude: item.latitude, longitude: item.longitude}}
-                                  color={colors.CONFIRMED_TRANSPARENT}
-                                  value={item.confirmed}
-                    />
-                )})
+                        // if ((item.latitude < region.latitude + region.latitudeDelta && item.latitude > region.latitude - region.latitudeDelta) &&
+                        //     (item.longitude < region.longitude + region.longitudeDelta && item.longitude > region.longitude - region.longitudeDelta)) {
+                        //     console.log('here2')
+                            return (
+                                <CircleMarker key={index}
+                                              coordinate={{latitude: item.latitude, longitude: item.longitude}}
+                                              color={colors.CONFIRMED_TRANSPARENT}
+                                              value={item.confirmed}
+                                />
+                            )
+                        // }
+                    }
+                )
             }
         </MapView>
     );

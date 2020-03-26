@@ -3,9 +3,8 @@ import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {setRegion} from '../../actions/summary-map/map-regions';
 import connect from "react-redux/lib/connect/connect";
 import {getRegion} from '../../selectors/summary-map/map-regions';
-import { Text, StyleSheet } from 'react-native';
-import { Dimensions } from "react-native";
-import myMapStyle from './map-styles';
+import {Text, StyleSheet} from 'react-native';
+import {Marker} from 'react-native-maps';
 
 const NHCMap = ({region, setRegion}) => {
     // getConfirmedCases();
@@ -16,7 +15,20 @@ const NHCMap = ({region, setRegion}) => {
             onRegionChange={setRegion}
             style={styles.mapStyle}
             // customMapStyle={myMapStyle}
-        />
+        >
+            <Marker coordinate={{
+                latitude: 37.78833,
+                longitude: -122.4324
+            }}/>
+            <Marker coordinate={{
+                latitude: 38.78542,
+                longitude: -122.4335
+            }}/>
+            <Marker coordinate={{
+                latitude: 38.5555,
+                longitude: -121.4324
+            }}/>
+        </MapView>
     );
 
 };

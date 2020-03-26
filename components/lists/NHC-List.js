@@ -2,10 +2,9 @@ import {ListItem} from 'react-native-elements';
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import connect from 'react-redux/lib/connect/connect';
-import {getCurrentCasesByStateData} from '../../selectors/dashboard/current-cases-by-state';
-import {fetchCurrentDataByState} from '../../actions/dashboard/current-cases-by-state';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import colors from '../../constants/Colors';
+import {getNHCListData} from '../../selectors/national-health-center/nhc-list-retrieval';
 
 const IconView = ({name, text}) => {
     return (
@@ -16,18 +15,15 @@ const IconView = ({name, text}) => {
     )
 };
 
-const NHCList = ({data, getData}) => {
-    React.useEffect(() => {
-        if (data.length === 0) getData();
-    }, [])
+const NHCList = ({data}) => {
     return (
         <View>
             {
                 data.map((item, i) => (
                     <ListItem
                         key={i}
-                        title={'National Health Center: ' + i}
-                        subtitle={'Address\nPhone'}
+                        title={item.name}
+                        subtitle={item.formatted_address}
                         rightIcon={
                             <View style={styles.iconList}>
                                 <IconView name={'phone'} text={'Call'}/>
@@ -40,7 +36,6 @@ const NHCList = ({data, getData}) => {
                     />
                 ))
             }
-            {}
         </View>
     );
 };
@@ -66,11 +61,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    data: getCurrentCasesByStateData(state)
+    data: getNHCListData(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch(fetchCurrentDataByState())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NHCList);

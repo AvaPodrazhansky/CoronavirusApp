@@ -1,12 +1,27 @@
 import * as React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
 import NHCMap from '../components/map/NHC-Map';
 import { Dimensions } from "react-native";
 import NHCList from '../components/lists/NHC-List';
+import {getNHCListData, isFetchingNHCListSelector} from "../selectors/national-health-center/nhc-list-retrieval";
+import {fetchNHCList} from "../actions/national-health-center/nhc-list-retrieval";
 
-const HealthCenterScreen = () => {
+const HealthCenterScreen = ({isFetching, data, getData}) => {
+
+    React.useEffect(() => {
+        if (data.length === 0 && !isFetching){
+            getData();
+        }
+    }, []);
+
+    if(isFetching === true){
+        return (
+            <Text>Loading</Text>
+        )
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.mapContainer}>
@@ -42,8 +57,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    data: getNHCListData(state),
+    isFetching: isFetchingNHCListSelector(state)
+});
 
-const mapDispatchToProps = (dispatch, props) => ({});
+const mapDispatchToProps = dispatch => ({
+    getData: () => dispatch(fetchNHCList())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HealthCenterScreen);

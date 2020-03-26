@@ -31,7 +31,7 @@ function fetchNHCList() {
         const params = {
             query: 'National Health Centers',
             location: '42.3675294,-71.186966',
-            radius: '1000',
+            // radius: '1000',
         };
 
         dispatch(requestNHCList());

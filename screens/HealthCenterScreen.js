@@ -27,7 +27,7 @@ const HealthCenterScreen = ({isFetching, data, getData}) => {
             <View style={styles.mapContainer}>
                 <NHCMap/>
             </View>
-            <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <ScrollView style={styles.container}>
                 <NHCList/>
             </ScrollView>
         </View>
@@ -48,13 +48,10 @@ const styles = StyleSheet.create({
         // flex: 1,
         height: Dimensions.get('window').height * .3,
         backgroundColor: '#fff',
-        margin: 15,
-        marginBottom: 5
+        // margin: 10,
+        // marginBottom: 5
 
-    },
-    contentContainer: {
-        paddingTop: 30,
-    },
+    }
 });
 
 const mapStateToProps = state => ({

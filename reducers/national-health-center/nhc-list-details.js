@@ -6,7 +6,7 @@ import {
 
 const defaultState = {
     isFetching: false,
-    data: {},
+    data: [],
     errorMessage: null
 };
 
@@ -15,7 +15,7 @@ const NHCListDetails = (state = defaultState, action) => {
         case REQUEST_NHC_DETAILS:
             return {
                 isFetching: true,
-                data: {},
+                data: [],
                 errorMessage: null
             };
         case RECEIVE_NHC_DETAILS_SUCCESS:

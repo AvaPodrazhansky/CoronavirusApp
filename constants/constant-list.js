@@ -93,3 +93,7 @@ export const questionEightAnswerArray = [
 
 // Survey Submit Button
 export const SUBMIT_BUTTON_TEXT = 'Submit';
+
+// Diagnosis Results Screen
+
+// Methods

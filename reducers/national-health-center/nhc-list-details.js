@@ -22,10 +22,6 @@ const NHCListDetails = (state = defaultState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                // data: {
-                //     ...state.data,
-                //     [action.payload.place_id]: action.payload
-                // },
                 data: action.payload
             };
         case RECEIVE_NHC_DETAILS_ERROR:

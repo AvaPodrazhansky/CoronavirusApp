@@ -34,7 +34,7 @@ const NHCList = ({isFetching, data, userLocation, isFetchingDetails, getDataDeta
                 {
                     detailData.map((item, i) => <NHCListItem key={i}
                                                              title={item.name}
-                                                             address={item.vicinity}
+                                                             address={_formatAddress(data[i].formatted_address)}
                                                              phoneNumber={item.formatted_phone_number}
                                                              website={item.url}/>)
                 }

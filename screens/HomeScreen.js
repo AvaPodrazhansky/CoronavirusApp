@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import CaseSummary from '../components/case-summary';
 // import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
 // import CaseByStatePieChart from '../components/charts/case-by-state-pie-chart';
-import StateList from '../components/lists/state-list';
+import StateList from '../components/lists/State-List';
 import StateTableSummary from '../components/tables/us-summary-table'
 
 //TODO: Change view with survey page button. It hides content at the bottom of the scroll view
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    toSurvey: () => props.navigation.navigate('SymptomSurvey')
+    toSurvey: () => props.navigation.navigate('Diagnosis')
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

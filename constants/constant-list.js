@@ -95,5 +95,29 @@ export const questionEightAnswerArray = [
 export const SUBMIT_BUTTON_TEXT = 'Submit';
 
 // Diagnosis Results Screen
+// Results Summary
+export const COVID_CONFIRMED = 'It is recommended that you visit your doctor as soon as possible to verify the ' +
+    'presence of COVID-19. If your doctor instructs you to go to the emergency room, please wear mask to reduce the ' +
+    'general rate of COVID-19 infection.';
+export const NOT_INFECTED = 'You do not seem to have the typical expected symptoms of severe COVID-19 infection. ' +
+    'However, individuals with mild or no symptoms are able to have and spread the coronavirus';
+export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social distancing.';
+export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your closest ' +
+    'medical facility.';
 
-// Methods
+// Ways to Protect Yourself from COVID-19
+export const PROTECTION_METHOD_ONE = 'Remain at home if you can unless you need to go to a medical facility.';
+export const PROTECTION_METHOD_TWO = 'Do not have close contact with other people.';
+export const PROTECTION_METHOD_THREE = 'Wash your hands in a thorough manner for at least 30 seconds.';
+export const PROTECTION_METHOD_FOUR = 'Avoid placing your hands on your face.';
+export const PROTECTION_METHOD_FIVE = 'Cover your nose and mouth when you cough and sneeze.';
+export const PROTECTION_METHOD_SIX = 'Do not use a tissue more than once. Properly dispose of tissues after using ' +
+    'them.';
+export const PROTECTION_METHOD_SEVEN = 'Wear a medical mask if you are tending to someone who is sick.';
+export const PROTECTION_METHOD_EIGHT = 'Regularly clean common surfaces by using sanitation products.';
+
+// National Health Center Screen
+export const NHC_RESULT_LENGTH = 7;
+export const MILES_ABBREVIATION = 'Mi';
+export const OPEN_NOW = 'Open Now';
+export const CLOSED = 'Closed';

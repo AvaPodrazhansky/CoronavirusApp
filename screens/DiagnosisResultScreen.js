@@ -1,13 +1,17 @@
 import * as React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Button, Platform, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
 
-const DiagnosisResultScreen = ({}) => {
+const DiagnosisResultScreen = ({toSurvey}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             </ScrollView>
+            <View style={styles.tabBarInfoContainer}>
+                <Text style={styles.tabBarInfoText}>Self Diagnosis Survey:</Text>
+                <Button title={'Restart the Survey?'} onPress={toSurvey}/>
+            </View>
         </View>
     );
 };
@@ -24,10 +28,40 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
+    tabBarInfoContainer: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        ...Platform.select({
+            ios: {
+                shadowColor: 'black',
+                shadowOffset: {width: 0, height: -3},
+                shadowOpacity: 0.1,
+                shadowRadius: 3,
+            },
+            android: {
+                elevation: 20,
+            },
+        }),
+        alignItems: 'center',
+        backgroundColor: '#fbfbfb',
+        paddingVertical: 20,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+    tabBarInfoText: {
+        fontSize: 17,
+        color: 'rgba(96,100,109, 1)',
+        textAlign: 'center',
+    },
 });
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    // toSurvey: () => props.navigation.navigate('SymptomSurvey')
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiagnosisResultScreen);

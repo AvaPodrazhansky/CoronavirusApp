@@ -1,7 +1,8 @@
 function submitSurvey() {
     return (dispatch, getState) => {
         const state = getState();
-        console.log(state);
+        // console.log(Object.keys(state));
+        // console.log(state.symptomSurvey)
     };
 }
 

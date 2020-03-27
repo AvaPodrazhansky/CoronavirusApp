@@ -8,6 +8,7 @@ import {isFetchingNHCListSelector} from '../../selectors/national-health-center/
 import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
 import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
 import {MILES_ABBREVIATION} from "../../constants/constant-list";
+import Spinner from '../loading';
 
 const IconView = ({name, text}) => {
     return (
@@ -19,11 +20,11 @@ const IconView = ({name, text}) => {
 };
 
 
-const NHCList = ({isFetching, data, getData, userLocation}) => {
+const NHCList = ({isFetching, data, userLocation}) => {
 
     if (isFetching === true) {
         return (
-            <Text>Loading</Text>
+            <Spinner/>
         )
     }
 

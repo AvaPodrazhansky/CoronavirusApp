@@ -8,6 +8,7 @@ import NHCList from '../components/lists/NHC-List';
 import {getNHCListData, isFetchingNHCListSelector} from "../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../actions/national-health-center/nhc-list-retrieval";
 import {NHC_RESULT_LENGTH} from "../constants/constant-list";
+import Spinner from "../components/loading";
 
 const HealthCenterScreen = ({isFetching, data, getData}) => {
 
@@ -19,7 +20,7 @@ const HealthCenterScreen = ({isFetching, data, getData}) => {
 
     if(isFetching === true){
         return (
-            <Text>Loading</Text>
+            <Spinner/>
         )
     }
 

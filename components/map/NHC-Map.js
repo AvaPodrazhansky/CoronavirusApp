@@ -7,18 +7,19 @@ import {Text, StyleSheet} from 'react-native';
 import {Marker} from 'react-native-maps';
 import {getNHCListData, isFetchingNHCListSelector} from "../../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
+import Spinner from '../loading';
 
 const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
 
-    React.useEffect(() => {
-        if (data.length === 0 && !isFetching) {
-            getData();
-        }
-    }, []);
+    // React.useEffect(() => {
+    //     if (data.length === 0 && !isFetching) {
+    //         getData();
+    //     }
+    // }, []);
 
     if (isFetching === true) {
         return (
-            <Text>Loading</Text>
+            <Spinner/>
         )
     }
 

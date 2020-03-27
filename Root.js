@@ -36,8 +36,8 @@ const Root = ({
             // let location = await Location.watchPositionAsync();
             receiveUserLocationSuccess({
                 ...location,
-                lat: location.latitude,
-                lng: location.longitude
+                lat: location.coords.latitude,
+                lng: location.coords.longitude
             });
         };
 

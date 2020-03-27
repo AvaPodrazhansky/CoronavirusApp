@@ -20,11 +20,6 @@ const IconView = ({name, text}) => {
 
 
 const NHCList = ({isFetching, data, getData, userLocation}) => {
-    React.useEffect(() => {
-        if (data.length === 0 && !isFetching) {
-            getData();
-        }
-    }, []);
 
     if (isFetching === true) {
         return (
@@ -115,7 +110,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch(fetchNHCList())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NHCList);

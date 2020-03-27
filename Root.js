@@ -14,6 +14,7 @@ import {
     receiveUserLocationSuccess,
     requestUserLocation
 } from "./actions/user/user-location-retrieval";
+import Spinner from './components/loading';
 
 const Stack = createStackNavigator();
 
@@ -54,9 +55,7 @@ const Root = ({
     if (isFetching === true) {
         // return <Text>Loading Location</Text>
         return (
-            <View style={styles.loadingView}>
-                <ActivityIndicator size="large" color="#0000ff"/>
-            </View>
+            <Spinner/>
         )
     }
 
@@ -76,11 +75,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-    },
-    loadingView: {
-        justifyContent: "space-around",
-        padding: 10,
-        flex: 1,
     }
 });
 

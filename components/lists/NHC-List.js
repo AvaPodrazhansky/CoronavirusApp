@@ -5,9 +5,8 @@ import connect from 'react-redux/lib/connect/connect';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import colors from '../../constants/Colors';
 import {isFetchingNHCListSelector} from '../../selectors/national-health-center/nhc-list-retrieval';
-import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
 import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
-import {MILES_ABBREVIATION} from "../../constants/constant-list";
+import {CLOSED, MILES_ABBREVIATION, OPEN_NOW} from '../../constants/constant-list';
 import Spinner from '../loading';
 
 const IconView = ({name, text}) => {
@@ -59,7 +58,12 @@ const NHCList = ({isFetching, data, userLocation}) => {
         }
     }
 
+    function _formatAddress(address){
+        let result = address.split(",");
+        return result[0]
+    }
 
+// TODO: Change vicinity to something else
     return (
         <View>
             {
@@ -67,8 +71,11 @@ const NHCList = ({isFetching, data, userLocation}) => {
                     <ListItem
                         key={i}
                         title={item.name}
-                        subtitle={item.vicinity + '\n' +
-                        _distance(item.geometry.location.lat, item.geometry.location.lng) + ' ' + MILES_ABBREVIATION}
+                        subtitle={_formatAddress(item.formatted_address)
+                        + '\n' +
+                        (item.open_now ? OPEN_NOW : CLOSED)
+                        // _distance(item.geometry.location.lat, item.geometry.location.lng) + ' ' + MILES_ABBREVIATION
+                        }
                         rightIcon={
                             <View style={styles.iconList}>
                                 <IconView name={'phone'} text={'Call'}/>

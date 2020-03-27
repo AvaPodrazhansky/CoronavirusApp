@@ -97,3 +97,5 @@ export const SUBMIT_BUTTON_TEXT = 'Submit';
 // National Health Center Screen
 export const NHC_RESULT_LENGTH = 7;
 export const MILES_ABBREVIATION = 'Mi';
+export const OPEN_NOW = 'Open Now';
+export const CLOSED = 'Closed';

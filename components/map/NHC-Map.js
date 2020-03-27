@@ -7,7 +7,6 @@ import {Text, StyleSheet} from 'react-native';
 import {Marker} from 'react-native-maps';
 import {getNHCListData, isFetchingNHCListSelector} from "../../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
-import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
 
 const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
 
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     region: getRegion(state),
-    data: getNHCListData(state),
     isFetching: isFetchingNHCListSelector(state)
 });
 

@@ -25,19 +25,11 @@ const receiveUserLocationError = error => {
 };
 
 function fetchUserLocation() {
-    return async (dispatch, getState) => {
+    return async dispatch => {
 
-        const state = getState();
-        const userLocationData = getUserLocationData(state);
+        const route = '';
 
-        const route = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
-
-        const params = {
-            query: 'National Health Centers',
-            // location: '42.3675294,-71.186966',
-            location: userLocationData.lat + ',' + userLocationData.lng
-            // radius: '1000',
-        };
+        const params = {};
 
         dispatch(requestUserLocation());
         return await fetchGoogleData(route, params)

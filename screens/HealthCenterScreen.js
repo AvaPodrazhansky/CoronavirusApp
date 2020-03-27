@@ -7,6 +7,7 @@ import { Dimensions } from "react-native";
 import NHCList from '../components/lists/NHC-List';
 import {getNHCListData, isFetchingNHCListSelector} from "../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../actions/national-health-center/nhc-list-retrieval";
+import {NHC_RESULT_LENGTH} from "../constants/constant-list";
 
 const HealthCenterScreen = ({isFetching, data, getData}) => {
 
@@ -25,10 +26,10 @@ const HealthCenterScreen = ({isFetching, data, getData}) => {
     return (
         <View style={styles.container}>
             <View style={styles.mapContainer}>
-                <NHCMap/>
+                <NHCMap data={data}/>
             </View>
             <ScrollView style={styles.container}>
-                <NHCList/>
+                <NHCList data={data}/>
             </ScrollView>
         </View>
     );
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    data: getNHCListData(state),
+    data: getNHCListData(state).slice(0,NHC_RESULT_LENGTH),
     isFetching: isFetchingNHCListSelector(state)
 });
 

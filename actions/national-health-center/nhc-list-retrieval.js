@@ -31,15 +31,14 @@ function fetchNHCList() {
         const state = getState();
         const userLocationData = getUserLocationData(state);
 
-        // TODO: Possibly change this to a 'nearbySearch' request
-        const route = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
+        const route = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
 
         const params = {
             query: 'National Health Centers',
-            // location: '42.3675294,-71.186966',
-            location: userLocationData.lat + ',' + userLocationData.lng
-            // radius: '1000',
+            location: userLocationData.lat + ',' + userLocationData.lng,
+            radius: '1000'
         };
+        console.log(params)
 
         dispatch(requestNHCList());
         return await fetchGoogleData(route, params)

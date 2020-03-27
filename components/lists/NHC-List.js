@@ -4,8 +4,9 @@ import React from 'react';
 import connect from 'react-redux/lib/connect/connect';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import colors from '../../constants/Colors';
-import {getNHCListData, isFetchingNHCListSelector} from '../../selectors/national-health-center/nhc-list-retrieval';
+import {isFetchingNHCListSelector} from '../../selectors/national-health-center/nhc-list-retrieval';
 import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
+import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
 
 const IconView = ({name, text}) => {
     return (
@@ -16,18 +17,51 @@ const IconView = ({name, text}) => {
     )
 };
 
-const NHCList = ({isFetching, data, getData}) => {
+
+const NHCList = ({isFetching, data, getData, userLocation}) => {
     React.useEffect(() => {
-        if (data.length === 0 && !isFetching){
+        if (data.length === 0 && !isFetching) {
             getData();
         }
     }, []);
 
-    if(isFetching === true){
+    if (isFetching === true) {
         return (
             <Text>Loading</Text>
         )
     }
+
+
+    const lat1 = userLocation.lat;
+    const lon1 = userLocation.lng;
+
+    //TODO: Fix this
+    function _distance(lat2, lon2, unit) {
+        if ((lat1 === lat2) && (lon1 === lon2)) {
+            return 0;
+        } else {
+            let radlat1 = Math.PI * lat1 / 180;
+            let radlat2 = Math.PI * lat2 / 180;
+            let theta = lon1 - lon2;
+            let radtheta = Math.PI * theta / 180;
+            let dist = Math.sin(radlat1) * Math.sin(radlat2) +
+                Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist);
+            dist = dist * 180 / Math.PI;
+            dist = dist * 60 * 1.1515;
+            if (unit == "K") {
+                dist = dist * 1.609344
+            }
+            if (unit == "N") {
+                dist = dist * 0.8684
+            }
+            return (dist).toFixed(2);
+        }
+    }
+
 
     return (
         <View>
@@ -36,7 +70,8 @@ const NHCList = ({isFetching, data, getData}) => {
                     <ListItem
                         key={i}
                         title={item.name}
-                        subtitle={item.formatted_address}
+                        subtitle={item.vicinity + '\n' +
+                        _distance(item.geometry.location.lat, item.geometry.location.lng) + " Mi"}
                         rightIcon={
                             <View style={styles.iconList}>
                                 <IconView name={'phone'} text={'Call'}/>
@@ -74,8 +109,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    data: getNHCListData(state),
-    isFetching: isFetchingNHCListSelector(state)
+    isFetching: isFetchingNHCListSelector(state),
+    userLocation: getUserLocationData(state)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -93,3 +93,6 @@ export const questionEightAnswerArray = [
 
 // Survey Submit Button
 export const SUBMIT_BUTTON_TEXT = 'Submit';
+
+// National Health Center Screen
+export const NHC_RESULT_LENGTH = 7;

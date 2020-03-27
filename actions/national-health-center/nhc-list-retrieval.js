@@ -25,6 +25,18 @@ const receiveNHCListError = error => {
     }
 };
 
+async function fetchPlaceData(item) {
+    return await fetchGoogleData('https://maps.googleapis.com/maps/api/place/details/json?', {place_id: item.id})
+        .then(res => res.result)
+        .then(res => (
+            {
+                ...item,
+                phone: res.formatted_phone_number,
+                url: res.url
+            }
+        ))
+}
+
 function fetchNHCList() {
     return async (dispatch, getState) => {
 
@@ -44,6 +56,11 @@ function fetchNHCList() {
         // TODO: Add catch if result length is 0
         return await fetchGoogleData(route, params)
             .then(res => res.results)
+            // .then(res => res.map(async(item) => await fetchPlaceData(item)))
+            // .then(res => {
+            //     console.log(res)
+            //     return res;
+            // })
             .then(res => {
                 // TODO: Set deltas to be relative to results
                 dispatch(setRegion({

@@ -38,12 +38,14 @@ function fetchNHCList() {
             location: userLocationData.lat + ',' + userLocationData.lng,
             radius: '1000'
         };
-        console.log(params)
 
         dispatch(requestNHCList());
+
+        // TODO: Add catch if result length is 0
         return await fetchGoogleData(route, params)
             .then(res => res.results)
             .then(res => {
+                // TODO: Set deltas to be relative to results
                 dispatch(setRegion({
                     latitude: res[0].geometry.location.lat,
                     longitude: res[0].geometry.location.lng,

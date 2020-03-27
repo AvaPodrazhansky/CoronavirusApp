@@ -101,6 +101,8 @@ export const COVID_CONFIRMED = 'It is recommended that you visit your doctor as 
     'general rate of COVID-19 infection.';
 export const NOT_INFECTED = 'You do not seem to have the typical expected symptoms of severe COVID-19 infection. ' +
     'However, individuals with mild or no symptoms are able to have and spread the coronavirus';
+
+// Ways to Protect Yourself (Result Summary)
 export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social distancing.';
 export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your closest ' +
     'medical facility.';

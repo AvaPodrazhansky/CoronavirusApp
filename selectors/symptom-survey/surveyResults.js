@@ -1,5 +1,5 @@
-const getLocation = state => state.symptomSurvey.question1.location;
+const getIsShowingResultsScreen = state => state.symptomSurvey.surveyResults.showResultScreen;
 
 export {
-    getLocation
+    getIsShowingResultsScreen
 };

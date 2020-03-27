@@ -5,26 +5,28 @@ import * as Font from 'expo-font';
 import {Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import {createStore, applyMiddleware} from 'redux';
 import {Provider, connect} from 'react-redux';
-import axios from 'axios';
-import axiosMiddleware from 'redux-axios-middleware';
-
 import allReducers from './reducers';
-
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import {getConfirmedCases} from "./actions/summary-map/confirmed-cases";
-import thunk from "redux-thunk";
-import {fetchCurrentDataUS} from "./actions/dashboard/current-cases-us";
-import {fetchCurrentDataByState} from "./actions/dashboard/current-cases-by-state";
+import thunk, {ThunkDispatch} from "redux-thunk";
+// import {isFetchingNHCListSelector} from "./selectors/national-health-center/nhc-list-retrieval";
+// import {getUserLocationData} from "./selectors/user/user-location-retrieval";
+// import {fetchNHCList} from "./actions/national-health-center/nhc-list-retrieval";
+// import {
+//     receiveUserLocationError,
+//     receiveUserLocationSuccess,
+//     requestUserLocation
+// } from "./actions/user/user-location-retrieval";
+import * as Location from 'expo-location';
+import Root from "./Root";
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
 const store = createStore(allReducers, applyMiddleware(thunk));
 
-export default function App(props) {
+export default function App(props){
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);
     const [initialNavigationState, setInitialNavigationState] = React.useState();
     const containerRef = React.useRef();
@@ -32,6 +34,17 @@ export default function App(props) {
 
     // Load any resources or data that we need prior to rendering the app
     React.useEffect(() => {
+
+        // async function getLocationAsync() {
+        //     // permissions returns only for location permissions on iOS and under certain conditions, see Permissions.LOCATION
+        //     const { status, permissions } = await Permissions.askAsync(Permissions.LOCATION);
+        //     if (status === 'granted') {
+        //         return Location.getCurrentPositionAsync({ enableHighAccuracy: true });
+        //     } else {
+        //         throw new Error('Location permission not granted');
+        //     }
+        // }
+
         async function loadResourcesAndDataAsync() {
             try {
                 SplashScreen.preventAutoHide();
@@ -45,6 +58,9 @@ export default function App(props) {
                     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
                     ...MaterialCommunityIcons.font
                 });
+
+                // await getLocationAsync();
+
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
                 console.warn(e);
@@ -62,14 +78,15 @@ export default function App(props) {
     } else {
         return (
             <Provider store={store}>
-                <View style={styles.container}>
-                    {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-                    <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-                        <Stack.Navigator>
-                            <Stack.Screen name="Root" component={BottomTabNavigator}/>
-                        </Stack.Navigator>
-                    </NavigationContainer>
-                </View>
+                {/*<View style={styles.container}>*/}
+                {/*    {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}*/}
+                {/*    <NavigationContainer ref={containerRef} initialState={initialNavigationState}>*/}
+                {/*        <Stack.Navigator>*/}
+                {/*            <Stack.Screen name="Root" component={BottomTabNavigator}/>*/}
+                {/*        </Stack.Navigator>*/}
+                {/*    </NavigationContainer>*/}
+                {/*</View>*/}
+                <Root initialNavigationState={initialNavigationState} containerRef={containerRef}/>
             </Provider>
         );
     }
@@ -81,3 +98,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
 });
+
+// const mapStateToProps = (state=allReducers) => ({
+//
+// });
+//
+// const mapDispatchToProps = dispatch => ({
+//     requestUserLocation: () => dispatch(requestUserLocation()),
+//     receiveUserLocationSuccess: location => dispatch(receiveUserLocationSuccess(location)),
+//     receiveUserLocationError: error => dispatch(receiveUserLocationError(error))
+// });
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(App);

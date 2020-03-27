@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-    // toSurvey: () => props.navigation.navigate('SymptomSurvey')
+    toSurvey: () => console.log('to survey')
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiagnosisResultScreen);

@@ -24,6 +24,7 @@ const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
     }
 
     // TODO: Add max zoom out
+    // TODO: Lock map so user doesnt accidentally scroll somewhere crazy
     return (
         <MapView
             provider={PROVIDER_GOOGLE}

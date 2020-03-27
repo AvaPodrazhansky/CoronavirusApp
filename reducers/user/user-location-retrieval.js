@@ -22,14 +22,12 @@ const userLocationRetrieval = (state = defaultState, action) => {
                 errorMessage: null
             };
         case RECEIVE_USER_LOCATION_SUCCESS:
-            console.log(action.payload)
             return {
                 ...state,
                 isFetching: false,
                 data: action.payload,
             };
         case RECEIVE_USER_LOCATION_ERROR:
-            console.log('Error: ' + action.payload)
             return {
                 ...state,
                 isFetching: false,

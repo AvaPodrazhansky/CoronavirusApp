@@ -31,7 +31,7 @@ function fetchNHCList() {
         const state = getState();
         const userLocationData = getUserLocationData(state);
 
-        const route = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
+        const route = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
 
         const params = {
             query: 'National Health Centers',

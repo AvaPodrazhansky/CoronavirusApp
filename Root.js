@@ -1,26 +1,24 @@
-import {ListItem} from 'react-native-elements';
-import {ActivityIndicator, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Platform, StatusBar, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavigationContainer} from "@react-navigation/native";
-import BottomTabNavigator from "./navigation/BottomTabNavigator";
-import {createStackNavigator} from "@react-navigation/stack";
-import * as Constants from "expo-constants";
+import {NavigationContainer} from '@react-navigation/native';
+import BottomTabNavigator from './navigation/BottomTabNavigator';
+import {createStackNavigator} from '@react-navigation/stack';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import {getUserLocationData, isFetchingUserLocationSelector} from "./selectors/user/user-location-retrieval";
+import {isFetchingUserLocationSelector} from './selectors/user/user-location-retrieval';
 import {
     receiveUserLocationError,
     receiveUserLocationSuccess,
     requestUserLocation
-} from "./actions/user/user-location-retrieval";
+} from './actions/user/user-location-retrieval';
 import Spinner from './components/loading';
 
 const Stack = createStackNavigator();
 
 const Root = ({
-                  containerRef, initialNavigationState,
-                  userLocation, requestUserLocation, receiveUserLocationSuccess, receiveUserLocationError, isFetching
+                  containerRef, initialNavigationState, requestUserLocation, receiveUserLocationSuccess,
+                  receiveUserLocationError, isFetching
               }) => {
     React.useEffect(() => {
 
@@ -41,19 +39,11 @@ const Root = ({
             });
         };
 
-        // if (Platform.OS === 'android' && !Constants.isDevice) {
-        //     // this.setState({
-        //     //     errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
-        //     // });
-        //     receiveUserLocationError('Oops, this will not work on Sketch in an Android emulator. Try it on your device!')
-        // } else {
         _getLocationAsync();
-        // }
 
     }, []);
 
     if (isFetching === true) {
-        // return <Text>Loading Location</Text>
         return (
             <Spinner/>
         )
@@ -80,7 +70,6 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = state => ({
-    userLocation: getUserLocationData(state),
     isFetching: isFetchingUserLocationSelector(state)
 });
 

@@ -30,7 +30,7 @@ const NHCListItem = ({title, address, phoneNumber, website, openHours}) => {
                 <View style={styles.iconList}>
                     <IconView name={'phone'} text={'Call'}
                               onIconPress={() => Linking.openURL(`tel:${phoneNumber}`)}/>
-                    <IconView name={'web'} text={'Website'}
+                    <IconView name={'directions'} text={'Directions'}
                               onIconPress={() => Linking.openURL(website)}/>
                 </View>
             }

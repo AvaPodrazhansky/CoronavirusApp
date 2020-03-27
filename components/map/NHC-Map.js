@@ -8,6 +8,7 @@ import {Marker} from 'react-native-maps';
 import {getNHCListData, isFetchingNHCListSelector} from "../../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
 import Spinner from '../loading';
+import colors from '../../constants/Colors';
 
 const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
 
@@ -56,7 +57,8 @@ const styles = StyleSheet.create({
     mapStyle: {
         flex: 1,
         borderRadius: 10,
-        borderWidth: 1
+        borderWidth: 1,
+        borderColor: colors.WHITE
     },
 });
 

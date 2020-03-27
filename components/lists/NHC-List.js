@@ -7,6 +7,7 @@ import colors from '../../constants/Colors';
 import {isFetchingNHCListSelector} from '../../selectors/national-health-center/nhc-list-retrieval';
 import {fetchNHCList} from "../../actions/national-health-center/nhc-list-retrieval";
 import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
+import {MILES_ABBREVIATION} from "../../constants/constant-list";
 
 const IconView = ({name, text}) => {
     return (
@@ -71,7 +72,7 @@ const NHCList = ({isFetching, data, getData, userLocation}) => {
                         key={i}
                         title={item.name}
                         subtitle={item.vicinity + '\n' +
-                        _distance(item.geometry.location.lat, item.geometry.location.lng) + " Mi"}
+                        _distance(item.geometry.location.lat, item.geometry.location.lng) + ' ' + MILES_ABBREVIATION}
                         rightIcon={
                             <View style={styles.iconList}>
                                 <IconView name={'phone'} text={'Call'}/>

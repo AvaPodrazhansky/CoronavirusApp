@@ -1,6 +1,4 @@
-import {
-    SET_LOCATION
-} from "../../actions/symptom-survey/question1";
+import {SET_LOCATION} from "../../actions/symptom-survey/question1";
 import {RESET_SURVEY} from "../../actions/symptom-survey/submit-survey";
 
 const defaultState = {

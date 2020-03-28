@@ -1,18 +1,49 @@
 import * as React from 'react';
-import {Button, Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
-import {resetSurvey} from "../../actions/symptom-survey/submit-survey";
+import ResetButton from "../../components/button/survey-question-buttons/reset-button";
+import {
+    COVID_CONFIRMED,
+    COVID_CONFIRMED_BANNER,
+    NEED_EMERGENCY_CARE,
+    NOT_INFECTED,
+    NOT_INFECTED_BANNER,
+    PROTECTION_METHOD_EIGHT,
+    PROTECTION_METHOD_FIVE,
+    PROTECTION_METHOD_FOUR,
+    PROTECTION_METHOD_ONE,
+    PROTECTION_METHOD_SEVEN,
+    PROTECTION_METHOD_SIX,
+    PROTECTION_METHOD_THREE,
+    PROTECTION_METHOD_TWO,
+    SOCIAL_DISTANCING
+} from "../../constants/constant-list";
+import {getDiagnosis} from "../../selectors/symptom-survey/surveyResults";
+import PropTypes from "prop-types";
 
-const DiagnosisResultScreen = ({resetSurvey}) => {
+const DiagnosisResultScreen = ({diagnosis}) => {
+
+    const diagnosisBanner = diagnosis ? COVID_CONFIRMED_BANNER : NOT_INFECTED_BANNER;
+    const diagnosisMessage = diagnosis ? COVID_CONFIRMED : NOT_INFECTED;
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                <Text>{diagnosisBanner}</Text>
+                <Text>{diagnosisMessage}</Text>
+                <Text>{SOCIAL_DISTANCING}</Text>
+                <Text>{NEED_EMERGENCY_CARE}</Text>
+                <Text>{PROTECTION_METHOD_ONE}</Text>
+                <Text>{PROTECTION_METHOD_TWO}</Text>
+                <Text>{PROTECTION_METHOD_THREE}</Text>
+                <Text>{PROTECTION_METHOD_FOUR}</Text>
+                <Text>{PROTECTION_METHOD_FIVE}</Text>
+                <Text>{PROTECTION_METHOD_SIX}</Text>
+                <Text>{PROTECTION_METHOD_SEVEN}</Text>
+                <Text>{PROTECTION_METHOD_EIGHT}</Text>
+                <ResetButton/>
             </ScrollView>
-            <View style={styles.tabBarInfoContainer}>
-                <Text style={styles.tabBarInfoText}>Self Diagnosis Survey:</Text>
-                <Button title={'Restart the Survey?'} onPress={resetSurvey}/>
-            </View>
         </View>
     );
 };
@@ -29,40 +60,16 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
-    tabBarInfoContainer: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        ...Platform.select({
-            ios: {
-                shadowColor: 'black',
-                shadowOffset: {width: 0, height: -3},
-                shadowOpacity: 0.1,
-                shadowRadius: 3,
-            },
-            android: {
-                elevation: 20,
-            },
-        }),
-        alignItems: 'center',
-        backgroundColor: '#fbfbfb',
-        paddingVertical: 20,
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-    },
-    tabBarInfoText: {
-        fontSize: 17,
-        color: 'rgba(96,100,109, 1)',
-        textAlign: 'center',
-    },
 });
 
-const mapStateToProps = state => ({});
+DiagnosisResultScreen.propTypes = {
+    diagnosis: PropTypes.func.isRequired
+};
 
-const mapDispatchToProps = dispatch => ({
-    resetSurvey: () => dispatch(resetSurvey())
+const mapStateToProps = state => ({
+    diagnosis: getDiagnosis(state)
 });
+
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiagnosisResultScreen);

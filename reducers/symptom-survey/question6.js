@@ -1,6 +1,4 @@
-import {
-    SET_AGE
-} from "../../actions/symptom-survey/question6";
+import {SET_AGE} from "../../actions/symptom-survey/question6";
 import {RESET_SURVEY} from "../../actions/symptom-survey/submit-survey";
 
 const defaultState = {

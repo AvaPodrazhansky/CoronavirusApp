@@ -1,6 +1,4 @@
-import {
-    SET_PUBLIC_TRANSPORTATION
-} from "../../actions/symptom-survey/question4";
+import {SET_PUBLIC_TRANSPORTATION} from "../../actions/symptom-survey/question4";
 import {RESET_SURVEY} from "../../actions/symptom-survey/submit-survey";
 
 const defaultState = {

@@ -114,15 +114,26 @@ export const NEED_EMERGENCY_CARE = '\u2022\ If you believe that you are having a
     'closest medical facility.';
 
 // Ways to Protect Yourself from COVID-19
-export const PROTECTION_METHOD_ONE = '\u2022\ Remain at home if you can unless you need to go to a medical facility.';
-export const PROTECTION_METHOD_TWO = '\u2022\ Do not have close contact with other people.';
-export const PROTECTION_METHOD_THREE = '\u2022\ Wash your hands in a thorough manner for at least 30 seconds.';
-export const PROTECTION_METHOD_FOUR = '\u2022\ Avoid placing your hands on your face.';
-export const PROTECTION_METHOD_FIVE = '\u2022\ Cover your nose and mouth when you cough and sneeze.';
-export const PROTECTION_METHOD_SIX = '\u2022\ Do not use a tissue more than once. Properly dispose of tissues after ' +
-    'using them.';
-export const PROTECTION_METHOD_SEVEN = '\u2022\ Wear a medical mask if you are tending to someone who is sick.';
-export const PROTECTION_METHOD_EIGHT = '\u2022\ Regularly clean common surfaces by using sanitation products.';
+export const PROTECTION_METHODS_TITLE = 'How to protect yourself';
+export const protectionMethods = [
+    'Remain at home if you can unless you need to go to a medical facility.',
+    'Do not have close contact with other people.',
+    'Wash your hands in a thorough manner for at least 30 seconds.',
+    'Avoid placing your hands on your face.',
+    'Cover your nose and mouth when you cough and sneeze.',
+    'Do not use a tissue more than once. Properly dispose of tissues after using them.',
+    'Wear a medical mask if you are tending to someone who is sick.',
+    'Regularly clean common surfaces by using sanitation products.',
+];
+
+export const PROTECTION_METHOD_ONE = protectionMethods[0];
+export const PROTECTION_METHOD_TWO = protectionMethods[1];
+export const PROTECTION_METHOD_THREE = protectionMethods[2];
+export const PROTECTION_METHOD_FOUR = protectionMethods[3];
+export const PROTECTION_METHOD_FIVE = protectionMethods[4];
+export const PROTECTION_METHOD_SIX = protectionMethods[5];
+export const PROTECTION_METHOD_SEVEN = protectionMethods[6];
+export const PROTECTION_METHOD_EIGHT = protectionMethods[7];
 
 
 // National Health Center Screen

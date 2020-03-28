@@ -21,6 +21,7 @@ import {
 } from "../../constants/constant-list";
 import {getDiagnosis} from "../../selectors/symptom-survey/surveyResults";
 import PropTypes from "prop-types";
+import ProtectionMethods from "../../components/cards/ProtectionMethods";
 
 const DiagnosisResultScreen = ({diagnosis}) => {
 
@@ -30,20 +31,22 @@ const DiagnosisResultScreen = ({diagnosis}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <Text>{diagnosisBanner}</Text>
-                <Text>{diagnosisMessage}</Text>
-                <Text>{SOCIAL_DISTANCING}</Text>
-                <Text>{NEED_EMERGENCY_CARE}</Text>
-                <Text>{PROTECTION_METHOD_ONE}</Text>
-                <Text>{PROTECTION_METHOD_TWO}</Text>
-                <Text>{PROTECTION_METHOD_THREE}</Text>
-                <Text>{PROTECTION_METHOD_FOUR}</Text>
-                <Text>{PROTECTION_METHOD_FIVE}</Text>
-                <Text>{PROTECTION_METHOD_SIX}</Text>
-                <Text>{PROTECTION_METHOD_SEVEN}</Text>
-                <Text>{PROTECTION_METHOD_EIGHT}</Text>
-                <ResetButton/>
+            {/*    <Text>{diagnosisBanner}</Text>*/}
+            {/*    <Text>{diagnosisMessage}</Text>*/}
+            {/*    <Text>{SOCIAL_DISTANCING}</Text>*/}
+            {/*    <Text>{NEED_EMERGENCY_CARE}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_ONE}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_TWO}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_THREE}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_FOUR}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_FIVE}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_SIX}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_SEVEN}</Text>*/}
+            {/*    <Text>{PROTECTION_METHOD_EIGHT}</Text>*/}
+            {/*    <ResetButton/>*/}
+                <ProtectionMethods/>
             </ScrollView>
+
         </View>
     );
 };

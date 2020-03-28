@@ -101,10 +101,10 @@ export const COVID_CONFIRMED_BANNER = 'It is likely that you have COVID-19.';
 export const NOT_INFECTED_BANNER = 'You do not seem to have COVID-19.';
 
 // Results Summary
-export const COVID_CONFIRMED = '\u2022\ It is recommended that you visit your doctor as soon as possible to verify ' +
+export const COVID_CONFIRMED = 'It is recommended that you visit your doctor as soon as possible to verify ' +
     'the presence of COVID-19. If your doctor instructs you to go to the emergency room, please wear mask to reduce ' +
     'the general rate of COVID-19 infection.';
-export const NOT_INFECTED = '\u2022\ You do not seem to have the typical expected symptoms of severe COVID-19 ' +
+export const NOT_INFECTED = 'You do not seem to have the typical expected symptoms of severe COVID-19 ' +
     'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus';
 
 // Ways to Protect Yourself (Result Summary)

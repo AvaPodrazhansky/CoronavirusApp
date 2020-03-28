@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Button} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
 import ResetButton from "../../components/button/survey-question-buttons/reset-button";
@@ -22,33 +22,58 @@ import {
 import {getDiagnosis} from "../../selectors/symptom-survey/surveyResults";
 import PropTypes from "prop-types";
 import ProtectionMethods from "../../components/cards/ProtectionMethods";
+import colors from '../../constants/Colors';
+import ScrollableHeaderScrollView from '../../components/scrollview/scrollable-header';
 
 const DiagnosisResultScreen = ({diagnosis}) => {
 
     const diagnosisBanner = diagnosis ? COVID_CONFIRMED_BANNER : NOT_INFECTED_BANNER;
     const diagnosisMessage = diagnosis ? COVID_CONFIRMED : NOT_INFECTED;
 
+    // return (
+    //     <View style={styles.container}>
+    //         <View style={styles.diagnosis}>
+    //             <Text>{diagnosisBanner}</Text>
+    //             <Text>{diagnosisMessage}</Text>
+    //             <ResetButton/>
+    //         </View>
+    //         <ScrollView style={styles.container}
+    //                     contentContainerStyle={styles.contentContainer}
+    //                     // stickyHeaderIndices={[0]}
+    //                     onScroll={() => console.log('scroll')}
+    //         >
+    //             <ProtectionMethods/>
+    //             <ProtectionMethods/>
+    //             <ProtectionMethods/>
+    //         </ScrollView>
+    //
+    //     </View>
+    // );
+    let x, y, width, height;
     return (
-        <View style={styles.container}>
-            <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-            {/*    <Text>{diagnosisBanner}</Text>*/}
-            {/*    <Text>{diagnosisMessage}</Text>*/}
-            {/*    <Text>{SOCIAL_DISTANCING}</Text>*/}
-            {/*    <Text>{NEED_EMERGENCY_CARE}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_ONE}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_TWO}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_THREE}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_FOUR}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_FIVE}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_SIX}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_SEVEN}</Text>*/}
-            {/*    <Text>{PROTECTION_METHOD_EIGHT}</Text>*/}
-            {/*    <ResetButton/>*/}
-                <ProtectionMethods/>
-            </ScrollView>
+        <ScrollableHeaderScrollView shrinkingTitleComponent={
+            <View style={styles.container}>
+                <View style={styles.diagnosis}>
+                    <Text>{diagnosisMessage}</Text>
+                    <ResetButton/>
+                </View>
+            </View>
+        } mainTitleComponent={
+            <View style={styles.container} onLayout={(event) => {
+                x, y, width, height = event.nativeEvent.layout;
+            }}>
+                <View style={styles.minComponent}>
+                    <Text>{diagnosisBanner}</Text>
+                </View>
+            </View>
+        }>
+            <ProtectionMethods key={1}/>
+            <ProtectionMethods key={2}/>
+            <ProtectionMethods key={3}/>
+        </ScrollableHeaderScrollView>
+    )
 
-        </View>
-    );
+
 };
 
 DiagnosisResultScreen.navigationOptions = {
@@ -58,11 +83,15 @@ DiagnosisResultScreen.navigationOptions = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        // backgroundColor: '#c92596'
     },
-    contentContainer: {
-        paddingTop: 30,
+    contentContainer: {},
+    diagnosis: {
+        backgroundColor: colors.LIGHT_ORANGE
     },
+    minComponent: {
+        color: colors.RECOVERED
+    }
 });
 
 DiagnosisResultScreen.propTypes = {

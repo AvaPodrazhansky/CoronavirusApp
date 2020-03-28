@@ -16,7 +16,7 @@ export default function ProtectionMethods() {
                 protectionMethods.map((item, i) => {
                     return (
                         <ListItem
-                            key={i}
+                            key={'protection' + i}
                             title={item}
                             leftIcon={<Entypo name={'dot-single'}/>}
                             style={styles.listText}

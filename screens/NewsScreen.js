@@ -3,8 +3,13 @@ import {Button, Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 
 import {ScrollView} from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 import {connect} from "react-redux";
+import {fetchLatestNews} from "../actions/news/latest-news";
 
-const NewsScreen = () => {
+const NewsScreen = ({getLatestNews}) => {
+    React.useEffect(() => {
+        getLatestNews();
+    }, []);
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -29,6 +34,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = (dispatch, props) => ({});
+const mapDispatchToProps = dispatch => ({
+    getLatestNews: () => dispatch(fetchLatestNews())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsScreen);

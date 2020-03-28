@@ -364,7 +364,9 @@ export default class ScrollableHeaderScrollView extends Component {
                             {
                                 opacity: imageOpacity,
                                 transform: [{translateY: imageTranslate}],
-                                marginTop: HEADER_MIN_HEIGHT
+                                marginTop: HEADER_MIN_HEIGHT,
+                                maxHeight: HEADER_MAX_HEIGHT-HEADER_MIN_HEIGHT
+                                // padding: 20
                             },
                         ]}
                     >
@@ -405,12 +407,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
+        flex:1,
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         backgroundColor: '#03A9F4',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         height: HEADER_MAX_HEIGHT,
     },
     backgroundImage: {

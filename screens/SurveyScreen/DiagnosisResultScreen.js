@@ -52,11 +52,9 @@ const DiagnosisResultScreen = ({diagnosis}) => {
     let x, y, width, height;
     return (
         <ScrollableHeaderScrollView shrinkingTitleComponent={
-            <View style={styles.container}>
-                <View style={styles.diagnosis}>
-                    <Text>{diagnosisMessage}</Text>
-                    <ResetButton/>
-                </View>
+            <View style={styles.shrinkingComponent}>
+                <Text style={styles.diagnosisMessage}>{diagnosisMessage}</Text>
+                <ResetButton/>
             </View>
         } mainTitleComponent={
             <View style={styles.container} onLayout={(event) => {
@@ -85,9 +83,17 @@ const styles = StyleSheet.create({
         flex: 1,
         // backgroundColor: '#c92596'
     },
-    contentContainer: {},
-    diagnosis: {
-        backgroundColor: colors.LIGHT_ORANGE
+    shrinkingComponent: {
+        flex: 1,
+        backgroundColor: colors.LIGHT_ORANGE,
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        // padding: 20,
+        // paddingBottom: 40
+    },
+    diagnosisMessage: {
+        // backgroundColor: colors.LIGHT_ORANGE,
+        margin: 10
     },
     minComponent: {
         color: colors.RECOVERED

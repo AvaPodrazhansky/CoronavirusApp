@@ -2,7 +2,7 @@ import {SHOW_RESULT_SCREEN, RESET_SURVEY} from '../../actions/symptom-survey/sub
 
 const defaultState = {
     showResultScreen: false,
-    diagnosis: false
+    diagnosis: true
 };
 
 const surveyResults = (state = defaultState, action) => {

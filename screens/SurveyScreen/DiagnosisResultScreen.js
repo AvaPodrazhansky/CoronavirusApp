@@ -39,7 +39,7 @@ const DiagnosisResultScreen = ({diagnosis}) => {
         <ScrollableHeaderScrollView
             shrinkingTitleComponent={<ShrinkingTitleComponent/>}
             mainTitleComponent={<MainTitleComponent/>}
-            headerBackgroundColor={diagnosis ? colors.CONFIRMED : colors.RECOVERED}>
+            headerBackgroundColor={diagnosis ? colors.RESULTS_LIGHT_RED : colors.RESULTS_LIGHT_GREEN}>
             <ProtectionMethods key={1}/>
             <ProtectionMethods key={2}/>
             <ProtectionMethods key={3}/>
@@ -62,11 +62,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
     },
     diagnosisMessage: {
-        margin: 15,
-        textAlign: 'center'
+        // margin: 15,
+        marginRight: 15,
+        marginLeft: 15,
+        textAlign: 'center',
+        fontSize: 15,
+        color: colors.WHITE,
+        // fontWeight: 'bold'
+
     },
     bannerMessage: {
-        fontSize: 20
+        fontSize: 20,
+        color: colors.WHITE,
+        fontWeight: 'bold'
     },
     minComponent: {
         flex: 1,

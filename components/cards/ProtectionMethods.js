@@ -15,9 +15,10 @@ export default function ProtectionMethods() {
         <Ionicons name={'md-people'} size={25}/>,
         <Ionicons name={'md-hand'} size={25}/>, // possible 'ios-person
         <MaterialCommunityIcons name={'face'} size={25}/>,
+        <Ionicons name={'ios-person'} size={25}/>, // possible 'ios-person
         <Ionicons name={'ios-trash'} size={25}/>,
         < MaterialCommunityIcons name={'medical-bag'} size={25}/>,
-        <Ionicons name={'ios-nuclear'} size={25}/>
+        < MaterialCommunityIcons name={'spray'} size={25}/>,
     ];
 
     return (
@@ -28,7 +29,6 @@ export default function ProtectionMethods() {
                         <ListItem
                             key={'protection' + i}
                             title={item}
-                            // leftIcon={<Entypo name={'dot-single'}/>}
                             leftIcon={iconArray[i]}
                             style={styles.listText}
                         />
@@ -47,7 +47,9 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
-    title: {},
+    title: {
+        fontSize: 17
+    },
     listText: {}
 });
 

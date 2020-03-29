@@ -39,7 +39,7 @@ const DiagnosisResultScreen = ({diagnosis}) => {
         <ScrollableHeaderScrollView
             shrinkingTitleComponent={<ShrinkingTitleComponent/>}
             mainTitleComponent={<MainTitleComponent/>}
-            headerBackgroundColor={colors.LIGHT_ORANGE}>
+            headerBackgroundColor={diagnosis ? colors.CONFIRMED : colors.RECOVERED}>
             <ProtectionMethods key={1}/>
             <ProtectionMethods key={2}/>
             <ProtectionMethods key={3}/>

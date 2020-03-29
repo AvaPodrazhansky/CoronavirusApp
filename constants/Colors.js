@@ -32,6 +32,6 @@ export default {
     GREEN: "#00FF00",
 
     CONFIRMED: "#F7B62D",
-    RECOVERED: "#00FF00",
+    RECOVERED: "#24906A",
     DEAD: "#FF0000"
 };

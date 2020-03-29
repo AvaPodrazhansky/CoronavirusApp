@@ -9,14 +9,6 @@ import {
     NEED_EMERGENCY_CARE,
     NOT_INFECTED,
     NOT_INFECTED_BANNER,
-    PROTECTION_METHOD_EIGHT,
-    PROTECTION_METHOD_FIVE,
-    PROTECTION_METHOD_FOUR,
-    PROTECTION_METHOD_ONE,
-    PROTECTION_METHOD_SEVEN,
-    PROTECTION_METHOD_SIX,
-    PROTECTION_METHOD_THREE,
-    PROTECTION_METHOD_TWO,
     SOCIAL_DISTANCING
 } from "../../constants/constant-list";
 import {getDiagnosis} from "../../selectors/symptom-survey/surveyResults";
@@ -30,53 +22,29 @@ const DiagnosisResultScreen = ({diagnosis}) => {
     const diagnosisBanner = diagnosis ? COVID_CONFIRMED_BANNER : NOT_INFECTED_BANNER;
     const diagnosisMessage = diagnosis ? COVID_CONFIRMED : NOT_INFECTED;
 
-    // return (
-    //     <View style={styles.container}>
-    //         <View style={styles.diagnosis}>
-    //             <Text>{diagnosisBanner}</Text>
-    //             <Text>{diagnosisMessage}</Text>
-    //             <ResetButton/>
-    //         </View>
-    //         <ScrollView style={styles.container}
-    //                     contentContainerStyle={styles.contentContainer}
-    //                     // stickyHeaderIndices={[0]}
-    //                     onScroll={() => console.log('scroll')}
-    //         >
-    //             <ProtectionMethods/>
-    //             <ProtectionMethods/>
-    //             <ProtectionMethods/>
-    //         </ScrollView>
-    //
-    //     </View>
-    // );
+    const ShrinkingTitleComponent = () => (
+        <View style={styles.shrinkingComponent}>
+            <Text style={styles.diagnosisMessage}>{diagnosisMessage}</Text>
+            <ResetButton/>
+        </View>
+    );
+
+    const MainTitleComponent = () => (
+        <View style={styles.minComponent}>
+            <Text style={styles.bannerMessage}>{diagnosisBanner}</Text>
+        </View>
+    );
 
     return (
-        <ScrollableHeaderScrollView shrinkingTitleComponent={
-            <View style={styles.shrinkingComponent}>
-                <Text style={styles.diagnosisMessage}>{diagnosisMessage}</Text>
-                <ResetButton/>
-            </View>
-        } mainTitleComponent={
-            <View style={styles.minComponent}>
-                <Text style={styles.bannerMessage}>{diagnosisBanner}</Text>
-            </View>
-        }
-        headerBackgroundColor={colors.LIGHT_ORANGE}>
+        <ScrollableHeaderScrollView
+            shrinkingTitleComponent={<ShrinkingTitleComponent/>}
+            mainTitleComponent={<MainTitleComponent/>}
+            headerBackgroundColor={colors.LIGHT_ORANGE}>
             <ProtectionMethods key={1}/>
             <ProtectionMethods key={2}/>
             <ProtectionMethods key={3}/>
         </ScrollableHeaderScrollView>
     )
-
-    // return <ScrollableHeaderScrollView componentList={(
-    //     <View>
-    //         <ProtectionMethods/>
-    //         <ProtectionMethods/>
-    //         <ProtectionMethods/>
-    //     </View>
-    // )
-    // }/>
-
 
 };
 
@@ -87,27 +55,21 @@ DiagnosisResultScreen.navigationOptions = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: '#c92596'
     },
     shrinkingComponent: {
         flex: 1,
-        // backgroundColor: colors.LIGHT_ORANGE,
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        // padding: 20,
-        // paddingBottom: 40
     },
     diagnosisMessage: {
-        // backgroundColor: colors.LIGHT_ORANGE,
-        margin: 15
+        margin: 15,
+        textAlign: 'center'
     },
     bannerMessage: {
-        backgroundColor: colors.LIGHT_ORANGE,
-        // margin: 15
+        fontSize: 20
     },
     minComponent: {
         flex: 1,
-        // backgroundColor: colors.RECOVERED
     }
 });
 

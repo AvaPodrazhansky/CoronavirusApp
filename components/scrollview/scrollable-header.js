@@ -146,7 +146,7 @@ class ScrollableHeaderScrollView extends Component {
                     </View>
                 </Animated.ScrollView>
                 <Animated.View
-                    pointerEvents="none"
+                    // pointerEvents="none"
                     style={[
                         {
                             ...styles.header,

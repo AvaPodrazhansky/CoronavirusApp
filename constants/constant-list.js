@@ -93,12 +93,12 @@ export const questionEightAnswerArray = [
 
 // Survey Buttons
 export const SUBMIT_BUTTON_TEXT = 'Submit';
-export const RESTART_BUTTON_TEXT = 'Restart the Survey?';
+export const RESTART_BUTTON_TEXT = 'Retake Survey';
 
 // Diagnosis Results Screen
 // Results Banner
-export const COVID_CONFIRMED_BANNER = 'It is likely that you have COVID-19.';
-export const NOT_INFECTED_BANNER = 'You do not seem to have COVID-19.';
+export const COVID_CONFIRMED_BANNER = 'It is likely that you have COVID-19';
+export const NOT_INFECTED_BANNER = 'You do not seem to have COVID-19';
 
 // Results Summary
 export const COVID_CONFIRMED = 'It is recommended that you visit your doctor as soon as possible to verify ' +

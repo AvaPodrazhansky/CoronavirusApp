@@ -49,7 +49,7 @@ const DiagnosisResultScreen = ({diagnosis}) => {
     //
     //     </View>
     // );
-    let x, y, width, height;
+
     return (
         <ScrollableHeaderScrollView shrinkingTitleComponent={
             <View style={styles.shrinkingComponent}>
@@ -57,19 +57,25 @@ const DiagnosisResultScreen = ({diagnosis}) => {
                 <ResetButton/>
             </View>
         } mainTitleComponent={
-            <View style={styles.container} onLayout={(event) => {
-                x, y, width, height = event.nativeEvent.layout;
-            }}>
-                <View style={styles.minComponent}>
-                    <Text>{diagnosisBanner}</Text>
-                </View>
+            <View style={styles.minComponent}>
+                <Text style={styles.bannerMessage}>{diagnosisBanner}</Text>
             </View>
-        }>
+        }
+        headerBackgroundColor={colors.LIGHT_ORANGE}>
             <ProtectionMethods key={1}/>
             <ProtectionMethods key={2}/>
             <ProtectionMethods key={3}/>
         </ScrollableHeaderScrollView>
     )
+
+    // return <ScrollableHeaderScrollView componentList={(
+    //     <View>
+    //         <ProtectionMethods/>
+    //         <ProtectionMethods/>
+    //         <ProtectionMethods/>
+    //     </View>
+    // )
+    // }/>
 
 
 };
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     },
     shrinkingComponent: {
         flex: 1,
-        backgroundColor: colors.LIGHT_ORANGE,
+        // backgroundColor: colors.LIGHT_ORANGE,
         alignItems: 'center',
         justifyContent: 'space-evenly',
         // padding: 20,
@@ -93,10 +99,15 @@ const styles = StyleSheet.create({
     },
     diagnosisMessage: {
         // backgroundColor: colors.LIGHT_ORANGE,
-        margin: 10
+        margin: 15
+    },
+    bannerMessage: {
+        backgroundColor: colors.LIGHT_ORANGE,
+        // margin: 15
     },
     minComponent: {
-        color: colors.RECOVERED
+        flex: 1,
+        // backgroundColor: colors.RECOVERED
     }
 });
 

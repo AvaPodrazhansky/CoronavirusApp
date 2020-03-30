@@ -108,10 +108,12 @@ export const NOT_INFECTED = 'You do not seem to have the typical expected sympto
     'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus';
 
 // Ways to Protect Yourself (Result Summary)
-export const SOCIAL_DISTANCING = '\u2022\ Avoid close contact with people who are sick and practice social ' +
+export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
     'distancing.';
-export const NEED_EMERGENCY_CARE = '\u2022\ If you believe that you are having an emergency, please contact your ' +
+export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
     'closest medical facility.';
+export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
+export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
 
 // Ways to Protect Yourself from COVID-19
 export const PROTECTION_METHODS_TITLE = 'How to protect yourself';

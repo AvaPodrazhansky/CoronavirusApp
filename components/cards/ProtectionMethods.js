@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Card, ListItem} from 'react-native-elements';
 import {
     PROTECTION_METHODS_TITLE,
     protectionMethods
 } from "../../constants/constant-list";
-import PropTypes from "prop-types";
-import {Entypo, FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
+import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
+import styles from './styles';
 
 export default function ProtectionMethods() {
 
@@ -37,23 +37,4 @@ export default function ProtectionMethods() {
             }
         </Card>
     )
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff'
-    },
-    contentContainer: {
-        paddingTop: 30,
-    },
-    title: {
-        fontSize: 17
-    },
-    listText: {}
-});
-
-ProtectionMethods.propTypes = {
-    title: PropTypes.string,
-
 };

@@ -16,8 +16,9 @@ import PropTypes from "prop-types";
 import ProtectionMethods from "../../components/cards/ProtectionMethods";
 import colors from '../../constants/Colors';
 import ScrollableHeaderScrollView from '../../components/scrollview/scrollable-header';
+import EmergencyCard from "../../components/cards/EmergencyCard";
 
-const DiagnosisResultScreen = ({diagnosis}) => {
+const DiagnosisResultScreen = ({diagnosis, toNHCScreen, ...props}) => {
 
     const diagnosisBanner = diagnosis ? COVID_CONFIRMED_BANNER : NOT_INFECTED_BANNER;
     const diagnosisMessage = diagnosis ? COVID_CONFIRMED : NOT_INFECTED;
@@ -40,9 +41,9 @@ const DiagnosisResultScreen = ({diagnosis}) => {
             shrinkingTitleComponent={<ShrinkingTitleComponent/>}
             mainTitleComponent={<MainTitleComponent/>}
             headerBackgroundColor={diagnosis ? colors.RESULTS_LIGHT_RED : colors.RESULTS_LIGHT_GREEN}>
-            <ProtectionMethods key={1}/>
-            <ProtectionMethods key={2}/>
-            <ProtectionMethods key={3}/>
+            {/*<Button title={'test'} onPress={toNHCScreen}/>*/}
+            <EmergencyCard props={props}/>
+            <ProtectionMethods/>
         </ScrollableHeaderScrollView>
     )
 
@@ -89,6 +90,10 @@ const mapStateToProps = state => ({
     diagnosis: getDiagnosis(state)
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch, props) => ({
+    toNHCScreen: () => {
+        console.log(props)
+    }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiagnosisResultScreen);

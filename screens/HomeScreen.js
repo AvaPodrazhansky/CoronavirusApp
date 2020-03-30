@@ -12,6 +12,7 @@ import StateTableSummary from '../components/tables/us-summary-table'
 
 //TODO: Change view with survey page button. It hides content at the bottom of the scroll view
 const HomeScreen = ({toSurvey}) => {
+    // console.log(this.props)
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -132,7 +133,10 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    toSurvey: () => props.navigation.navigate('Diagnosis')
+    toSurvey: () => {
+        console.log(props)
+        props.navigation.navigate('Diagnosis')
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

@@ -5,10 +5,10 @@ import DiagnosisResultScreen from './DiagnosisResultScreen';
 import {getIsShowingResultsScreen} from "../../selectors/symptom-survey/surveyResults";
 import PropTypes from "prop-types";
 
-const SurveyScreen = ({showResultScreen}) => {
+const SurveyScreen = ({showResultScreen, ...props}) => {
     if (showResultScreen) {
         return (
-            <DiagnosisResultScreen/>
+            <DiagnosisResultScreen props={props}/>
         );
     } else {
         return (
@@ -29,6 +29,8 @@ const mapStateToProps = state => ({
     showResultScreen: getIsShowingResultsScreen(state)
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch, props) => ({
+    // printProps: () => console.log(props)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SurveyScreen);

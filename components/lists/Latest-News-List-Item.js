@@ -23,7 +23,7 @@ const LatestNewsListItem = ({newsPicture, newsTitle, newsAuthor, newsDescription
 LatestNewsListItem.propTypes = {
     newsPicture: PropTypes.string.isRequired,
     newsTitle: PropTypes.string.isRequired,
-    newsAuthor: PropTypes.string.isRequired,
+    newsAuthor: PropTypes.string,
     newsDescription: PropTypes.string.isRequired,
     newsURL: PropTypes.string.isRequired
 };

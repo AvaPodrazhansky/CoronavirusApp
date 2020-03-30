@@ -5,14 +5,6 @@ import {StyleSheet} from 'react-native';
 import {Dimensions} from "react-native";
 import myMapStyle from './map-styles';
 
-// {
-//     "latitude": 27.365526186827243,
-//     "latitudeDelta": 69.23937484479055,
-//     "longitude": -98.13053995370865,
-//     "longitudeDelta": 56.31902597844601,
-// }
-
-
 const UnitedStatesMap = ({}) => {
     return (
 
@@ -26,7 +18,6 @@ const UnitedStatesMap = ({}) => {
                     "longitudeDelta": 15.31902597844601,
                 }
             }
-            // onRegionChange={setRegion}
             style={styles.mapStyle}
             customMapStyle={myMapStyle}
         />

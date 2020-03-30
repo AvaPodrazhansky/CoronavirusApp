@@ -99,3 +99,7 @@ export const NHC_RESULT_LENGTH = 7;
 export const MILES_ABBREVIATION = 'Mi';
 export const OPEN_NOW = 'Open Now';
 export const CLOSED = 'Closed';
+
+// Twitter Component URLs
+export const CDC_URL = 'https://twitter.com/CDCgov';
+export const WHO_URL = 'https://twitter.com/WHO';

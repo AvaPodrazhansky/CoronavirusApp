@@ -91,8 +91,52 @@ export const questionEightAnswerArray = [
     QUESTION_EIGHT_BUTTON_ANSWER_NINE
 ];
 
-// Survey Submit Button
+// Survey Buttons
 export const SUBMIT_BUTTON_TEXT = 'Submit';
+export const RESTART_BUTTON_TEXT = 'Retake Survey';
+
+// Diagnosis Results Screen
+// Results Banner
+export const COVID_CONFIRMED_BANNER = 'It is likely that you have COVID-19';
+export const NOT_INFECTED_BANNER = 'You do not seem to have COVID-19';
+
+// Results Summary
+export const COVID_CONFIRMED = 'It is recommended that you visit your doctor as soon as possible to verify ' +
+    'the presence of COVID-19. If your doctor instructs you to go to the emergency room, please wear mask to reduce ' +
+    'the general rate of COVID-19 infection.';
+export const NOT_INFECTED = 'You do not seem to have the typical expected symptoms of severe COVID-19 ' +
+    'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus';
+
+// Ways to Protect Yourself (Result Summary)
+export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
+    'distancing.';
+export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
+    'closest medical facility.';
+export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
+export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
+
+// Ways to Protect Yourself from COVID-19
+export const PROTECTION_METHODS_TITLE = 'How to protect yourself';
+export const protectionMethods = [
+    'Remain at home if you can unless you need to go to a medical facility.',
+    'Do not have close contact with other people.',
+    'Wash your hands in a thorough manner for at least 30 seconds.',
+    'Avoid placing your hands on your face.',
+    'Cover your nose and mouth when you cough and sneeze.',
+    'Do not use a tissue more than once. Properly dispose of tissues after using them.',
+    'Wear a medical mask if you are tending to someone who is sick.',
+    'Regularly clean common surfaces by using sanitation products.',
+];
+
+export const PROTECTION_METHOD_ONE = protectionMethods[0];
+export const PROTECTION_METHOD_TWO = protectionMethods[1];
+export const PROTECTION_METHOD_THREE = protectionMethods[2];
+export const PROTECTION_METHOD_FOUR = protectionMethods[3];
+export const PROTECTION_METHOD_FIVE = protectionMethods[4];
+export const PROTECTION_METHOD_SIX = protectionMethods[5];
+export const PROTECTION_METHOD_SEVEN = protectionMethods[6];
+export const PROTECTION_METHOD_EIGHT = protectionMethods[7];
+
 
 // National Health Center Screen
 export const NHC_RESULT_LENGTH = 7;

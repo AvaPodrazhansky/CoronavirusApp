@@ -13,6 +13,7 @@ import {
     requestUserLocation
 } from './actions/user/user-location-retrieval';
 import Spinner from './components/loading';
+import * as Constants from "expo-constants";
 
 const Stack = createStackNavigator();
 
@@ -35,7 +36,18 @@ const Root = ({
             } while (status !== 'granted');
 
 
-            let location = await Location.getCurrentPositionAsync({});
+            let location;
+            if (Platform.OS === 'android' && !Constants.isDevice){
+                location = {
+                    coords: {
+                        latitude: '34.118626',
+                        longitude: '-84.244175'
+                    }
+                }
+            } else {
+                location = await Location.getCurrentPositionAsync({});
+            }
+
             // let location = await Location.watchPositionAsync();
             receiveUserLocationSuccess({
                 latitude: location.coords.latitude,

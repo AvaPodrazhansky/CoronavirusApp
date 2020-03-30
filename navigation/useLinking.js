@@ -12,7 +12,8 @@ export default function (containerRef) {
                     Links: 'links',
                     Settings: 'settings',
                     Map: 'map',
-                    SymptomSurvey: 'symptom-survey'
+                    SymptomSurvey: 'symptom-survey',
+                    Clinics: 'clinics'
                 },
             },
         },

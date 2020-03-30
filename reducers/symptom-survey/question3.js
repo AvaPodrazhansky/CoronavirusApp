@@ -1,4 +1,5 @@
 import {FOREIGN_COUNTRIES} from "../../actions/symptom-survey/question3";
+import {RESET_SURVEY} from "../../actions/symptom-survey/submit-survey";
 
 const defaultState = {
     visitedForeignCountries: null
@@ -11,6 +12,8 @@ const question3 = (state = defaultState, action) => {
                 ...state,
                 visitedForeignCountries: action.payload
             };
+        case RESET_SURVEY:
+            return defaultState;
         default:
             return state;
     }

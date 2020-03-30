@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {SplashScreen} from 'expo';
 import * as Font from 'expo-font';
-import {Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
+import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import allReducers from './reducers';
@@ -31,7 +31,8 @@ export default function App(props){
                 await Font.loadAsync({
                     ...Ionicons.font,
                     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-                    ...MaterialCommunityIcons.font
+                    ...MaterialCommunityIcons.font,
+                    ...FontAwesome.font
                 });
 
             } catch (e) {

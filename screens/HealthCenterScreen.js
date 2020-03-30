@@ -15,8 +15,6 @@ const HealthCenterScreen = ({isFetching, data, getData}) => {
     React.useEffect(() => {
         if (data.length === 0 && !isFetching) {
             getData();
-        } else {
-            console.log(data)
         }
     }, []);
 

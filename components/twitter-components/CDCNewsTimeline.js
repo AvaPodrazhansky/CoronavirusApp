@@ -9,7 +9,7 @@ import WebView from "react-native-webview";
 const CDCNewsTimeline = ({html, fetchTwitterNews}) => {
 
     React.useEffect(() => {
-        fetchTwitterNews('https://twitter.com/CDCgov?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor');
+        fetchTwitterNews('CDCgov?ref_src=twsrc%5Etfw');
     }, []);
 
 

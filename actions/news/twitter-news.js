@@ -7,8 +7,12 @@ const embedHtml = html => {
 };
 
 function fetchTwitterNews(tweetTimelineURL) {
-    let tweetURL = 'https://publish.twitter.com/oembed?url=' + encodeURIComponent(tweetTimelineURL);
-    fetch(tweetTimelineURL, {method: 'GET', headers: {Accepts: 'application/json'}}).then(
+    //let tweetURL = 'https://publish.twitter.com/oembed?url=' + encodeURIComponent(tweetTimelineURL);
+    let tweetURL = 'https://twitter.com/CDCgov?ref_src=twsrc%5Etfw';
+    return async dispatch => await fetch(tweetTimelineURL, {
+        method: 'GET',
+        headers: {Accepts: 'application/json'}
+    }).then(
         resp => {
             resp.json().then(json => {
                 let html = json.html;

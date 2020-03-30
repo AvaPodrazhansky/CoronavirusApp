@@ -7,6 +7,7 @@ import {getData, getErrorMessage, isFetchingSelector} from "../selectors/news/la
 import LatestNewsList from "../components/lists/Latest-News-List";
 import Spinner from "../components/loading";
 import PropTypes from "prop-types";
+import {TwitterTimelineEmbed} from 'react-twitter-embed'
 
 const NewsScreen = ({getLatestNews, newsData, isFetching, errorMessage}) => {
     React.useEffect(() => {
@@ -25,6 +26,11 @@ const NewsScreen = ({getLatestNews, newsData, isFetching, errorMessage}) => {
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <LatestNewsList/>
+                <TwitterTimelineEmbed
+                    sourceType="url"
+                    screenName="CDCgov"
+                    options={{height: 400}}
+                />
             </ScrollView>
         </View>
     );

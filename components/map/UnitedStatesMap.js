@@ -3,7 +3,7 @@ import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import connect from "react-redux/lib/connect/connect";
 import {StyleSheet} from 'react-native';
 import {Dimensions} from "react-native";
-import myMapStyle from './map-styles';
+import myMapStyle from './united-states-map-style';
 
 const UnitedStatesMap = ({}) => {
     return (
@@ -20,6 +20,7 @@ const UnitedStatesMap = ({}) => {
             }
             style={styles.mapStyle}
             customMapStyle={myMapStyle}
+            maxZoomLevel={15}
         />
     );
 

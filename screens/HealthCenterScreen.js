@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
 import NHCMap from '../components/map/NHC-Map';
-import { Dimensions } from "react-native";
+import {Dimensions} from "react-native";
 import NHCList from '../components/lists/NHC-List';
 import {getNHCListData, isFetchingNHCListSelector} from "../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../actions/national-health-center/nhc-list-retrieval";
@@ -13,12 +13,14 @@ import Spinner from "../components/loading";
 const HealthCenterScreen = ({isFetching, data, getData}) => {
 
     React.useEffect(() => {
-        if (data.length === 0 && !isFetching){
+        if (data.length === 0 && !isFetching) {
             getData();
+        } else {
+            console.log(data)
         }
     }, []);
 
-    if(isFetching === true){
+    if (isFetching === true) {
         return (
             <Spinner/>
         )
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    data: getNHCListData(state).slice(0,NHC_RESULT_LENGTH),
+    data: getNHCListData(state).slice(0, NHC_RESULT_LENGTH),
     isFetching: isFetchingNHCListSelector(state)
 });
 

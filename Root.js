@@ -26,9 +26,14 @@ const Root = ({
 
         const _getLocationAsync = async () => {
             let {status} = await Permissions.askAsync(Permissions.LOCATION);
-            if (status !== 'granted') {
-                receiveUserLocationError('Permission to access location was denied')
-            }
+
+            do {
+                if (status !== 'granted') {
+                    receiveUserLocationError('Permission to access location was denied')
+                }
+                status = await Permissions.askAsync(Permissions.LOCATION);
+            } while (status !== 'granted');
+
 
             let location = await Location.getCurrentPositionAsync({});
             // let location = await Location.watchPositionAsync();

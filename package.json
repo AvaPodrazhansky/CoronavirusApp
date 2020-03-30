@@ -24,6 +24,8 @@
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
     "expo-font": "~8.0.0",
+    "expo-location": "~8.0.0",
+    "expo-permissions": "latest",
     "expo-web-browser": "~8.0.0",
     "prop-types": "latest",
     "react": "~16.9.0",
@@ -39,12 +41,11 @@
     "react-native-svg-charts": "^5.3.0",
     "react-native-table-component": "^1.2.1",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "^9.0.2",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-axios-middleware": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "expo-location": "~8.0.0",
-    "expo-permissions": "latest"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

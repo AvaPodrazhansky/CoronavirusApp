@@ -12,6 +12,7 @@ const defaultState = {
 const mapRegions = (state = defaultState, action) => {
     switch (action.type) {
         case SET_REGION:
+            console.log(action.payload)
             return {
                 ...state,
                 region: action.payload

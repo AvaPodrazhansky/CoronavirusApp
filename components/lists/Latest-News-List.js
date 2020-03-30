@@ -21,6 +21,13 @@ const LatestNewsList = ({isFetching, getLatestNews, newsData}) => {
         )
     }
 
+    // TODO: JB format the date to be more readable to the user
+    // If you can, for the more recent news articles put things like "1 hour ago" or "1 day ago"
+    function _formatDate(dateString){
+
+        return dateString
+    }
+
     return (
         <View>
             {
@@ -29,7 +36,9 @@ const LatestNewsList = ({isFetching, getLatestNews, newsData}) => {
                                                               newsDescription={item.description}
                                                               newsTitle={item.title}
                                                               newsURL={item.url}
-                                                              newsAuthor={item.author}/>)
+                                                              newsAuthor={item.author}
+                                                              date={_formatDate(item.publishedAt)}
+                />)
             }
         </View>
     )

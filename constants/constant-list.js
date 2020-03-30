@@ -1,3 +1,9 @@
+// Home Screen
+export const CUMULATIVE_CASES_HEADER = 'Cumulative Cases in United States';
+export const CONFIRMED_LABEL = 'Confirmed: ';
+export const RECOVERED_LABEL = 'Recovered: ';
+export const DEAD_LABEL = 'Dead: ';
+
 // Survey Questions
 export const QUESTION_ONE = '1. What is your current location?';
 export const QUESTION_TWO = '2. Which of the following symptoms do you have?';

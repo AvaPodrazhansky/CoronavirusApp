@@ -9,6 +9,7 @@ import CaseSummary from '../components/case-summary';
 // import CaseByStatePieChart from '../components/charts/case-by-state-pie-chart';
 import StateList from '../components/lists/State-List';
 import StateTableSummary from '../components/tables/us-summary-table'
+import CaseSummaryCard from '../components/cards/CaseSummaryCard';
 
 //TODO: Change view with survey page button. It hides content at the bottom of the scroll view
 const HomeScreen = ({toSurvey}) => {
@@ -16,7 +17,8 @@ const HomeScreen = ({toSurvey}) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <CaseSummary/>
+                {/*<CaseSummary/>*/}
+                <CaseSummaryCard/>
                 <StateTableSummary/>
                 {/*<StateList/>*/}
                 {/*<CaseByStatePieChart/>*/}

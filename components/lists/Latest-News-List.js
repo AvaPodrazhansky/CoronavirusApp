@@ -21,16 +21,39 @@ const LatestNewsList = ({isFetching, getLatestNews, newsData}) => {
         )
     }
 
-    // TODO: JB format the date to be more readable to the user
-    // If you can, for the more recent news articles put things like "1 hour ago" or "1 day ago"
-    function _formatDate(dateString){
-        let year = parseInt(dateString.substring(0, 4), 10);
-        let day = parseInt(dateString.substring(5, 7), 10);
-        let month = parseInt(dateString.substring(8, 10), 10);
-        let utcHour = dateString.substring(11, 13);
-        let utcMinute = dateString.substring(14, 16);
-        let utcSecond = dateString.substring(17, 19);
-        return utcSecond;
+    function _formatDate(dateString) {
+        const currentDate = new Date();
+        let dayDifference = currentDate.getUTCDate() - parseInt(dateString.substring(8, 10), 10);
+        let hourDifference = currentDate.getUTCHours() - parseInt(dateString.substring(11, 13), 10);
+        let minuteDifference = currentDate.getUTCMinutes() - parseInt(dateString.substring(14, 16), 10);
+        let secondDifference = currentDate.getUTCSeconds() - parseInt(dateString.substring(17, 19), 10);
+        if (dayDifference < 1) {
+            if (hourDifference < 24 && hourDifference > 1) {
+                return (hourDifference + ' hours ago');
+            } else if (hourDifference === 1) {
+                return (hourDifference + ' hour ago');
+            } else {
+                if (minuteDifference < 60 && minuteDifference > 1) {
+                    return (minuteDifference + ' minutes ago');
+                } else if (minuteDifference === 1) {
+                    return (minuteDifference + ' minute ago');
+                } else {
+                    if (secondDifference < 60 && secondDifference > 1) {
+                        return (secondDifference + ' seconds ago');
+                    } else if (secondDifference === 1) {
+                        return (secondDifference + ' second ago');
+                    } else {
+                        return (secondDifference + ' seconds ago');
+                    }
+                }
+            }
+        } else {
+            if (dayDifference === 1) {
+                return (dayDifference + ' day ago');
+            } else {
+                return (dayDifference + ' days ago');
+            }
+        }
     }
 
     return (

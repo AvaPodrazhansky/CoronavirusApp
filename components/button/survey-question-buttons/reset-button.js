@@ -6,7 +6,7 @@ import {RESTART_BUTTON_TEXT} from "../../../constants/constant-list";
 import Button from './index';
 import {EvilIcons} from '@expo/vector-icons';
 import {StyleSheet, Text, View} from "react-native";
-import colors from "../../../constants/Colors";
+import styles from './button-styles'
 
 const ResetButton = ({resetSurvey}) => {
 
@@ -23,19 +23,6 @@ const ResetButton = ({resetSurvey}) => {
 ResetButton.propTypes = {
     resetSurvey: PropTypes.func.isRequired
 };
-
-const styles = StyleSheet.create({
-    icon: {
-        // fontSize: 15,
-        color: colors.WHITE,
-        fontWeight: 'bold'
-    },
-    text: {
-        fontSize: 15,
-        color: colors.WHITE,
-        fontWeight: '200'
-    }
-});
 
 const mapStateToProps = state => ({});
 

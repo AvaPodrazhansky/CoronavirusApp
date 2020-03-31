@@ -1,5 +1,6 @@
 import {TOGGLE_QUESTION_TWO_ANSWER} from "../../actions/symptom-survey/question2";
 import {questionTwoAnswerArray} from '../../constants/constant-list';
+import {RESET_SURVEY} from "../../actions/symptom-survey/submit-survey";
 
 const defaultState = {
     questionTwoAnswerStatuses: Array.apply(false, Array(questionTwoAnswerArray.length)) // initializing array
@@ -13,6 +14,8 @@ const question2 = (state = defaultState, action) => {
                 ...state,
                 questionTwoAnswerStatuses: toggleArrayIndex(state.questionTwoAnswerStatuses, action.payload)
             };
+        case RESET_SURVEY:
+            return defaultState;
         default:
             return state;
     }

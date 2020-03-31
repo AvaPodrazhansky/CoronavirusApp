@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
-import SymptomSurveyScreen from '../screens/SymptomSurveyScreen'
+import SymptomSurveyScreen from '../screens/SurveyScreen'
 import NewsScreen from "../screens/NewsScreen";
 import ChatScreen from "../screens/ChatScreen";
 import HealthCenterScreen from "../screens/HealthCenterScreen";

@@ -2,26 +2,10 @@ import * as React from 'react';
 import {SplashScreen} from 'expo';
 import * as Font from 'expo-font';
 import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
-import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
-import allReducers from './reducers';
 import useLinking from './navigation/useLinking';
-import thunk from "redux-thunk";
 import Root from "./Root";
-
-const store = createStore(
-    allReducers,
-    compose(
-        applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    ),
-);
-
-if (__DEV__) {
-    console.log('Development');
-} else {
-    console.log('Production');
-}
+import {store} from './store-creator';
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);

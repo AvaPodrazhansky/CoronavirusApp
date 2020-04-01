@@ -6,7 +6,6 @@ export default styles = StyleSheet.create({
         margin: 10
     },
     icon: {
-        // fontSize: 15,
         color: colors.WHITE,
         fontWeight: 'bold'
     },

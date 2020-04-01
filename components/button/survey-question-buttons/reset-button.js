@@ -5,7 +5,7 @@ import {resetSurvey} from "../../../actions/symptom-survey/submit-survey";
 import {RESTART_BUTTON_TEXT} from "../../../constants/constant-list";
 import Button from './index';
 import {EvilIcons} from '@expo/vector-icons';
-import {StyleSheet, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import styles from './button-styles'
 
 const ResetButton = ({resetSurvey}) => {

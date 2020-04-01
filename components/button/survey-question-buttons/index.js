@@ -5,7 +5,7 @@ import {Animated, TouchableHighlight, TouchableHighlightComponent} from "react-n
 import colors from '../../../constants/Colors';
 import styles from './button-styles';
 
-const ReactNativeButton = ({title, actionFunction, buttonStyle, ...props}) => {
+const ReactNativeButton = ({title, actionFunction, buttonStyle, touchableComponent, ...props}) => {
     return (
 // TODO: Make animation work
         <TouchableHighlight underlayColor={colors.WHITE} activeOpacity={0.6}>
@@ -13,6 +13,7 @@ const ReactNativeButton = ({title, actionFunction, buttonStyle, ...props}) => {
                 title={title || ''}
                 onPress={actionFunction || null}
                 buttonStyle={buttonStyle || styles.button}
+                TouchableComponent={touchableComponent}
                 icon={props.children}
                 type={props.type ? props.type : 'solid'}
             />
@@ -23,7 +24,8 @@ const ReactNativeButton = ({title, actionFunction, buttonStyle, ...props}) => {
 ReactNativeButton.propTypes = {
     actionFunction: PropTypes.func,
     title: PropTypes.string,
-    // buttonStyle: PropTypes.object
+    buttonStyle: PropTypes.object,
+    touchableComponent: PropTypes.any
 };
 
 export default ReactNativeButton;

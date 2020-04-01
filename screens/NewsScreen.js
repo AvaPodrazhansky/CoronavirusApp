@@ -27,8 +27,8 @@ const NewsScreen = ({getLatestNews, newsData, isFetching, errorMessage}) => {
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <LatestNewsList/>
-                <EmbeddedTweet tweetUrl={CDC_URL}/>
-                <EmbeddedTweet tweetUrl={WHO_URL}/>
+                {/*<EmbeddedTweet tweetUrl={CDC_URL}/>*/}
+                {/*<EmbeddedTweet tweetUrl={WHO_URL}/>*/}
             </ScrollView>
         </View>
     );
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     contentContainer: {
-        paddingTop: 30,
+        paddingTop: 0,
     },
 });
 

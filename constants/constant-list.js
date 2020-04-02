@@ -111,7 +111,7 @@ export const NOT_INFECTED = 'You do not seem to have the typical expected sympto
 export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
     'distancing.';
 export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
-    'closest medical facility.';
+    'closest medical facility. (You can view a list of nearby national health centers in the Clinics tab).';
 export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
 export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
 

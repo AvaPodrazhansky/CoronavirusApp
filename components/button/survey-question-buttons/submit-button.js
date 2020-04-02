@@ -4,20 +4,34 @@ import {connect} from "react-redux";
 import {submitSurvey} from "../../../actions/symptom-survey/submit-survey";
 import {SUBMIT_BUTTON_TEXT} from "../../../constants/constant-list";
 import styles from './button-styles'
-import {Text, TouchableHighlight, View} from "react-native";
+import {Text, TouchableHighlight, TouchableNativeFeedback, View} from "react-native";
 
 const SubmitButton = ({submitSurvey}) => {
-    return (
-        <View>
-            <TouchableHighlight style={styles.button}
-                                delayPressIn={0}
-                                onPress={submitSurvey}
-                                activeOpacity={0.4}
-                                underlayColor={'grey'}>
-                <Text style={styles.btnTextStyle}>{SUBMIT_BUTTON_TEXT}</Text>
-            </TouchableHighlight>
-        </View>
-    )
+    if (Platform.OS === 'android') {
+        return (
+            <View>
+                <TouchableNativeFeedback style={styles.button}
+                                         delayPressIn={0}
+                                         onPress={submitSurvey}
+                                         activeOpacity={0.4}
+                                         underlayColor={'grey'}>
+                    <Text style={styles.btnTextStyle}>{SUBMIT_BUTTON_TEXT}</Text>
+                </TouchableNativeFeedback>
+            </View>
+        )
+    } else {
+        return (
+            <View>
+                <TouchableHighlight style={styles.button}
+                                    delayPressIn={0}
+                                    onPress={submitSurvey}
+                                    activeOpacity={0.4}
+                                    underlayColor={'grey'}>
+                    <Text style={styles.btnTextStyle}>{SUBMIT_BUTTON_TEXT}</Text>
+                </TouchableHighlight>
+            </View>
+        )
+    }
 };
 
 SubmitButton.propTypes = {

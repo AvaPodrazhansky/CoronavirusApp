@@ -21,6 +21,7 @@ const UnitedStatesMap = ({}) => {
             style={styles.mapStyle}
             customMapStyle={myMapStyle}
             maxZoomLevel={15}
+            scrollEnabled={false}
         />
     );
 

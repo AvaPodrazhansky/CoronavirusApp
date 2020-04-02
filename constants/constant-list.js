@@ -103,21 +103,21 @@ export const RESTART_BUTTON_TEXT = 'Retake Survey';
 
 // Diagnosis Results Screen
 // Results Banner
-export const COVID_CONFIRMED_BANNER = 'It is likely that you have COVID-19';
-export const NOT_INFECTED_BANNER = 'You do not seem to have COVID-19';
+export const COVID_CONFIRMED_BANNER = 'It is likely that you have COVID-19.';
+export const NOT_INFECTED_BANNER = 'You do not seem to have COVID-19.';
 
 // Results Summary
 export const COVID_CONFIRMED = 'It is recommended that you visit your doctor as soon as possible to verify ' +
     'the presence of COVID-19. If your doctor instructs you to go to the emergency room, please wear mask to reduce ' +
     'the general rate of COVID-19 infection.';
 export const NOT_INFECTED = 'You do not seem to have the typical expected symptoms of severe COVID-19 ' +
-    'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus';
+    'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus.';
 
 // Ways to Protect Yourself (Result Summary)
 export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
     'distancing.';
 export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
-    'closest medical facility.';
+    'closest medical facility. (You can view a list of nearby national health centers in the Clinics tab).';
 export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
 export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
 
@@ -149,3 +149,9 @@ export const NHC_RESULT_LENGTH = 7;
 export const MILES_ABBREVIATION = 'Mi';
 export const OPEN_NOW = 'Open Now';
 export const CLOSED = 'Closed';
+
+// News URLs
+export const DEFAULT_COVID_URL = 'https://media.npr.org/assets/img/2020/03/11/c_virus_outbreak_sq-428f510423dae3e93' +
+    '0089eb9efa735f4c6b8d9f3-s800-c85.jpg';
+export const CDC_URL = 'https://twitter.com/CDCgov';
+export const WHO_URL = 'https://twitter.com/WHO';

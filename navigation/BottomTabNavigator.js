@@ -27,14 +27,14 @@ export default function BottomTabNavigator({navigation, route}) {
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-home"/>,
                 }}
             />
-            <BottomTab.Screen
-                name="Map"
-                component={MapScreen}
-                options={{
-                    title: 'Map',
-                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-globe"/>,
-                }}
-            />
+            {/*<BottomTab.Screen*/}
+            {/*    name="Map"*/}
+            {/*    component={MapScreen}*/}
+            {/*    options={{*/}
+            {/*        title: 'Map',*/}
+            {/*        tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-globe"/>,*/}
+            {/*    }}*/}
+            {/*/>*/}
             <BottomTab.Screen
                 name="Diagnosis"
                 component={SymptomSurveyScreen}
@@ -59,14 +59,14 @@ export default function BottomTabNavigator({navigation, route}) {
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-today"/>,
                 }}
             />
-            <BottomTab.Screen
-                name="Chat"
-                component={ChatScreen}
-                options={{
-                    title: 'Chat',
-                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-chatboxes"/>,
-                }}
-            />
+            {/*<BottomTab.Screen*/}
+            {/*    name="Chat"*/}
+            {/*    component={ChatScreen}*/}
+            {/*    options={{*/}
+            {/*        title: 'Chat',*/}
+            {/*        tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-chatboxes"/>,*/}
+            {/*    }}*/}
+            {/*/>*/}
         </BottomTab.Navigator>
     );
 }

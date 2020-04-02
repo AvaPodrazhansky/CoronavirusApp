@@ -9,15 +9,16 @@ import {Text, TouchableHighlight, TouchableNativeFeedback, View} from "react-nat
 const SubmitButton = ({submitSurvey}) => {
     if (Platform.OS === 'android') {
         return (
-            <View>
-                <TouchableNativeFeedback style={styles.button}
-                                         delayPressIn={0}
-                                         onPress={submitSurvey}
-                                         activeOpacity={0.4}
-                                         underlayColor={'grey'}>
+            <TouchableNativeFeedback
+                background={TouchableNativeFeedback.Ripple('#ffffff', false)}
+                useForeground={true}
+                onPress={submitSurvey}
+                style={styles.button}>
+                <View
+                    style={styles.button}>
                     <Text style={styles.btnTextStyle}>{SUBMIT_BUTTON_TEXT}</Text>
-                </TouchableNativeFeedback>
-            </View>
+                </View>
+            </TouchableNativeFeedback>
         )
     } else {
         return (

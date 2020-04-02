@@ -11,12 +11,11 @@ const ResetButton = ({resetSurvey}) => {
     if (Platform.OS === 'android') {
         return (
             <View style={{justifyContent: "center", alignItems: "center",}}>
-                <TouchableNativeFeedback style={styles.redoButton}
-                                         delayPressIn={0}
-                                         onPress={resetSurvey}
-                                         activeOpacity={0.3}
-                                         underlayColor={'transparent'}>
-                    <View style={{justifyContent: "center", alignItems: "center",}}>
+                <TouchableNativeFeedback
+                    background={TouchableNativeFeedback.Ripple('#ffffff', false)}
+                    useForeground={true}
+                    onPress={resetSurvey}>
+                    <View style={styles.redoButton}>
                         <EvilIcons name={'redo'} size={50} style={styles.icon}/>
                         <Text style={styles.text}>{RESTART_BUTTON_TEXT}</Text>
                     </View>
@@ -31,7 +30,7 @@ const ResetButton = ({resetSurvey}) => {
                                     onPress={resetSurvey}
                                     activeOpacity={0.3}
                                     underlayColor={'transparent'}>
-                    <View style={{justifyContent: "center", alignItems: "center",}}>
+                    <View style={styles.redoButton}>
                         <EvilIcons name={'redo'} size={50} style={styles.icon}/>
                         <Text style={styles.text}>{RESTART_BUTTON_TEXT}</Text>
                     </View>

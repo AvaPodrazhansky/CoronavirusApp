@@ -14,7 +14,8 @@ export default styles = StyleSheet.create({
         backgroundColor: 'transparent',
         padding: 10,
         borderRadius: 3,
-        margin: 10
+        margin: 10,
+        justifyContent: "center",
     },
     btnTextStyle: {
         color: colors.WHITE,

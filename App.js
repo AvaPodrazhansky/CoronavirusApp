@@ -2,16 +2,12 @@ import * as React from 'react';
 import {SplashScreen} from 'expo';
 import * as Font from 'expo-font';
 import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
-import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import allReducers from './reducers';
 import useLinking from './navigation/useLinking';
-import thunk from "redux-thunk";
 import Root from "./Root";
+import {store} from './store-creator';
 
-const store = createStore(allReducers, applyMiddleware(thunk));
-
-export default function App(props){
+export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);
     const [initialNavigationState, setInitialNavigationState] = React.useState();
     const containerRef = React.useRef();

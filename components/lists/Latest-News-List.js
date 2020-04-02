@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import Spinner from "../loading";
 import {getData, getErrorMessage, isFetchingSelector} from "../../selectors/news/latest-news";
 import {fetchLatestNews} from "../../actions/news/latest-news";
+import {DEFAULT_COVID_URL} from "../../constants/constant-list";
 
 const LatestNewsList = ({isFetching, getLatestNews, newsData}) => {
 
@@ -56,11 +57,19 @@ const LatestNewsList = ({isFetching, getLatestNews, newsData}) => {
         }
     }
 
+    function _imageExists(imageURL) {
+        if (imageURL.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+            return imageURL;
+        } else {
+            return DEFAULT_COVID_URL;
+        }
+    }
+
     return (
         <View>
             {
                 newsData.map((item, i) => <LatestNewsListItem key={i}
-                                                              newsPicture={item.urlToImage}
+                                                              newsPicture={_imageExists(item.urlToImage)}
                                                               newsDescription={item.description}
                                                               newsTitle={item.title}
                                                               newsURL={item.url}

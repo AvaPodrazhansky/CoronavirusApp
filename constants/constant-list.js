@@ -144,6 +144,8 @@ export const MILES_ABBREVIATION = 'Mi';
 export const OPEN_NOW = 'Open Now';
 export const CLOSED = 'Closed';
 
-// Twitter Component URLs
+// News URLs
+export const DEFAULT_COVID_URL = 'https://media.npr.org/assets/img/2020/03/11/c_virus_outbreak_sq-428f510423dae3e93' +
+    '0089eb9efa735f4c6b8d9f3-s800-c85.jpg';
 export const CDC_URL = 'https://twitter.com/CDCgov';
 export const WHO_URL = 'https://twitter.com/WHO';

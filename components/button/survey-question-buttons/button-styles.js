@@ -3,7 +3,24 @@ import colors from "../../../constants/Colors";
 
 export default styles = StyleSheet.create({
     button: {
+        alignItems: 'center',
+        backgroundColor: colors.LIGHT_BLUE,
+        padding: 10,
+        borderRadius: 3,
         margin: 10
+    },
+    redoButton: {
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        padding: 10,
+        borderRadius: 3,
+        margin: 10
+    },
+    btnTextStyle: {
+        color: colors.WHITE,
+        textAlign: 'center',
+        fontWeight: '700',
+        fontSize: 20,
     },
     icon: {
         color: colors.WHITE,

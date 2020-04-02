@@ -3,20 +3,24 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {resetSurvey} from "../../../actions/symptom-survey/submit-survey";
 import {RESTART_BUTTON_TEXT} from "../../../constants/constant-list";
-import Button from './index';
 import {EvilIcons} from '@expo/vector-icons';
-import {Text, View} from "react-native";
+import {Text, TouchableHighlight, View} from "react-native";
 import styles from './button-styles'
 
 const ResetButton = ({resetSurvey}) => {
-
     return (
-        <Button actionFunction={resetSurvey} type={'clear'}>
-            <View style={{justifyContent: "center", alignItems: "center",}}>
-                <EvilIcons name={'redo'} size={50} style={styles.icon}/>
-                <Text style={styles.text}>{RESTART_BUTTON_TEXT}</Text>
-            </View>
-        </Button>
+        <View style={{justifyContent: "center", alignItems: "center",}}>
+            <TouchableHighlight style={styles.redoButton}
+                                delayPressIn={0}
+                                onPress={resetSurvey}
+                                activeOpacity={0.3}
+                                underlayColor={'transparent'}>
+                <View style={{justifyContent: "center", alignItems: "center",}}>
+                    <EvilIcons name={'redo'} size={50} style={styles.icon}/>
+                    <Text style={styles.text}>{RESTART_BUTTON_TEXT}</Text>
+                </View>
+            </TouchableHighlight>
+        </View>
     )
 };
 

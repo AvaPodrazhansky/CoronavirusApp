@@ -14,6 +14,7 @@ const QuestionFourInput = ({setPublicTransportation, number}) => {
             titleStyle={styles.questionInputText}
             actionFunction={e => setPublicTransportation(e.nativeEvent.text.trim())}
             value={number}
+            keyboardType={'numeric'}
         />
     )
 };

@@ -1,14 +1,14 @@
 // Survey Questions
-export const QUESTION_ONE = '1. What is your current location?';
-export const QUESTION_TWO = '2. Which of the following symptoms do you have?';
-export const QUESTION_THREE = '3. During the past two weeks, have you visited China, South Korea, Italy, Iran, or ' +
-    'Japan?';
-export const QUESTION_FOUR = '4. During the past two weeks, how many times have you taken public transportation ' +
+export const QUESTION_ONE = 'N/A. What is your current location?'; // Question 1 omitted as per Dr. Han's instructions
+export const QUESTION_TWO = '1. Which of the following symptoms do you have?';
+export const QUESTION_THREE = '2. Were you potentially exposed to someone who is suspected or confirmed to have the ' +
+    'coronavirus (COVID-19)?';
+export const QUESTION_FOUR = 'N/A. During the past two weeks, how many times have you taken public transportation ' +
     '(airplanes, buses, subways, trains, taxis, cruises, etc.) with confirmed COVID-19 case(s) on board in which ' +
-    'you are not wearing a face mask?';
-export const QUESTION_FIVE = '5. During the past two weeks, have you been to the following places or made contact ' +
-    'with the people or wild animals listed below?';
-export const QUESTION_SIX = '3. What is your age?'; // Questions 3-5 omitted as per Dr. Han's instructions
+    'you are not wearing a face mask?'; // Question 4 omitted as per Dr. Han's instructions
+export const QUESTION_FIVE = 'N/A. During the past two weeks, have you been to the following places or made contact ' +
+    'with the people or wild animals listed below?'; // Question 5 omitted as per Dr. Han's instructions
+export const QUESTION_SIX = '3. What is your age?';
 export const QUESTION_SEVEN = '4. What is your sex?';
 export const QUESTION_EIGHT = '5. Do you have existing conditions or diseases listed below?';
 
@@ -136,7 +136,6 @@ export const PROTECTION_METHOD_FIVE = protectionMethods[4];
 export const PROTECTION_METHOD_SIX = protectionMethods[5];
 export const PROTECTION_METHOD_SEVEN = protectionMethods[6];
 export const PROTECTION_METHOD_EIGHT = protectionMethods[7];
-
 
 // National Health Center Screen
 export const NHC_RESULT_LENGTH = 7;

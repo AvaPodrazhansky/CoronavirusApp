@@ -36,10 +36,6 @@ function fetchLatestNews() {
         let result = await fetch(url)
             .then(res => res.json())
             .then(res => res.articles)
-            .then(articles => {
-                console.log(articles);
-                return articles;
-            })
             .then(articles => dispatch(receiveDataSuccess(articles)))
             .catch(err => dispatch(receiveDataError(err)));
         return result;

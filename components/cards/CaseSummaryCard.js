@@ -6,7 +6,7 @@ import {getCurrentCasesUSData, getIsFetchingCurrentCasesUS} from "../../selector
 import {fetchCurrentDataUS} from '../../actions/dashboard/current-cases-us';
 import {Card} from "react-native-elements";
 import styles from "./styles";
-import {CONFIRMED_LABEL, CUMULATIVE_CASES_HEADER, DEAD_LABEL} from "../../constants/constant-list";
+import {CONFIRMED_LABEL, CUMULATIVE_CASES_HEADER, DEAD_LABEL, RECOVERED_LABEL} from "../../constants/constant-list";
 
 const CaseSummaryCard = ({getData, data, isFetching}) => {
     React.useEffect(() => {
@@ -36,7 +36,7 @@ const CaseSummaryCard = ({getData, data, isFetching}) => {
                 </View>
 
                 <View style={{...styles2.countBlock, borderColor: RECOVERED}}>
-                    <Text>Recovered: {isFetching ? '--' :data.recovered}</Text>
+                    <Text>{RECOVERED_LABEL}{isFetching ? '--' :data.recovered}</Text>
                 </View>
 
             </View>

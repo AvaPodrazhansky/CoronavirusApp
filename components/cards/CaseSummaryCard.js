@@ -10,14 +10,15 @@ import {CONFIRMED_LABEL, CUMULATIVE_CASES_HEADER, DEAD_LABEL} from "../../consta
 
 const CaseSummaryCard = ({getData, data, isFetching}) => {
     React.useEffect(() => {
-        // if(data['positive'] === undefined || data['death'] === undefined) {
+        // if(data === {}) {
             getData();
         // }
     }, []);
 
     const {
         CONFIRMED,
-        DEAD
+        DEAD,
+        RECOVERED
     } = colors;
 
     return (
@@ -27,16 +28,16 @@ const CaseSummaryCard = ({getData, data, isFetching}) => {
         >
             <View style={styles2.blockContainer}>
                 <View style={{...styles2.countBlock, borderColor: CONFIRMED}}>
-                    <Text>{CONFIRMED_LABEL}{isFetching ? '--' : data['positive']}</Text>
+                    <Text>{CONFIRMED_LABEL}{isFetching ? '--' : data.confirmed}</Text>
                 </View>
 
                 <View style={{...styles2.countBlock, borderColor: DEAD}}>
-                    <Text>{DEAD_LABEL}{isFetching ? '--' : data['death']}</Text>
+                    <Text>{DEAD_LABEL}{isFetching ? '--' : data.deaths}</Text>
                 </View>
 
-                {/*<View style={{...styles2.countBlock, borderColor: colors.GREEN}}>*/}
-                {/*    <Text>Recovered: {data['positive']}</Text>*/}
-                {/*</View>*/}
+                <View style={{...styles2.countBlock, borderColor: RECOVERED}}>
+                    <Text>Recovered: {isFetching ? '--' :data.recovered}</Text>
+                </View>
 
             </View>
         </Card>

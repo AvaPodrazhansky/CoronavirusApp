@@ -22,7 +22,7 @@ const currentCasesUS = (state = defaultState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                data: action.payload[0]
+                data: action.payload
             };
         case RECEIVE_CURRENT_CASE_US_DATA_ERROR:
             return {

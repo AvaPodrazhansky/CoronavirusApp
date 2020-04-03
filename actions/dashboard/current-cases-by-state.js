@@ -1,4 +1,5 @@
 import {fetchData} from "../../constants/api";
+import {statePopulations} from "../../constants/constant-list";
 
 const SET_IS_FETCHING_CURRENT_CASES_BY_STATE = 'SET_IS_FETCHING_CURRENT_CASES_BY_STATE';
 const setIsFetchingCurrentCasesByState = value => {
@@ -25,17 +26,6 @@ const receiveCurrentCaseByStateDataError = error => {
 };
 
 function fetchCurrentDataByState() {
-    // return async dispatch => {
-    //     console.log('here')
-    //     dispatch(setIsFetchingCurrentCasesByState(true));
-    //     return await fetch('https://covidtracking.com/api/states')
-    //         .then(res => {
-    //             return res.json()
-    //         })
-    //         .then(res => dispatch(receiveCurrentCaseByStateDataSuccess(res)))
-    //         .catch(err => dispatch(receiveCurrentCaseByStateDataError(err))) //TODO: have error do something
-    // }
-
     const route = 'us_data';
     const params = {};
 
@@ -43,6 +33,13 @@ function fetchCurrentDataByState() {
         dispatch(setIsFetchingCurrentCasesByState(true));
         return await fetchData(route, params)
             .then(res => res.output[0])
+            // .then(res => res.map(item => {
+            //     return({
+            //             ...item,
+            //             totalPopulation: statePopulations[item.state]
+            //         })
+            //
+            // }))
             .then(res => dispatch(receiveCurrentCaseByStateDataSuccess(res)))
             .catch(err => dispatch(receiveCurrentCaseByStateDataError(err))) //TODO: have error do something
     }

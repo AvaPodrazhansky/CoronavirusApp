@@ -10,16 +10,8 @@ import {CONFIRMED, CUMULATIVE_CASES_HEADER, DEAD, RECOVERED} from "../../constan
 
 const CaseSummaryCard = ({getData, data, isFetching}) => {
     React.useEffect(() => {
-        // if(data === {}) {
         getData();
-        // }
     }, []);
-
-    // const {
-    //     CONFIRMED,
-    //     DEAD,
-    //     RECOVERED
-    // } = colors;
 
     return (
         <Card containerStyle={styles.container}

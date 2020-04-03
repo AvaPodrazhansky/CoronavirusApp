@@ -13,7 +13,7 @@ const MyRectangle = ({item}) => {
     const deaths = (item.deaths === 'N/A' ? 0 : Number(item.deaths));
     const recovered = (item.recovered === 'N/A' ? 0 : Number(item.recovered));
 
-    const total = confirmed + deaths + recovered + statePopulations[item.state] / 100;
+    const total = statePopulations[item.state] / 55;
     const state = item.state;
     // console.log({state}, {confirmed}, {deaths}, {recovered}, {total});
 
@@ -54,7 +54,7 @@ const StateList = ({data, getData}) => {
                         rightIcon={<MyRectangle item={item}/>}
                         topDivider
                         bottomDivider
-                        chevron
+                        // chevron //uncomment this when you want to add county data
                     />
                 ))
             }

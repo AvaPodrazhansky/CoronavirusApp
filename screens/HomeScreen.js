@@ -35,7 +35,7 @@ const HomeScreen = ({toSurvey}) => {
                 {/*<CaseSummary/>*/}
                 <CaseSummaryCard/>
                 {/*<MyRectangle/>*/}
-                <UnitedStatesMap/>
+                {/*<UnitedStatesMap/>*/}
                 {/*<StateTableSummary/>*/}
                 <Card>
                 <StateList/>

@@ -1,3 +1,30 @@
+// Terms and Conditions Screen
+export const TERMS_TITLE = 'COVID-19 Self-Diagnosis\nTerms and Conditions';
+export const termsTitleArray = [
+    'Purpose Statement',
+    'Conditions Statement',
+    'Privacy Statement',
+    'By selecting "I accept.", you indicate that you have reviewed and agree to our conditions statement and privacy ' +
+    'statement.'
+];
+export const termsArray = [
+    'The main purpose of the COVID-19 Self-Diagnosis is to help you make informed ' +
+    'decisions regarding the important process of seeking appropriate medical care. As such, this self-evaluation ' +
+    'is neither intended to substitute the advice of medical professionals nor to make a formal diagnosis on or ' +
+    'treatment of COVID-19. Lastly, the COVID-19 Self-Diagnosis is primarily intended for people who are currently ' +
+    'located in the United States.',
+    'To the fullest extent provided by law, we hereby disclaim all warranties of ' +
+    'any kind (whether expressed or implied, statutory, or otherwise) including to but not limited to any ' +
+    'warranties of merchantability, non-infringement, and fitness for particular purpose. Additionally, your ' +
+    'inputted information within the COVID-19 Self-Diagnosis will be collected by us for research purposes. As' +
+    ' such, your use of this self-evaluation is solely at your own risk.',
+    'We will only collect information such as your symptoms, relative proximity to ' +
+    'potential COVID-19 cases, age, sex, and existing medical conditions. Personal information such as your name, ' +
+    'address, and phone number will not be collected by us.',
+    ''
+];
+export const ACCEPT_CONDITIONS = 'I accept.';
+
 // Survey Questions
 export const QUESTION_ONE = 'N/A. What is your current location?'; // Question 1 omitted as per Dr. Han's instructions
 export const QUESTION_TWO = '1. Which of the following symptoms do you have?';

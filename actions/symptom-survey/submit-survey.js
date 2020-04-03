@@ -1,3 +1,10 @@
+const SHOW_DIAGNOSIS_SCREEN = 'SHOW_DIAGNOSIS_SCREEN';
+const showDiagnosisScreen = () => {
+    return {
+        type: SHOW_DIAGNOSIS_SCREEN,
+    }
+};
+
 const SHOW_RESULT_SCREEN = 'SHOW_RESULT_SCREEN';
 const showResultScreen = () => {
     return {
@@ -16,7 +23,7 @@ function submitSurvey() {
     return (dispatch, getState) => {
         const state = getState();
         // console.log(Object.keys(state));
-        console.log(state.symptomSurvey)
+        console.log(state.symptomSurvey);
         dispatch(showResultScreen())
     };
 }
@@ -26,5 +33,7 @@ export {
     SHOW_RESULT_SCREEN,
     showResultScreen,
     RESET_SURVEY,
-    resetSurvey
+    resetSurvey,
+    SHOW_DIAGNOSIS_SCREEN,
+    showDiagnosisScreen
 }

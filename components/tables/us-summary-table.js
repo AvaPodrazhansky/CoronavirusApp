@@ -8,6 +8,7 @@ import {
 import {fetchCurrentDataByState} from '../../actions/dashboard/current-cases-by-state';
 import connect from 'react-redux/lib/connect/connect';
 import colors from '../../constants/Colors';
+import {CONFIRMED, DEAD, RECOVERED} from "../../constants/constant-list";
 
 const StateTableSummary = ({data, getData, isFetching}) => {
 
@@ -22,18 +23,24 @@ const StateTableSummary = ({data, getData, isFetching}) => {
         )
     }
 
-    const tableHead = ['State', 'Confirmed', 'Deaths'];
+    const tableHead = ['State', CONFIRMED, DEAD,
+        RECOVERED
+    ];
 
     return (
         <View style={styles.container}>
             <Table borderStyle={{borderWidth: 0}}>
-                <Row data={tableHead} flexArr={[2, 1, 1]} style={styles.head} textStyle={styles.text}/>
+                <Row data={tableHead} flexArr={[2, 1, 1, 1]} style={styles.head} textStyle={styles.text}/>
                 {
                     data.map((item, index) => (
                         <Row
                             key={index}
-                            data={[item.name, item.positive, (item.death === null ? 0 : item.death)]}
-                            flexArr={[2, 1, 1]}
+                            data={[item.state,
+                                (item.confirmed === 'N/A' ? '-' : item.confirmed),
+                                (item.deaths === 'N/A' ? '-' : item.deaths),
+                                (item.recovered === 'N/A' ? '-' : item.recovered)
+                            ]}
+                            flexArr={[2, 1, 1, 1]}
                             style={[styles.row, index % 2 && {backgroundColor: colors.LIGHT_BACKGROUND}]}
                             textStyle={styles.rowText}
                         />

@@ -25,31 +25,13 @@ const receiveCurrentCaseUSDataError = error => {
 };
 
 function fetchCurrentDataUS() {
-    // return async dispatch => {
-    //     dispatch(setIsFetchingCurrentCasesUS(true));
-    //     return await fetch('https://covidtracking.com/api/us')
-    //         .then(res => res.json())
-    //         .then(res => dispatch(receiveCurrentCaseUSDataSuccess(res)))
-    //         .catch(err => dispatch(receiveCurrentCaseUSDataError(err))) //TODO: have error do something
-    // }
     const route = 'world_data/united%20states';
     const params = {};
 
     return async dispatch => {
         dispatch(setIsFetchingCurrentCasesUS(true));
         return await fetchData(route, params)
-            .then(res => {
-                console.log(res)
-                console.log(res.output)
-                console.log(res.output[0])
-                console.log(res.output[0][0])
-                return res;
-            })
             .then(res => res.output[0][0])
-            // .then(res => {
-            //     console.log(res)
-            //     return res;
-            // })
             .then(res => dispatch(receiveCurrentCaseUSDataSuccess(res)))
             .catch(err => dispatch(receiveCurrentCaseUSDataError(err))) //TODO: have error do something
     }

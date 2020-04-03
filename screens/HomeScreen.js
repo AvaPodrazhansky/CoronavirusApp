@@ -11,6 +11,20 @@ import StateList from '../components/lists/State-List';
 import StateTableSummary from '../components/tables/us-summary-table'
 import CaseSummaryCard from '../components/cards/CaseSummaryCard';
 import UnitedStatesMap from "../components/map/UnitedStatesMap";
+import {Card} from "react-native-elements";
+// import Svg, {Circle, Path, Rect} from "react-native-svg";
+
+const MyRectangle = () => {
+    return (
+        <View style={{flexDirection: 'row', height: 10}}>
+            <View style={{width: '10%', backgroundColor: '#ff0000'}}/>
+            <View style={{width: '20%', backgroundColor: '#00ff00'}}/>
+            <View style={{width: '20%', backgroundColor: '#0000ff'}}/>
+            <View style={{flex: 1, backgroundColor: '#cbcbcb'}}/>
+        </View>
+    )
+};
+
 
 //TODO: Change view with survey page button. It hides content at the bottom of the scroll view
 const HomeScreen = ({toSurvey}) => {
@@ -20,9 +34,12 @@ const HomeScreen = ({toSurvey}) => {
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 {/*<CaseSummary/>*/}
                 <CaseSummaryCard/>
+                {/*<MyRectangle/>*/}
                 <UnitedStatesMap/>
-                <StateTableSummary/>
-                {/*<StateList/>*/}
+                {/*<StateTableSummary/>*/}
+                <Card>
+                <StateList/>
+                </Card>
                 {/*<CaseByStatePieChart/>*/}
                 {/*<OutcomeOfInfectedPieChart/>*/}
                 {/*<CaseByStateBarGraph/>*/}
@@ -30,10 +47,10 @@ const HomeScreen = ({toSurvey}) => {
                 {/*<TotalCasesLineChart/>*/}
             </ScrollView>
 
-            <View style={styles.tabBarInfoContainer}>
-                <Text style={styles.tabBarInfoText}>Self Diagnosis Survey:</Text>
-                <Button title={'Survey Page'} onPress={toSurvey}/>
-            </View>
+            {/*<View style={styles.tabBarInfoContainer}>*/}
+            {/*    <Text style={styles.tabBarInfoText}>Self Diagnosis Survey:</Text>*/}
+            {/*    <Button title={'Survey Page'} onPress={toSurvey}/>*/}
+            {/*</View>*/}
         </View>
     );
 };

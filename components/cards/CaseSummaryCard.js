@@ -6,20 +6,20 @@ import {getCurrentCasesUSData, getIsFetchingCurrentCasesUS} from "../../selector
 import {fetchCurrentDataUS} from '../../actions/dashboard/current-cases-us';
 import {Card} from "react-native-elements";
 import styles from "./styles";
-import {CONFIRMED_LABEL, CUMULATIVE_CASES_HEADER, DEAD_LABEL, RECOVERED_LABEL} from "../../constants/constant-list";
+import {CONFIRMED, CUMULATIVE_CASES_HEADER, DEAD, RECOVERED} from "../../constants/constant-list";
 
 const CaseSummaryCard = ({getData, data, isFetching}) => {
     React.useEffect(() => {
         // if(data === {}) {
-            getData();
+        getData();
         // }
     }, []);
 
-    const {
-        CONFIRMED,
-        DEAD,
-        RECOVERED
-    } = colors;
+    // const {
+    //     CONFIRMED,
+    //     DEAD,
+    //     RECOVERED
+    // } = colors;
 
     return (
         <Card containerStyle={styles.container}
@@ -27,16 +27,19 @@ const CaseSummaryCard = ({getData, data, isFetching}) => {
               titleStyle={styles.title}
         >
             <View style={styles2.blockContainer}>
-                <View style={{...styles2.countBlock, borderColor: CONFIRMED}}>
-                    <Text>{CONFIRMED_LABEL}{isFetching ? '--' : data.confirmed}</Text>
+                <View style={{...styles2.countBlock, borderColor: colors.CONFIRMED}}>
+                    <Text>{CONFIRMED}</Text>
+                    <Text>{isFetching ? '--' : data.confirmed}</Text>
                 </View>
 
-                <View style={{...styles2.countBlock, borderColor: DEAD}}>
-                    <Text>{DEAD_LABEL}{isFetching ? '--' : data.deaths}</Text>
+                <View style={{...styles2.countBlock, borderColor: colors.DEAD}}>
+                    <Text>{DEAD}</Text>
+                    <Text>{isFetching ? '--' : data.deaths}</Text>
                 </View>
 
-                <View style={{...styles2.countBlock, borderColor: RECOVERED}}>
-                    <Text>{RECOVERED_LABEL}{isFetching ? '--' :data.recovered}</Text>
+                <View style={{...styles2.countBlock, borderColor: colors.RECOVERED}}>
+                    <Text>{RECOVERED}</Text>
+                    <Text>{isFetching ? '--' : data.recovered}</Text>
                 </View>
 
             </View>
@@ -64,7 +67,8 @@ const styles2 = StyleSheet.create({
     countBlock: {
         padding: 15,
         borderWidth: 2,
-        borderRadius: 5
+        borderRadius: 5,
+        alignItems: 'center'
     }
 });
 

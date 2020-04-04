@@ -6,6 +6,14 @@ export const DEAD_LABEL = 'Deaths: ';
 export const CONFIRMED = 'Confirmed';
 export const RECOVERED = 'Recovered';
 export const DEAD = 'Deaths';
+export const CONFIRMED_TYPE = 'CONFIRMED_TYPE';
+export const DEATHS_TYPE = 'DEATHS_TYPE';
+export const RECOVERED_TYPE = 'RECOVERED_TYPE';
+// Value state populations are divided by when sorting
+// (to make unbiased, change to zero). The purpose of this
+// is so that there is visible colors on the toolbars on the
+// statelist
+export const toolbarShiftValue = 30;
 
 // Survey Questions
 export const QUESTION_ONE = '1. What is your current location?';

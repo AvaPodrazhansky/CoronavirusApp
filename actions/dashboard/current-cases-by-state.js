@@ -1,4 +1,5 @@
 import {fetchData} from "../../constants/api";
+import {statePopulations} from "../../constants/constant-list";
 
 const SET_IS_FETCHING_CURRENT_CASES_BY_STATE = 'SET_IS_FETCHING_CURRENT_CASES_BY_STATE';
 const setIsFetchingCurrentCasesByState = value => {
@@ -43,6 +44,7 @@ function fetchCurrentDataByState() {
         dispatch(setIsFetchingCurrentCasesByState(true));
         return await fetchData(route, params)
             .then(res => res.output[0])
+            .then(res => res.filter(item => statePopulations[item.state] !== undefined) )
             .then(res => dispatch(receiveCurrentCaseByStateDataSuccess(res)))
             .catch(err => dispatch(receiveCurrentCaseByStateDataError(err))) //TODO: have error do something
     }

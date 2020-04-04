@@ -1,4 +1,5 @@
 import {fetchData} from "../../constants/api";
+import {statePopulations} from "../../constants/constant-list";
 
 const SET_IS_FETCHING_CURRENT_CASES_US = 'SET_IS_FETCHING_CURRENT_CASES_US';
 const setIsFetchingCurrentCasesUS = value => {
@@ -24,6 +25,14 @@ const receiveCurrentCaseUSDataError = error => {
     }
 };
 
+const SET_FOCUSED_CASE_TYPE = 'SET_FOCUSED_CASE_TYPE';
+const setFocusedCaseType = caseType => {
+    return {
+        type: SET_FOCUSED_CASE_TYPE,
+        payload: caseType
+    }
+};
+
 function fetchCurrentDataUS() {
     const route = 'world_data/united%20states';
     const params = {};
@@ -44,5 +53,7 @@ export {
     receiveCurrentCaseUSDataSuccess,
     RECEIVE_CURRENT_CASE_US_DATA_ERROR,
     receiveCurrentCaseUSDataError,
-    fetchCurrentDataUS
+    fetchCurrentDataUS,
+    SET_FOCUSED_CASE_TYPE,
+    setFocusedCaseType
 }

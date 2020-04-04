@@ -4,23 +4,20 @@ export const termsTitleArray = [
     'Purpose Statement',
     'Conditions Statement',
     'Privacy Statement',
-    'By selecting "I accept.", you indicate that you have reviewed and agree to our conditions statement and privacy ' +
+    'By selecting "I accept", you indicate that you have reviewed and agree to our conditions statement and privacy ' +
     'statement.'
 ];
 export const termsArray = [
-    'The main purpose of the COVID-19 Self-Diagnosis is to help you make informed ' +
-    'decisions regarding the important process of seeking appropriate medical care. As such, this self-evaluation ' +
-    'is neither intended to substitute the advice of medical professionals nor to make a formal diagnosis on or ' +
-    'treatment of COVID-19. Lastly, the COVID-19 Self-Diagnosis is primarily intended for people who are currently ' +
-    'located in the United States.',
-    'To the fullest extent provided by law, we hereby disclaim all warranties of ' +
-    'any kind (whether expressed or implied, statutory, or otherwise) including to but not limited to any ' +
-    'warranties of merchantability, non-infringement, and fitness for particular purpose. Additionally, your ' +
-    'inputted information within the COVID-19 Self-Diagnosis will be collected by us for research purposes. As' +
-    ' such, your use of this self-evaluation is solely at your own risk.',
-    'We will only collect information such as your symptoms, relative proximity to ' +
-    'potential COVID-19 cases, age, sex, and existing medical conditions. Personal information such as your name, ' +
-    'address, and phone number will not be collected by us.',
+    'The main purpose of the COVID-19 Self-Diagnosis is to help you make informed decisions regarding the important ' +
+    'process of seeking appropriate medical care. As such, this self-evaluation is neither intended to substitute ' +
+    'the advice of medical professionals nor to make a formal diagnosis on or treatment of COVID-19. Lastly, the ' +
+    'COVID-19 Self-Diagnosis is primarily intended for people who are currently located in the United States.',
+    'To the fullest extent provided by law, we hereby disclaim all warranties of any kind (whether expressed or ' +
+    'implied, statutory, or otherwise) including to but not limited to any warranties of merchantability, ' +
+    'non-infringement, and fitness for particular purpose. As such, your use of this self-evaluation is solely at ' +
+    'your own risk.',
+    'We will not collect the data that you input within the self-evaluation and any personal information such as ' +
+    'your name, phone number, and address. The COVID-19 Self-Diagnosis is solely for your benefit.',
     ''
 ];
 export const ACCEPT_CONDITIONS = 'I accept.';
@@ -135,12 +132,9 @@ export const NOT_INFECTED = 'You do not seem to have the typical expected sympto
     'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus.';
 
 // Ways to Protect Yourself (Result Summary)
-export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
-    'distancing.';
 export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
     'closest medical facility. (You can view a list of nearby national health centers in the Clinics tab).';
 export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
-export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
 
 // Ways to Protect Yourself from COVID-19
 export const PROTECTION_METHODS_TITLE = 'How to protect yourself';

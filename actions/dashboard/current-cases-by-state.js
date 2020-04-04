@@ -40,11 +40,39 @@ function fetchCurrentDataByState() {
     const route = 'us_data';
     const params = {};
 
+    // let maxConfirmed = 0;
+    // let maxDeaths = 0;
+    // let maxRecovered = 0;
+
     return async dispatch => {
         dispatch(setIsFetchingCurrentCasesByState(true));
         return await fetchData(route, params)
             .then(res => res.output[0])
-            .then(res => res.filter(item => statePopulations[item.state] !== undefined) )
+            // .then(res => {
+            //     console.log(res)
+            //     return res
+            // })
+            // .then(res => res.map(item => {
+            //     console.log(item)
+            //     // if (statePopulations[item.state] !== undefined) {
+            //
+            //
+            //         maxConfirmed = max(maxConfirmed, Number(item.confirmed));
+            //         maxDeaths = max(maxDeaths, Number(item.deaths));
+            //         maxRecovered = max(maxRecovered, Number(item.recovered));
+            //         // console.log(item);
+            //         return ({
+            //             ...item,
+            //             confirmed: Number(item.confirmed),
+            //             deaths: Number(item.deaths),
+            //             recovered: Number(item.recovered)
+            //         });
+            //     // }
+            //     // else {
+            //     //     return null;
+            //     // }
+            // }))
+            .then(res => res.filter(item => statePopulations[item.state] !== undefined))
             .then(res => dispatch(receiveCurrentCaseByStateDataSuccess(res)))
             .catch(err => dispatch(receiveCurrentCaseByStateDataError(err))) //TODO: have error do something
     }

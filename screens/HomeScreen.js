@@ -12,6 +12,8 @@ import StateTableSummary from '../components/tables/us-summary-table'
 import CaseSummaryCard from '../components/cards/CaseSummaryCard';
 import UnitedStatesMap from "../components/map/UnitedStatesMap";
 import {Card} from "react-native-elements";
+import OutcomeOfInfectedPieChart from "../components/charts/outcome-of-infected-pie-chart";
+import CaseByStatePieChart from "../components/charts/case-by-state-pie-chart";
 // import Svg, {Circle, Path, Rect} from "react-native-svg";
 
 const MyRectangle = () => {
@@ -37,6 +39,7 @@ const HomeScreen = ({toSurvey}) => {
                 {/*<MyRectangle/>*/}
                 {/*<UnitedStatesMap/>*/}
                 {/*<StateTableSummary/>*/}
+                {/*<OutcomeOfInfectedPieChart/>*/}
                 <Card>
                 <StateList/>
                 </Card>

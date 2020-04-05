@@ -14,6 +14,7 @@ const QuestionSixInput = ({setAge, age}) => {
             titleStyle={styles.questionInputText}
             actionFunction={e => setAge(e.nativeEvent.text.trim())}
             value={age}
+            keyboardType={'numeric'}
         />
     )
 };

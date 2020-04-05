@@ -1,3 +1,27 @@
+// Terms and Conditions Screen
+export const TERMS_TITLE = 'COVID-19 Self-Diagnosis\nTerms and Conditions';
+export const termsTitleArray = [
+    'Purpose Statement',
+    'Conditions Statement',
+    'Privacy Statement',
+    'By selecting "I accept", you indicate that you have reviewed and agree to our conditions statement and privacy ' +
+    'statement.'
+];
+export const termsArray = [
+    'The main purpose of the COVID-19 Self-Diagnosis is to help you make informed decisions regarding the important ' +
+    'process of seeking appropriate medical care. As such, this self-evaluation is neither intended to substitute ' +
+    'the advice of medical professionals nor to make a formal diagnosis on or treatment of COVID-19. Lastly, the ' +
+    'COVID-19 Self-Diagnosis is primarily intended for people who are currently located in the United States.',
+    'To the fullest extent provided by law, we hereby disclaim all warranties of any kind (whether expressed or ' +
+    'implied, statutory, or otherwise) including to but not limited to any warranties of merchantability, ' +
+    'non-infringement, and fitness for particular purpose. As such, your use of this self-evaluation is solely at ' +
+    'your own risk.',
+    'We will not collect the data that you input within the self-evaluation and any personal information such as ' +
+    'your name, phone number, and address. The COVID-19 Self-Diagnosis is solely for your benefit.',
+    ''
+];
+export const ACCEPT_CONDITIONS = 'I accept.';
+
 // Home Screen
 export const CUMULATIVE_CASES_HEADER = 'Cumulative Cases in United States';
 export const CONFIRMED_LABEL = 'Confirmed: ';
@@ -17,16 +41,16 @@ export const toolbarShiftValue = 1;
 export const PERCENTAGE = 'PERCENTAGE';
 
 // Survey Questions
-export const QUESTION_ONE = '1. What is your current location?';
-export const QUESTION_TWO = '2. Which of the following symptoms do you have?';
-export const QUESTION_THREE = '3. During the past two weeks, have you visited China, South Korea, Italy, Iran, or ' +
-    'Japan?';
-export const QUESTION_FOUR = '4. During the past two weeks, how many times have you taken public transportation ' +
+export const QUESTION_ONE = 'N/A. What is your current location?'; // Question 1 omitted as per Dr. Han's instructions
+export const QUESTION_TWO = '1. Which of the following symptoms do you have?';
+export const QUESTION_THREE = '2. Were you potentially exposed to someone who is suspected or confirmed to have the ' +
+    'coronavirus (COVID-19)?';
+export const QUESTION_FOUR = 'N/A. During the past two weeks, how many times have you taken public transportation ' +
     '(airplanes, buses, subways, trains, taxis, cruises, etc.) with confirmed COVID-19 case(s) on board in which ' +
-    'you are not wearing a face mask?';
-export const QUESTION_FIVE = '5. During the past two weeks, have you been to the following places or made contact ' +
-    'with the people or wild animals listed below?';
-export const QUESTION_SIX = '3. What is your age?'; // Questions 3-5 omitted as per Dr. Han's instructions
+    'you are not wearing a face mask?'; // Question 4 omitted as per Dr. Han's instructions
+export const QUESTION_FIVE = 'N/A. During the past two weeks, have you been to the following places or made contact ' +
+    'with the people or wild animals listed below?'; // Question 5 omitted as per Dr. Han's instructions
+export const QUESTION_SIX = '3. What is your age?';
 export const QUESTION_SEVEN = '4. What is your sex?';
 export const QUESTION_EIGHT = '5. Do you have existing conditions or diseases listed below?';
 
@@ -126,12 +150,9 @@ export const NOT_INFECTED = 'You do not seem to have the typical expected sympto
     'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus.';
 
 // Ways to Protect Yourself (Result Summary)
-export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
-    'distancing.';
 export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
     'closest medical facility. (You can view a list of nearby national health centers in the Clinics tab).';
 export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
-export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
 
 // Ways to Protect Yourself from COVID-19
 export const PROTECTION_METHODS_TITLE = 'How to protect yourself';

@@ -1,16 +1,16 @@
-import {FOREIGN_COUNTRIES} from "../../actions/symptom-survey/question3";
+import {POTENTIALLY_EXPOSED} from "../../actions/symptom-survey/question3";
 import {RESET_SURVEY} from "../../actions/symptom-survey/submit-survey";
 
 const defaultState = {
-    visitedForeignCountries: null
+    exposed: null
 };
 
 const question3 = (state = defaultState, action) => {
     switch (action.type) {
-        case FOREIGN_COUNTRIES:
+        case POTENTIALLY_EXPOSED:
             return {
                 ...state,
-                visitedForeignCountries: action.payload
+                exposed: action.payload
             };
         case RESET_SURVEY:
             return defaultState;

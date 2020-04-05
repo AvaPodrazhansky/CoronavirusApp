@@ -14,6 +14,7 @@ const QuestionOneInput = ({setLocation, location}) => {
             titleStyle={styles.firstQuestionInputText}
             actionFunction={e => setLocation(e.nativeEvent.text.trim())}
             value={location}
+            keyboardType={'default'}
         />
     )
 };

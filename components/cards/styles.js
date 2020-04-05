@@ -31,11 +31,25 @@ export default styles = StyleSheet.create({
     },
     emergencyCardDivider: {
         backgroundColor: colors.WHITE,
-
     },
     titleContainer: {
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    termsAndConditionsContainer: {
+        margin: 10,
+        padding: 10,
+        marginBottom: 0
+    },
+    termsAndConditionsTitleText: {
+        fontSize: 20,
+        padding: 3
+    },
+    termsAndConditionsSubtitleText: {
+        padding: 3
+    },
+    termsAndConditionsItemContainer: {
+        padding: 7
     },
 });

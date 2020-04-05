@@ -1,15 +1,12 @@
 import * as React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import {StyleSheet, View, Text} from 'react-native';
 import {connect} from "react-redux";
 import ResetButton from "../../components/button/survey-question-buttons/reset-button";
 import {
     COVID_CONFIRMED,
     COVID_CONFIRMED_BANNER,
-    NEED_EMERGENCY_CARE,
     NOT_INFECTED,
     NOT_INFECTED_BANNER,
-    SOCIAL_DISTANCING
 } from "../../constants/constant-list";
 import {getDiagnosis} from "../../selectors/symptom-survey/surveyResults";
 import PropTypes from "prop-types";
@@ -41,7 +38,6 @@ const DiagnosisResultScreen = ({diagnosis, toNHCScreen, ...props}) => {
             shrinkingTitleComponent={<ShrinkingTitleComponent/>}
             mainTitleComponent={<MainTitleComponent/>}
             headerBackgroundColor={diagnosis ? colors.RESULTS_LIGHT_RED : colors.RESULTS_LIGHT_GREEN}>
-            {/*<Button title={'test'} onPress={toNHCScreen}/>*/}
             <EmergencyCard props={props}/>
             <ProtectionMethods/>
         </ScrollableHeaderScrollView>
@@ -69,8 +65,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         color: colors.WHITE,
-        // fontWeight: 'bold'
-
     },
     bannerMessage: {
         fontSize: 20,
@@ -83,17 +77,13 @@ const styles = StyleSheet.create({
 });
 
 DiagnosisResultScreen.propTypes = {
-    diagnosis: PropTypes.func.isRequired
+    diagnosis: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
     diagnosis: getDiagnosis(state)
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
-    toNHCScreen: () => {
-        console.log(props)
-    }
-});
+const mapDispatchToProps = (dispatch, props) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiagnosisResultScreen);

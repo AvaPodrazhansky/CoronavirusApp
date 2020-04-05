@@ -1,12 +1,12 @@
-const FOREIGN_COUNTRIES = 'FOREIGN_COUNTRIES';
-const visitedForeignCountriesPressed = visitedForeignCountries => {
+const POTENTIALLY_EXPOSED = 'POTENTIALLY_EXPOSED';
+const potentiallyExposed = exposed => {
     return {
-        type: FOREIGN_COUNTRIES,
-        payload: visitedForeignCountries
+        type: POTENTIALLY_EXPOSED,
+        payload: exposed
     }
 };
 
 export {
-    FOREIGN_COUNTRIES,
-    visitedForeignCountriesPressed
+    POTENTIALLY_EXPOSED,
+    potentiallyExposed
 }

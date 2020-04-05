@@ -15,7 +15,7 @@ const QuestionTwoCheckbox = ({answerStatuses, toggleAnswer}) => {
     // The indices of these arrays go together
     return (
         <View>
-            <Text style={styles.questionText}>{QUESTION_TWO}</Text>
+            <Text style={styles.firstQuestionText}>{QUESTION_TWO}</Text>
             {
                 questionTwoAnswerArray.map((answer, index) => (
                     <CheckBox key={index}

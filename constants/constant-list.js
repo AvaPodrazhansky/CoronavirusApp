@@ -164,6 +164,9 @@ export const MILES_ABBREVIATION = 'Mi';
 export const OPEN_NOW = 'Open Now';
 export const CLOSED = 'Closed';
 export const NHC_LOADING_ERROR_MESSAGE = 'There was an error loading the closest national health centers';
+export const CALL_LABEL = 'Call';
+export const WEBSITE_LABEL = 'Website';
+export const DIRECTIONS_LABEL = 'Directions';
 
 // News URLs
 export const DEFAULT_COVID_URL = 'https://media.npr.org/assets/img/2020/03/11/c_virus_outbreak_sq-428f510423dae3e93' +

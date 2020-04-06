@@ -9,7 +9,7 @@ import {fetchNHCListDetails} from "../../actions/national-health-center/nhc-list
 import NHCListItem from './NHC-List-Item';
 import {setRegion} from "../../actions/summary-map/map-regions";
 
-const NHCList = ({isFetching, data, userLocation, isFetchingDetails, getDataDetails, detailData}) => {
+const NHCList = ({isFetching, data, userLocation, isFetchingDetails, getDataDetails, detailData, setRegion}) => {
 
     React.useEffect(() => {
         if (!isFetching && !isFetchingDetails && detailData.length === 0 && data !== undefined && data.length !== 0) {

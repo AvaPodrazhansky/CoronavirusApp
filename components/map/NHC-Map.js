@@ -30,6 +30,7 @@ const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
         <MapView
             provider={PROVIDER_GOOGLE}
             initialRegion={region}
+            // region={region}
             onRegionChange={setRegion}
             style={styles.mapStyle}
         >

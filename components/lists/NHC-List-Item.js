@@ -4,6 +4,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import colors from "../../constants/Colors";
+import {CALL_LABEL, WEBSITE_LABEL} from "../../constants/constant-list";
 
 // TODO: Add version to short circuit data if one is not loaded yet
 const IconView = ({name, text, onIconPress}) => {
@@ -28,9 +29,9 @@ const NHCListItem = ({title, address, phoneNumber, website, openHours, onPress})
             rightIcon={
                 // TODO: Add if statement for onPress
                 <View style={styles.iconList}>
-                    <IconView name={'phone'} text={'Call'}
+                    <IconView name={'phone'} text={CALL_LABEL}
                               onIconPress={() => Linking.openURL(`tel:${phoneNumber}`)}/>
-                    <IconView name={'web'} text={'Website'}
+                    <IconView name={'web'} text={WEBSITE_LABEL}
                               onIconPress={() => Linking.openURL(website)}/>
                 </View>
             }

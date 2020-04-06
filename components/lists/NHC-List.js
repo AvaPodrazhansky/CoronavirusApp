@@ -58,16 +58,19 @@ const NHCList = ({isFetching, data, userLocation, isFetchingDetails, getDataDeta
         <View>
             {data.map((item, index) => <NHCListItem key={index}
                                                     title={item.name}
-                                                    address={item.address}
+                // address={item.address}
+                                                    address={item.city + ', ' + item.state}
                                                     phoneNumber={item.phone}
                                                     website={item.web}
                                                     onPress={() => setRegion(
                                                         {
-                                                            latitude: item.x,
-                                                            longitude: item.y,
-                                                            latitudeDelta: 0.0922,
-                                                            longitudeDelta: 0.0421,
+                                                            latitude: item.y,
+                                                            longitude: item.x,
+                                                            latitudeDelta: 0.01,
+                                                            longitudeDelta: 0.05,
                                                         })}
+                                                    coordinates={{latitude: item.y, longitude: item.x}}
+                // city={item.city}
             />)}
         </View>
     )

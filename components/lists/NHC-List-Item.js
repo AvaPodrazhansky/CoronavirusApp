@@ -4,7 +4,8 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import colors from "../../constants/Colors";
-import {CALL_LABEL, WEBSITE_LABEL} from "../../constants/constant-list";
+import {CALL_LABEL, DIRECTIONS_LABEL, WEBSITE_LABEL} from '../../constants/constant-list';
+import openMap from 'react-native-open-maps';
 
 // TODO: Add version to short circuit data if one is not loaded yet
 const IconView = ({name, text, onIconPress}) => {
@@ -16,11 +17,11 @@ const IconView = ({name, text, onIconPress}) => {
     )
 };
 
-const NHCListItem = ({title, address, phoneNumber, website, openHours, onPress}) => {
+const NHCListItem = ({title, address, phoneNumber, website, openHours, onPress, coordinates, city}) => {
     return (
         <ListItem
             title={title}
-            subtitle={address || ''
+            subtitle={(address ? address : '') + ( city ? ', ' + city : '')
                 // + '\n' +
                 // // TODO: Possibly get rid of this. It doesn't look like this is useful to the user
                 // (item.opening_hours.open_now ? OPEN_NOW : CLOSED)
@@ -31,11 +32,13 @@ const NHCListItem = ({title, address, phoneNumber, website, openHours, onPress})
                 <View style={styles.iconList}>
                     <IconView name={'phone'} text={CALL_LABEL}
                               onIconPress={() => Linking.openURL(`tel:${phoneNumber}`)}/>
-                    <IconView name={'web'} text={WEBSITE_LABEL}
-                              onIconPress={() => Linking.openURL(website)}/>
+                    {/*<IconView name={'web'} text={WEBSITE_LABEL}*/}
+                    {/*          onIconPress={() => Linking.openURL(website)}/>*/}
+                    <IconView name={'directions'} text={DIRECTIONS_LABEL}
+                              onIconPress={() => openMap(coordinates)}/>
                 </View>
             }
-            onPress={onPress || null}
+            // onPress={onPress || null}
             // leftIcon={{ name: item.icon }}
             topDivider
             bottomDivider

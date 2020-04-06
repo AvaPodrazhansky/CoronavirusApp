@@ -12,6 +12,13 @@ function fetchGoogleData(request, params) {
         .then(res => res.json())
 }
 
+function fetchData(request, params) {
+    console.log(request + _getParamString(params))
+    return fetch(request + _getParamString(params))
+        .then(res => res.json())
+}
+
 export {
-    fetchGoogleData
+    fetchGoogleData,
+    fetchData
 }

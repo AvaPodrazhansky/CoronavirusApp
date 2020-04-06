@@ -37,8 +37,8 @@ const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
                 data.map((item, index) => (
                     <Marker key={index}
                             coordinate={{
-                                latitude: item.geometry.location.lat,
-                                longitude: item.geometry.location.lng
+                                latitude: item.y,
+                                longitude: item.x
                             }}/>
                 ))
             }

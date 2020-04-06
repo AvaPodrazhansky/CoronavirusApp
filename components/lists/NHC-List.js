@@ -7,6 +7,7 @@ import Spinner from '../loading';
 import {getNHCDetailsData, isFetchingNHCDetailsSelector} from "../../selectors/national-health-center/nhc-list-details";
 import {fetchNHCListDetails} from "../../actions/national-health-center/nhc-list-details";
 import NHCListItem from './NHC-List-Item';
+import {setRegion} from "../../actions/summary-map/map-regions";
 
 const NHCList = ({isFetching, data, userLocation, isFetchingDetails, getDataDetails, detailData}) => {
 
@@ -28,30 +29,49 @@ const NHCList = ({isFetching, data, userLocation, isFetchingDetails, getDataDeta
     }
 
 
-    if (isFetchingDetails === false && detailData.length !== 0) {
-        return (
-            <View>
-                {
-                    detailData.map((item, i) => <NHCListItem key={i}
-                                                             title={item.name}
-                                                             address={_formatAddress(data[i].formatted_address)}
-                                                             phoneNumber={item.formatted_phone_number}
-                                                             website={item.url}/>)
-                }
-            </View>
-        );
-    }
+    // if (isFetchingDetails === false && detailData.length !== 0) {
+    //     return (
+    //         <View>
+    //             {
+    //                 detailData.map((item, i) => <NHCListItem key={i}
+    //                                                          title={item.name}
+    //                                                          address={_formatAddress(data[i].formatted_address)}
+    //                                                          phoneNumber={item.formatted_phone_number}
+    //                                                          website={item.url}/>)
+    //             }
+    //         </View>
+    //     );
+    // }
+    //
+    // // TODO: Update subtitle of both responses
+    // return (
+    //     <View>
+    //         {
+    //             data.map((item, i) => <NHCListItem key={i}
+    //                                                      title={item.name}
+    //                                                      address={_formatAddress(item.formatted_address)}/>)
+    //         }
+    //     </View>
+    // );
 
-    // TODO: Update subtitle of both responses
     return (
         <View>
-            {
-                data.map((item, i) => <NHCListItem key={i}
-                                                         title={item.name}
-                                                         address={_formatAddress(item.formatted_address)}/>)
-            }
+            {data.map((item, index) => <NHCListItem key={index}
+                                                    title={item.name}
+                                                    address={item.address}
+                                                    phoneNumber={item.phone}
+                                                    website={item.web}
+                                                    onPress={() => setRegion(
+                                                        {
+                                                            latitude: item.x,
+                                                            longitude: item.y,
+                                                            latitudeDelta: 0.0922,
+                                                            longitudeDelta: 0.0421,
+                                                        })}
+            />)}
         </View>
-    );
+    )
+
 };
 
 
@@ -63,7 +83,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getDataDetails: data => dispatch(fetchNHCListDetails(data))
+    getDataDetails: data => dispatch(fetchNHCListDetails(data)),
+    setRegion: latLong => dispatch(setRegion(latLong))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NHCList);

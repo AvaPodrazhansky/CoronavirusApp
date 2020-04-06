@@ -15,7 +15,7 @@ const IconView = ({name, text, onIconPress}) => {
     )
 };
 
-const NHCListItem = ({title, address, phoneNumber, website, openHours}) => {
+const NHCListItem = ({title, address, phoneNumber, website, openHours, onPress}) => {
     return (
         <ListItem
             title={title}
@@ -34,6 +34,7 @@ const NHCListItem = ({title, address, phoneNumber, website, openHours}) => {
                               onIconPress={() => Linking.openURL(website)}/>
                 </View>
             }
+            onPress={onPress || null}
             // leftIcon={{ name: item.icon }}
             topDivider
             bottomDivider

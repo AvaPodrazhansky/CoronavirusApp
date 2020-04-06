@@ -2,7 +2,7 @@ const isFetchingNHCListSelector = state => state.nationalHealthCenter.NHCListRet
 
 const getNHCListData = state => state.nationalHealthCenter.NHCListRetrieval.data;
 
-const getNHCListErrorMessage = state => state.nationalHealthCenter.NHCListRetrieval.errorMesssage;
+const getNHCListErrorMessage = state => state.nationalHealthCenter.NHCListRetrieval.errorMessage;
 
 export {
     isFetchingNHCListSelector,

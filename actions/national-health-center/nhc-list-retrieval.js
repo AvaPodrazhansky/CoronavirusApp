@@ -33,16 +33,16 @@ function fetchNHCList() {
 
         const route = 'healthcare?';
 
-        // const params = {
-        //     x: userLocationData.lat,
-        //     y: userLocationData.lng
-        // };
-
-        // TODO: Update to user location
         const params = {
-            x: -84.352672,
-            y: 33.991939
+            y: userLocationData.lat,
+            x: userLocationData.lng
         };
+
+        // // TODO: Update to user location
+        // const params = {
+        //     x: -84.352672,
+        //     y: 33.991939
+        // };
 
         dispatch(requestNHCList());
 

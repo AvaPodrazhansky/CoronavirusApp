@@ -38,12 +38,6 @@ function fetchNHCList() {
             x: userLocationData.lng
         };
 
-        // // TODO: Update to user location
-        // const params = {
-        //     x: -84.352672,
-        //     y: 33.991939
-        // };
-
         dispatch(requestNHCList());
 
         // TODO: Add catch if result length is 0

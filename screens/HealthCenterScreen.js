@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Button} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from "react-redux";
 import NHCMap from '../components/map/NHC-Map';
@@ -30,6 +30,7 @@ const HealthCenterScreen = ({isFetching, data, getData, error}) => {
         return (
             <View style={styles.errorView}>
                 <Text>{NHC_LOADING_ERROR_MESSAGE}</Text>
+                <Button title={'Try Again'} onPress={getData}/>
             </View>
         )
     }

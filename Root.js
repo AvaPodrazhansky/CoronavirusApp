@@ -48,7 +48,9 @@ const Root = ({
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
                 lat: location.coords.latitude,
-                lng: location.coords.longitude
+                lng: location.coords.longitude,
+                y: location.coords.latitude,
+                x: location.coords.longitude
             });
         };
 

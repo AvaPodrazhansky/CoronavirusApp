@@ -13,8 +13,7 @@ function fetchGoogleData(request, params) {
 }
 
 function fetchData(request, params) {
-    console.log(request + _getParamString(params))
-    return fetch(request + _getParamString(params))
+    return fetch('http://ec2-54-197-12-104.compute-1.amazonaws.com/' + request + _getParamString(params))
         .then(res => res.json())
 }
 

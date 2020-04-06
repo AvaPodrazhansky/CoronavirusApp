@@ -4,10 +4,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import colors from "../../constants/Colors";
-import {CALL_LABEL, DIRECTIONS_LABEL, WEBSITE_LABEL} from '../../constants/constant-list';
+import {CALL_LABEL, DIRECTIONS_LABEL} from '../../constants/constant-list';
 import openMap from 'react-native-open-maps';
 
-// TODO: Add version to short circuit data if one is not loaded yet
 const IconView = ({name, text, onIconPress}) => {
     return (
         <View style={styles.iconView}>

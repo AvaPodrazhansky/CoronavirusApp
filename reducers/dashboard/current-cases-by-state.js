@@ -3,11 +3,16 @@ import {
     RECEIVE_CURRENT_CASE_BY_STATE_DATA_SUCCESS,
     SET_IS_FETCHING_CURRENT_CASES_BY_STATE,
 } from '../../actions/dashboard/current-cases-by-state';
+import {PERCENTAGE, stateAbbreviations} from "../../constants/constant-list";
 
 const defaultState = {
     isFetching: false,
     data: [],
-    error: null
+    error: null,
+    maxConfirmedValue: 0,
+    maxDeathValue: 0,
+    maxRecoveredValue: 0,
+    progressBarType: PERCENTAGE
 };
 
 const currentCasesByState = (state = defaultState, action) => {
@@ -19,10 +24,14 @@ const currentCasesByState = (state = defaultState, action) => {
                 error: null
             };
         case RECEIVE_CURRENT_CASE_BY_STATE_DATA_SUCCESS:
+            const results = _formatDataForList(action.payload);
             return {
                 ...state,
                 isFetching: false,
-                data: _formatDataForList(action.payload)
+                data: results.data,
+                maxConfirmedValue: results.maxConfirmedValue,
+                maxDeathValue: results.maxDeathValue,
+                maxRecoveredValue: results.maxRecoveredValue
                 // data: action.payload
             };
         case RECEIVE_CURRENT_CASE_BY_STATE_DATA_ERROR:
@@ -49,76 +58,36 @@ function _formatDataForPieChart(data) {
     }).sort(item => item.population).reverse();
 }
 
-const stateDictionary = {
-    "AL": "Alabama",
-    "AK": "Alaska",
-    "AS": "American Samoa",
-    "AZ": "Arizona",
-    "AR": "Arkansas",
-    "CA": "California",
-    "CO": "Colorado",
-    "CT": "Connecticut",
-    "DE": "Delaware",
-    "DC": "District Of Columbia",
-    "FM": "Federated States Of Micronesia",
-    "FL": "Florida",
-    "GA": "Georgia",
-    "GU": "Guam",
-    "HI": "Hawaii",
-    "ID": "Idaho",
-    "IL": "Illinois",
-    "IN": "Indiana",
-    "IA": "Iowa",
-    "KS": "Kansas",
-    "KY": "Kentucky",
-    "LA": "Louisiana",
-    "ME": "Maine",
-    "MH": "Marshall Islands",
-    "MD": "Maryland",
-    "MA": "Massachusetts",
-    "MI": "Michigan",
-    "MN": "Minnesota",
-    "MS": "Mississippi",
-    "MO": "Missouri",
-    "MT": "Montana",
-    "NE": "Nebraska",
-    "NV": "Nevada",
-    "NH": "New Hampshire",
-    "NJ": "New Jersey",
-    "NM": "New Mexico",
-    "NY": "New York",
-    "NC": "North Carolina",
-    "ND": "North Dakota",
-    "MP": "Northern Mariana Islands",
-    "OH": "Ohio",
-    "OK": "Oklahoma",
-    "OR": "Oregon",
-    "PW": "Palau",
-    "PA": "Pennsylvania",
-    "PR": "Puerto Rico",
-    "RI": "Rhode Island",
-    "SC": "South Carolina",
-    "SD": "South Dakota",
-    "TN": "Tennessee",
-    "TX": "Texas",
-    "UT": "Utah",
-    "VT": "Vermont",
-    "VI": "Virgin Islands",
-    "VA": "Virginia",
-    "WA": "Washington",
-    "WV": "West Virginia",
-    "WI": "Wisconsin",
-    "WY": "Wyoming"
-};
-
 function _formatDataForList(data) {
 
-    return data.map(item => {
+    let maxConfirmed = 0;
+    let maxDeaths = 0;
+    let maxRecovered = 0;
+
+    const formattedData =  data.map(item => {
+        let numericConfirmed = (item.confirmed === 'N/A' ? 0 : Number(item.confirmed));
+        let numericDeaths = (item.deaths === 'N/A' ? 0 : Number(item.deaths));
+        let numericRecovered = (item.recovered === 'N/A' ? 0 : Number(item.recovered));
+
+        if( numericConfirmed > maxConfirmed) maxConfirmed = numericConfirmed;
+        if( numericDeaths > maxDeaths) maxDeaths = numericDeaths;
+        if( numericRecovered > maxRecovered) maxRecovered = numericRecovered;
+
         return {
             ...item,
-            name: stateDictionary[item.state]
+            name: stateAbbreviations[item.state],
+            confirmed: numericConfirmed,
+            deaths: numericDeaths,
+            recovered: numericRecovered
         };
     });
+
+    return {
+        data: formattedData,
+        maxConfirmedValue: maxConfirmed,
+        maxDeathValue: maxDeaths,
+        maxRecoveredValue: maxRecovered
+    }
 }
 
 export default currentCasesByState;

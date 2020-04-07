@@ -13,7 +13,8 @@ export default function (containerRef) {
                     Settings: 'settings',
                     Map: 'map',
                     SymptomSurvey: 'symptom-survey',
-                    Clinics: 'clinics'
+                    Clinics: 'clinics',
+                    Chat: 'chat'
                 },
             },
         },

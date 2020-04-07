@@ -59,14 +59,14 @@ export default function BottomTabNavigator({navigation, route}) {
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-today"/>,
                 }}
             />
-            {/*<BottomTab.Screen*/}
-            {/*    name="Chat"*/}
-            {/*    component={ChatScreen}*/}
-            {/*    options={{*/}
-            {/*        title: 'Chat',*/}
-            {/*        tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-chatboxes"/>,*/}
-            {/*    }}*/}
-            {/*/>*/}
+            <BottomTab.Screen
+                name="Chat"
+                component={ChatScreen}
+                options={{
+                    title: 'Chat',
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-chatboxes"/>,
+                }}
+            />
         </BottomTab.Navigator>
     );
 }
@@ -86,6 +86,6 @@ function getHeaderTitle(route) {
         case 'News':
             return 'COVID-19 Latest News';
         case 'Chat':
-            return 'COVID-19 Chatroom';
+            return 'AI COVID-19 Diagnosis';
     }
 }

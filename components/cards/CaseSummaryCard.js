@@ -22,14 +22,14 @@ import {
 import Button from '../button';
 
 const CaseSummaryCard = ({
-                             getData, data, isFetching, setFocusedCaseConfirmed, setFocusedCaseDeaths,
+                             getData, data, setFocusedCaseConfirmed, setFocusedCaseDeaths,
                              setFocusedCaseRecovered, focusedType
                          }) => {
-    React.useEffect(() => {
-        // if(data === {}) {
-        getData();
-        // }
-    }, []);
+    // React.useEffect(() => {
+    //     //     // if(data === {}) {
+    //     //     getData();
+    //     //     // }
+    //     // }, []);
 
     const InfoBox = ({boxType}) => {
         let color, label, value, onPress;
@@ -58,7 +58,7 @@ const CaseSummaryCard = ({
             >
                 <View style={{...styles2.countBlock, borderColor: color, backgroundColor: backgroundColor}}>
                     <Text>{label}</Text>
-                    <Text>{isFetching ? '--' : value}</Text>
+                    <Text>{value}</Text>
                 </View>
             </Button>
         )
@@ -106,7 +106,7 @@ const styles2 = StyleSheet.create({
 
 const mapStateToProps = state => ({
     data: getCurrentCasesUSData(state),
-    isFetching: getIsFetchingCurrentCasesUS(state),
+    // isFetching: getIsFetchingCurrentCasesUS(state),
     focusedType: getFocusedCaseType(state)
 });
 

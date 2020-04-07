@@ -4,9 +4,13 @@ import {EvilIcons} from '@expo/vector-icons';
 import {Text, TouchableHighlight, TouchableNativeFeedback, View} from "react-native";
 import styles from './survey-question-buttons/button-styles'
 import {LOAD_DATA_ERROR_MESSAGE, RETRY_LABEL} from "../../constants/constant-list";
+import Spinner from '../loading';
 
-const RefreshButton = ({onPress}) => {
-    if (Platform.OS === 'android') {
+const RefreshButton = ({onPress, isFetching}) => {
+
+    if (isFetching) {
+        return <Spinner/>
+    } else if (Platform.OS === 'android') {
         return (
             <View style={{justifyContent: "center", alignItems: "center",}}>
                 <Text>{LOAD_DATA_ERROR_MESSAGE}</Text>
@@ -41,7 +45,8 @@ const RefreshButton = ({onPress}) => {
 };
 
 RefreshButton.propTypes = {
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool.isRequired
 };
 
 export default RefreshButton;

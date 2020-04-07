@@ -15,14 +15,25 @@ import {fetchCurrentDataUS} from "../actions/dashboard/current-cases-us";
 import RefreshButton from '../components/button/refresh-button';
 import Spinner from '../components/loading';
 
-const HomeScreen = ({toSurvey, stateDataLoadingError, USDataLoadingError, getStateData, getUSData, isFetching}) => {
+const HomeScreen = ({
+                        toSurvey, stateDataLoadingError, USDataLoadingError, getStateData, getUSData,
+                        isFetching
+                    }) => {
+
+    React.useEffect(() => {
+        // if(data === {}) {
+        getStateData();
+        getUSData();
+        // }
+    }, []);
 
     if (isFetching) {
         return <Spinner/>
-    } else if (stateDataLoadingError) {
-        return (<RefreshButton onPress={getStateData}/>)
+    } else
+    if (stateDataLoadingError) {
+        return (<RefreshButton onPress={getStateData} isFetching={isFetching}/>)
     } else if (USDataLoadingError) {
-        return (<RefreshButton onPress={getUSData}/>)
+        return (<RefreshButton onPress={getUSData} isFetching={isFetching}/>)
     }
 
     return (
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     stateDataLoadingError: getCurrentCasesByStateError(state) !== null,
     USDataLoadingError: getCurrentCasesUSError(state) !== null,
-    isFetching: (getIsFetchingCurrentCasesByState(state) || getIsFetchingCurrentCasesUS(state) !== null)
+    isFetching: (getIsFetchingCurrentCasesByState(state) || getIsFetchingCurrentCasesUS(state))
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
@@ -62,7 +73,7 @@ const mapDispatchToProps = (dispatch, props) => ({
         props.navigation.navigate('Diagnosis')
     },
     getStateData: () => dispatch(fetchCurrentDataByState()),
-    getUSData: () => dispatch(fetchCurrentDataUS(state))
+    getUSData: () => dispatch(fetchCurrentDataUS())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

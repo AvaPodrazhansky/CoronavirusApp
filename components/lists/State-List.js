@@ -29,11 +29,14 @@ const PlagueBar = ({item, maxValue, unusedSpaceColor}) => {
 };
 
 
-const StateList = ({data, getData, focusedCaseType, maxConfirmedValue, maxDeathValue, maxRecoveredValue, showProgressByPercentageOfTotalPopulation}) => {
-    React.useEffect(() => {
-        if (data.length === 0)
-            getData();
-    }, []);
+const StateList = ({
+                       data, getData, focusedCaseType, maxConfirmedValue, maxDeathValue, maxRecoveredValue,
+                       showProgressByPercentageOfTotalPopulation
+                   }) => {
+    // React.useEffect(() => {
+    //     if (data.length === 0)
+    //         getData();
+    // }, []);
 
     const compareType = focusedCaseType === CONFIRMED_TYPE ? 'confirmed' :
         focusedCaseType === DEATHS_TYPE ? 'deaths' : 'recovered';
@@ -64,7 +67,7 @@ const StateList = ({data, getData, focusedCaseType, maxConfirmedValue, maxDeathV
                                        unusedSpaceColor={unusedSpaceColor}
                             />
                             {/*<Entypo name={'chevron-right'} style={styles.icon}/>*/}
-                        {/*    Uncomment Entypo when adding county data*/}
+                            {/*    Uncomment Entypo when adding county data*/}
                         </View>
                     )
                 )

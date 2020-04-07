@@ -15,6 +15,7 @@ import {
     toolbarShiftValue
 } from '../../constants/constant-list';
 import {getFocusedCaseType} from '../../selectors/dashboard/current-cases-us';
+import {receiveCurrentCaseUSDataError} from "../../actions/dashboard/current-cases-us";
 // import {Entypo} from '@expo/vector-icons';
 
 const PlagueBar = ({item, maxValue, unusedSpaceColor}) => {
@@ -31,12 +32,12 @@ const PlagueBar = ({item, maxValue, unusedSpaceColor}) => {
 
 const StateList = ({
                        data, getData, focusedCaseType, maxConfirmedValue, maxDeathValue, maxRecoveredValue,
-                       showProgressByPercentageOfTotalPopulation
+                       showProgressByPercentageOfTotalPopulation, setError
                    }) => {
-    // React.useEffect(() => {
-    //     if (data.length === 0)
-    //         getData();
-    // }, []);
+    React.useEffect(() => {
+        if (data.length === 0)
+            setError('No data')
+    }, []);
 
     const compareType = focusedCaseType === CONFIRMED_TYPE ? 'confirmed' :
         focusedCaseType === DEATHS_TYPE ? 'deaths' : 'recovered';
@@ -114,7 +115,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch(fetchCurrentDataByState())
+    getData: () => dispatch(fetchCurrentDataByState()),
+    setError: error => dispatch(receiveCurrentCaseUSDataError(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StateList);

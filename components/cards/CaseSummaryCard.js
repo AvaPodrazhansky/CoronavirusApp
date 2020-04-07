@@ -7,7 +7,11 @@ import {
     getFocusedCaseType,
     getIsFetchingCurrentCasesUS
 } from "../../selectors/dashboard/current-cases-us";
-import {fetchCurrentDataUS, setFocusedCaseType} from '../../actions/dashboard/current-cases-us';
+import {
+    fetchCurrentDataUS,
+    receiveCurrentCaseUSDataError,
+    setFocusedCaseType
+} from '../../actions/dashboard/current-cases-us';
 import {Card} from "react-native-elements";
 import styles from "./styles";
 import {
@@ -23,13 +27,13 @@ import Button from '../button';
 
 const CaseSummaryCard = ({
                              getData, data, setFocusedCaseConfirmed, setFocusedCaseDeaths,
-                             setFocusedCaseRecovered, focusedType
+                             setFocusedCaseRecovered, focusedType, setError
                          }) => {
-    // React.useEffect(() => {
-    //     //     // if(data === {}) {
-    //     //     getData();
-    //     //     // }
-    //     // }, []);
+    React.useEffect(() => {
+        if (data === {}) {
+            setError('No Data')
+        }
+    }, []);
 
     const InfoBox = ({boxType}) => {
         let color, label, value, onPress;
@@ -114,7 +118,8 @@ const mapDispatchToProps = dispatch => ({
     getData: () => dispatch(fetchCurrentDataUS()),
     setFocusedCaseConfirmed: () => dispatch(setFocusedCaseType(CONFIRMED_TYPE)),
     setFocusedCaseDeaths: () => dispatch(setFocusedCaseType(DEATHS_TYPE)),
-    setFocusedCaseRecovered: () => dispatch(setFocusedCaseType(RECOVERED_TYPE))
+    setFocusedCaseRecovered: () => dispatch(setFocusedCaseType(RECOVERED_TYPE)),
+    setError: error => dispatch(receiveCurrentCaseUSDataError(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CaseSummaryCard);

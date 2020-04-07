@@ -12,31 +12,31 @@ const RefreshButton = ({onPress, isFetching}) => {
         return <Spinner/>
     } else if (Platform.OS === 'android') {
         return (
-            <View style={{justifyContent: "center", alignItems: "center",}}>
-                <Text>{LOAD_DATA_ERROR_MESSAGE}</Text>
+            <View style={styles.viewStyle}>
+                <Text style={styles.errorMessage}>{LOAD_DATA_ERROR_MESSAGE}</Text>
                 <TouchableNativeFeedback
                     background={TouchableNativeFeedback.Ripple('#ffffff', false)}
                     useForeground={true}
                     onPress={onPress}>
-                    <View style={styles.redoButton}>
-                        <EvilIcons name={'redo'} size={50} style={styles.icon}/>
-                        <Text style={styles.text}>{RETRY_LABEL}</Text>
+                    <View style={styles.resetButton}>
+                        <EvilIcons name={'redo'} size={50} style={styles.resetIcon}/>
+                        <Text style={styles.resetText}>{RETRY_LABEL}</Text>
                     </View>
                 </TouchableNativeFeedback>
             </View>
         )
     } else {
         return (
-            <View style={{justifyContent: "center", alignItems: "center",}}>
-                <Text>{LOAD_DATA_ERROR_MESSAGE}</Text>
-                <TouchableHighlight style={styles.redoButton}
+            <View style={styles.viewStyle}>
+                <Text style={styles.errorMessage}>{LOAD_DATA_ERROR_MESSAGE}</Text>
+                <TouchableHighlight style={styles.resetButton}
                                     delayPressIn={0}
                                     onPress={onPress}
                                     activeOpacity={0.3}
                                     underlayColor={'transparent'}>
-                    <View style={styles.redoButton}>
-                        <EvilIcons name={'redo'} size={50} style={styles.icon}/>
-                        <Text style={styles.text}>{RETRY_LABEL}</Text>
+                    <View style={styles.resetButton}>
+                        <EvilIcons name={'redo'} size={50} style={styles.resetIcon}/>
+                        <Text style={styles.resetText}>{RETRY_LABEL}</Text>
                     </View>
                 </TouchableHighlight>
             </View>

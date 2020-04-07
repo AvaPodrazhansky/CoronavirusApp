@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CoronavirusApp",
-    "slug": "CoronavirusApp",
+    "name": "Anti-Coronavirus (COVID-19) Assistant",
+    "slug": "anti-coronavirus-covid-19-assistant",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

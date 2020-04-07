@@ -6,9 +6,37 @@ import StateList from '../components/lists/State-List';
 import CaseSummaryCard from '../components/cards/CaseSummaryCard';
 import UnitedStatesMap from "../components/map/UnitedStatesMap";
 import {Card} from "react-native-elements";
+import {
+    getCurrentCasesByStateError,
+    getIsFetchingCurrentCasesByState
+} from "../selectors/dashboard/current-cases-by-state";
+import {getCurrentCasesUSError, getIsFetchingCurrentCasesUS} from "../selectors/dashboard/current-cases-us";
+import {fetchCurrentDataByState} from "../actions/dashboard/current-cases-by-state";
+import {fetchCurrentDataUS} from "../actions/dashboard/current-cases-us";
+import RefreshButton from '../components/button/refresh-button';
+import Spinner from '../components/loading';
 
-//TODO: Change view with survey page button. It hides content at the bottom of the scroll view
-const HomeScreen = () => {
+const HomeScreen = ({
+                        toSurvey, stateDataLoadingError, USDataLoadingError, getStateData, getUSData,
+                        isFetching
+                    }) => {
+
+    React.useEffect(() => {
+        // if(data === {}) {
+        getStateData();
+        getUSData();
+        // }
+    }, []);
+
+    if (isFetching) {
+        return <Spinner/>
+    } else
+    if (stateDataLoadingError) {
+        return (<RefreshButton onPress={getStateData} isFetching={isFetching}/>)
+    } else if (USDataLoadingError) {
+        return (<RefreshButton onPress={getUSData} isFetching={isFetching}/>)
+    }
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -33,16 +61,18 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: 10,
-    },
+    }
 });
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    stateDataLoadingError: getCurrentCasesByStateError(state) !== null,
+    USDataLoadingError: getCurrentCasesUSError(state) !== null,
+    isFetching: (getIsFetchingCurrentCasesByState(state) || getIsFetchingCurrentCasesUS(state))
+});
 
-const mapDispatchToProps = (dispatch, props) => ({
-    toSurvey: () => {
-        console.log(props)
-        props.navigation.navigate('Diagnosis')
-    }
+const mapDispatchToProps = dispatch => ({
+    getStateData: () => dispatch(fetchCurrentDataByState()),
+    getUSData: () => dispatch(fetchCurrentDataUS())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

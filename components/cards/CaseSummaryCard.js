@@ -7,7 +7,11 @@ import {
     getFocusedCaseType,
     getIsFetchingCurrentCasesUS
 } from "../../selectors/dashboard/current-cases-us";
-import {fetchCurrentDataUS, setFocusedCaseType} from '../../actions/dashboard/current-cases-us';
+import {
+    fetchCurrentDataUS,
+    receiveCurrentCaseUSDataError,
+    setFocusedCaseType
+} from '../../actions/dashboard/current-cases-us';
 import {Card} from "react-native-elements";
 import styles from "./styles";
 import {
@@ -22,13 +26,13 @@ import {
 import Button from '../button';
 
 const CaseSummaryCard = ({
-                             getData, data, isFetching, setFocusedCaseConfirmed, setFocusedCaseDeaths,
-                             setFocusedCaseRecovered, focusedType
+                             getData, data, setFocusedCaseConfirmed, setFocusedCaseDeaths,
+                             setFocusedCaseRecovered, focusedType, setError
                          }) => {
     React.useEffect(() => {
-        // if(data === {}) {
-        getData();
-        // }
+        if (data === {}) {
+            setError('No Data')
+        }
     }, []);
 
     const InfoBox = ({boxType}) => {
@@ -58,7 +62,7 @@ const CaseSummaryCard = ({
             >
                 <View style={{...styles2.countBlock, borderColor: color, backgroundColor: backgroundColor}}>
                     <Text>{label}</Text>
-                    <Text>{isFetching ? '--' : value}</Text>
+                    <Text>{value}</Text>
                 </View>
             </Button>
         )
@@ -106,7 +110,7 @@ const styles2 = StyleSheet.create({
 
 const mapStateToProps = state => ({
     data: getCurrentCasesUSData(state),
-    isFetching: getIsFetchingCurrentCasesUS(state),
+    // isFetching: getIsFetchingCurrentCasesUS(state),
     focusedType: getFocusedCaseType(state)
 });
 
@@ -114,7 +118,8 @@ const mapDispatchToProps = dispatch => ({
     getData: () => dispatch(fetchCurrentDataUS()),
     setFocusedCaseConfirmed: () => dispatch(setFocusedCaseType(CONFIRMED_TYPE)),
     setFocusedCaseDeaths: () => dispatch(setFocusedCaseType(DEATHS_TYPE)),
-    setFocusedCaseRecovered: () => dispatch(setFocusedCaseType(RECOVERED_TYPE))
+    setFocusedCaseRecovered: () => dispatch(setFocusedCaseType(RECOVERED_TYPE)),
+    setError: error => dispatch(receiveCurrentCaseUSDataError(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CaseSummaryCard);

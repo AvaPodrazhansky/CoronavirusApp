@@ -15,6 +15,7 @@ import {
     toolbarShiftValue
 } from '../../constants/constant-list';
 import {getFocusedCaseType} from '../../selectors/dashboard/current-cases-us';
+import {receiveCurrentCaseUSDataError} from "../../actions/dashboard/current-cases-us";
 // import {Entypo} from '@expo/vector-icons';
 
 const PlagueBar = ({item, maxValue, unusedSpaceColor}) => {
@@ -29,10 +30,13 @@ const PlagueBar = ({item, maxValue, unusedSpaceColor}) => {
 };
 
 
-const StateList = ({data, getData, focusedCaseType, maxConfirmedValue, maxDeathValue, maxRecoveredValue, showProgressByPercentageOfTotalPopulation}) => {
+const StateList = ({
+                       data, getData, focusedCaseType, maxConfirmedValue, maxDeathValue, maxRecoveredValue,
+                       showProgressByPercentageOfTotalPopulation, setError
+                   }) => {
     React.useEffect(() => {
         if (data.length === 0)
-            getData();
+            setError('No data')
     }, []);
 
     const compareType = focusedCaseType === CONFIRMED_TYPE ? 'confirmed' :
@@ -64,7 +68,7 @@ const StateList = ({data, getData, focusedCaseType, maxConfirmedValue, maxDeathV
                                        unusedSpaceColor={unusedSpaceColor}
                             />
                             {/*<Entypo name={'chevron-right'} style={styles.icon}/>*/}
-                        {/*    Uncomment Entypo when adding county data*/}
+                            {/*    Uncomment Entypo when adding county data*/}
                         </View>
                     )
                 )
@@ -111,7 +115,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch(fetchCurrentDataByState())
+    getData: () => dispatch(fetchCurrentDataByState()),
+    setError: error => dispatch(receiveCurrentCaseUSDataError(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StateList);

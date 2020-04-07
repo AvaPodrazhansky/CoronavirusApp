@@ -23,6 +23,8 @@ export const termsArray = [
 export const ACCEPT_CONDITIONS = 'I accept.';
 
 // Home Screen
+export const RETRY_LABEL = 'Retry';
+export const LOAD_DATA_ERROR_MESSAGE = 'Unable to load data';
 export const CUMULATIVE_CASES_HEADER = 'Cumulative Cases in United States';
 export const CONFIRMED_LABEL = 'Confirmed: ';
 export const RECOVERED_LABEL = 'Recovered: ';

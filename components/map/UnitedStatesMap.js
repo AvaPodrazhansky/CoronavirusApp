@@ -33,6 +33,7 @@ const UnitedStatesMap = ({data, focusedCaseType, maxConfirmed, maxDeath, maxReco
                 break;
         }
 
+        value = Math.sqrt(value);
         value = Math.round(value * 255);
         return color + (value < 16 ? '0' + value.toString(16) : value.toString(16)).toUpperCase();
 

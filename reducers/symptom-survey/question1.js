@@ -8,7 +8,6 @@ const defaultState = {
 const question1 = (state = defaultState, action) => {
     switch (action.type) {
         case SET_LOCATION:
-            console.log(action.payload);
             return {
                 ...state,
                 location: action.payload

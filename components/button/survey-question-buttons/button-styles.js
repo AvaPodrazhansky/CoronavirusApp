@@ -9,6 +9,13 @@ export default styles = StyleSheet.create({
         borderRadius: 3,
         margin: 10
     },
+    acceptButton: {
+        alignItems: 'center',
+        backgroundColor: colors.LIGHT_BLUE,
+        padding: 10,
+        borderRadius: 3,
+        margin: 5
+    },
     redoButton: {
         alignItems: 'center',
         backgroundColor: 'transparent',

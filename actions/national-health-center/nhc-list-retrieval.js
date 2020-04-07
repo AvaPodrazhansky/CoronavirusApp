@@ -1,4 +1,4 @@
-import {fetchGoogleData} from '../../constants/api';
+import {fetchData} from '../../constants/api';
 import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
 import {setRegion} from "../summary-map/map-regions";
 
@@ -25,47 +25,29 @@ const receiveNHCListError = error => {
     }
 };
 
-async function fetchPlaceData(item) {
-    return await fetchGoogleData('https://maps.googleapis.com/maps/api/place/details/json?', {place_id: item.id})
-        .then(res => res.result)
-        .then(res => (
-            {
-                ...item,
-                phone: res.formatted_phone_number,
-                url: res.url
-            }
-        ))
-}
-
 function fetchNHCList() {
     return async (dispatch, getState) => {
 
         const state = getState();
         const userLocationData = getUserLocationData(state);
 
-        const route = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
+        const route = 'healthcare?';
 
         const params = {
-            query: 'National Health Centers',
-            location: userLocationData.lat + ',' + userLocationData.lng,
-            radius: '1000'
+            y: userLocationData.lat,
+            x: userLocationData.lng
         };
 
         dispatch(requestNHCList());
 
         // TODO: Add catch if result length is 0
-        return await fetchGoogleData(route, params)
-            .then(res => res.results)
-            // .then(res => res.map(async(item) => await fetchPlaceData(item)))
-            // .then(res => {
-            //     console.log(res)
-            //     return res;
-            // })
+        return await fetchData(route, params)
+            .then(res => res.output[0])
             .then(res => {
                 // TODO: Set deltas to be relative to results
                 dispatch(setRegion({
-                    latitude: res[0].geometry.location.lat,
-                    longitude: res[0].geometry.location.lng,
+                    latitude: res[0].y,
+                    longitude: res[0].x,
                     latitudeDelta: 0.1,
                     longitudeDelta: 0.05,
 

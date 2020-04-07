@@ -4,11 +4,11 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 // import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
 // import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
-import CaseSummary from '../components/case-summary';
+// import CaseSummary from '../components/case-summary';
 // import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
 // import CaseByStatePieChart from '../components/charts/case-by-state-pie-chart';
 import StateList from '../components/lists/State-List';
-import StateTableSummary from '../components/tables/us-summary-table'
+// import StateTableSummary from '../components/tables/us-summary-table'
 import CaseSummaryCard from '../components/cards/CaseSummaryCard';
 import UnitedStatesMap from "../components/map/UnitedStatesMap";
 import {Card} from "react-native-elements";
@@ -35,7 +35,7 @@ const HomeScreen = ({toSurvey}) => {
                 {/*<CaseSummary/>*/}
                 <CaseSummaryCard/>
                 {/*<MyRectangle/>*/}
-                {/*<UnitedStatesMap/>*/}
+                <UnitedStatesMap/>
                 {/*<StateTableSummary/>*/}
                 <Card title={'State Data'}>
                 <StateList/>

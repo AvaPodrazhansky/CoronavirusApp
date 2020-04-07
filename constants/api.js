@@ -12,8 +12,8 @@ function fetchGoogleData(request, params) {
         .then(res => res.json())
 }
 
-function fetchData(route, params){
-    return fetch('http://ec2-54-197-12-104.compute-1.amazonaws.com/' + route)
+function fetchData(request, params) {
+    return fetch('http://ec2-54-197-12-104.compute-1.amazonaws.com/' + request + _getParamString(params))
         .then(res => res.json())
 }
 

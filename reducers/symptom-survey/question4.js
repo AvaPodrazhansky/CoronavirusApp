@@ -8,7 +8,6 @@ const defaultState = {
 const question4 = (state = defaultState, action) => {
     switch (action.type) {
         case SET_PUBLIC_TRANSPORTATION:
-            console.log(action.payload);
             return {
                 ...state,
                 number: action.payload

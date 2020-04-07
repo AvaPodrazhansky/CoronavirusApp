@@ -8,7 +8,6 @@ const defaultState = {
 const question6 = (state = defaultState, action) => {
     switch (action.type) {
         case SET_AGE:
-            console.log(action.payload);
             return {
                 ...state,
                 age: action.payload

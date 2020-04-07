@@ -2,12 +2,15 @@ import {
     SET_IS_FETCHING_CURRENT_CASES_US,
     RECEIVE_CURRENT_CASE_US_DATA_SUCCESS,
     RECEIVE_CURRENT_CASE_US_DATA_ERROR,
+    SET_FOCUSED_CASE_TYPE
 } from '../../actions/dashboard/current-cases-us';
+import {CONFIRMED_TYPE} from '../../constants/constant-list';
 
 const defaultState = {
     isFetching: false,
     data: {},
-    error: null
+    error: null,
+    focusedCaseType: CONFIRMED_TYPE
 };
 
 const currentCasesUS = (state = defaultState, action) => {
@@ -29,6 +32,11 @@ const currentCasesUS = (state = defaultState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.payload
+            };
+        case SET_FOCUSED_CASE_TYPE:
+            return {
+                ...state,
+                focusedCaseType: action.payload
             };
         default:
             return state;

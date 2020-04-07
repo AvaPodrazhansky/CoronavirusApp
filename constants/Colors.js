@@ -26,6 +26,7 @@ export default {
     WHITE: "#FFFFFF",
     DARK_GRAY: "#7B7B7B",
     LIGHT_GRAY: "#cbcbcb",
+    TRANSPARENT: 'rgba(255,255,255,0)',
 
     // General
     RED: "#FF0000",
@@ -33,7 +34,7 @@ export default {
 
     CONFIRMED: "#F7B62D",
     RECOVERED: "#24906A",
-    DEAD: "#FF0000",
+    DEAD: "#ff0000",
 
     RESULTS_LIGHT_GREEN: "#24906A",
     RESULTS_DARK_GREEN: "#1D7659",

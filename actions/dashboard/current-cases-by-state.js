@@ -26,6 +26,7 @@ const receiveCurrentCaseByStateDataError = error => {
 };
 
 function fetchCurrentDataByState() {
+
     const route = 'us_data';
     const params = {};
 
@@ -33,13 +34,7 @@ function fetchCurrentDataByState() {
         dispatch(setIsFetchingCurrentCasesByState(true));
         return await fetchData(route, params)
             .then(res => res.output[0])
-            // .then(res => res.map(item => {
-            //     return({
-            //             ...item,
-            //             totalPopulation: statePopulations[item.state]
-            //         })
-            //
-            // }))
+            .then(res => res.filter(item => statePopulations[item.state] !== undefined))
             .then(res => dispatch(receiveCurrentCaseByStateDataSuccess(res)))
             .catch(err => dispatch(receiveCurrentCaseByStateDataError(err))) //TODO: have error do something
     }

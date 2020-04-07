@@ -1,3 +1,27 @@
+// Terms and Conditions Screen
+export const TERMS_TITLE = 'COVID-19 Self-Diagnosis\nTerms and Conditions';
+export const termsTitleArray = [
+    'Purpose Statement',
+    'Conditions Statement',
+    'Privacy Statement',
+    'By selecting "I accept", you indicate that you have reviewed and agree to our conditions statement and privacy ' +
+    'statement.'
+];
+export const termsArray = [
+    'The main purpose of the COVID-19 Self-Diagnosis is to help you make informed decisions regarding the important ' +
+    'process of seeking appropriate medical care. As such, this self-evaluation is neither intended to substitute ' +
+    'the advice of medical professionals nor to make a formal diagnosis on or treatment of COVID-19. Lastly, the ' +
+    'COVID-19 Self-Diagnosis is primarily intended for people who are currently located in the United States.',
+    'To the fullest extent provided by law, we hereby disclaim all warranties of any kind (whether expressed or ' +
+    'implied, statutory, or otherwise) including to but not limited to any warranties of merchantability, ' +
+    'non-infringement, and fitness for particular purpose. As such, your use of this self-evaluation is solely at ' +
+    'your own risk.',
+    'We will not collect the data that you input within the self-evaluation and any personal information such as ' +
+    'your name, phone number, and address. The COVID-19 Self-Diagnosis is solely for your benefit.',
+    ''
+];
+export const ACCEPT_CONDITIONS = 'I accept.';
+
 // Home Screen
 export const CUMULATIVE_CASES_HEADER = 'Cumulative Cases in United States';
 export const CONFIRMED_LABEL = 'Confirmed: ';
@@ -6,18 +30,27 @@ export const DEAD_LABEL = 'Deaths: ';
 export const CONFIRMED = 'Confirmed';
 export const RECOVERED = 'Recovered';
 export const DEAD = 'Deaths';
+export const CONFIRMED_TYPE = 'CONFIRMED_TYPE';
+export const DEATHS_TYPE = 'DEATHS_TYPE';
+export const RECOVERED_TYPE = 'RECOVERED_TYPE';
+// Value state populations are divided by when sorting
+// (to make unbiased, change to 1). The purpose of this
+// is so that there is visible colors on the toolbars on the
+// statelist
+export const toolbarShiftValue = 1;
+export const PERCENTAGE = 'PERCENTAGE';
 
 // Survey Questions
-export const QUESTION_ONE = '1. What is your current location?';
-export const QUESTION_TWO = '2. Which of the following symptoms do you have?';
-export const QUESTION_THREE = '3. During the past two weeks, have you visited China, South Korea, Italy, Iran, or ' +
-    'Japan?';
-export const QUESTION_FOUR = '4. During the past two weeks, how many times have you taken public transportation ' +
+export const QUESTION_ONE = 'N/A. What is your current location?'; // Question 1 omitted as per Dr. Han's instructions
+export const QUESTION_TWO = '1. Which of the following symptoms do you have?';
+export const QUESTION_THREE = '2. Were you potentially exposed to someone who is suspected or confirmed to have the ' +
+    'coronavirus (COVID-19)?';
+export const QUESTION_FOUR = 'N/A. During the past two weeks, how many times have you taken public transportation ' +
     '(airplanes, buses, subways, trains, taxis, cruises, etc.) with confirmed COVID-19 case(s) on board in which ' +
-    'you are not wearing a face mask?';
-export const QUESTION_FIVE = '5. During the past two weeks, have you been to the following places or made contact ' +
-    'with the people or wild animals listed below?';
-export const QUESTION_SIX = '3. What is your age?'; // Questions 3-5 omitted as per Dr. Han's instructions
+    'you are not wearing a face mask?'; // Question 4 omitted as per Dr. Han's instructions
+export const QUESTION_FIVE = 'N/A. During the past two weeks, have you been to the following places or made contact ' +
+    'with the people or wild animals listed below?'; // Question 5 omitted as per Dr. Han's instructions
+export const QUESTION_SIX = '3. What is your age?';
 export const QUESTION_SEVEN = '4. What is your sex?';
 export const QUESTION_EIGHT = '5. Do you have existing conditions or diseases listed below?';
 
@@ -117,12 +150,9 @@ export const NOT_INFECTED = 'You do not seem to have the typical expected sympto
     'infection. However, individuals with mild or no symptoms are able to have and spread the coronavirus.';
 
 // Ways to Protect Yourself (Result Summary)
-export const SOCIAL_DISTANCING = 'Avoid close contact with people who are sick and practice social ' +
-    'distancing.';
 export const NEED_EMERGENCY_CARE = 'If you believe that you are having an emergency, please contact your ' +
     'closest medical facility. (You can view a list of nearby national health centers in the Clinics tab).';
 export const EMERGENCY_CARD_HEADER = 'In Case of Emergency';
-export const FIND_NEAREST_NATIONAL_HEALTH_CENTERS = 'Find a Clinic Near Me';
 
 // Ways to Protect Yourself from COVID-19
 export const PROTECTION_METHODS_TITLE = 'How to protect yourself';
@@ -151,6 +181,10 @@ export const NHC_RESULT_LENGTH = 7;
 export const MILES_ABBREVIATION = 'Mi';
 export const OPEN_NOW = 'Open Now';
 export const CLOSED = 'Closed';
+export const NHC_LOADING_ERROR_MESSAGE = 'There was an error loading the closest national health centers';
+export const CALL_LABEL = 'Call';
+export const WEBSITE_LABEL = 'Website';
+export const DIRECTIONS_LABEL = 'Directions';
 
 // News URLs
 export const DEFAULT_COVID_URL = 'https://media.npr.org/assets/img/2020/03/11/c_virus_outbreak_sq-428f510423dae3e93' +
@@ -213,56 +247,128 @@ export const statePopulations = {
     'Wyoming': 578759,
 };
 
+export const stateAbbreviations = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'American Samoa': 'AS',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'District of Columbia': 'DC',
+    'Federated States of Micronesia': 'FM',
+    'District Of Columbia': 'DC',
+    'Federated States Of Micronesia': 'FM',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Guam': 'GU',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Marshall Islands': 'MH',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Northern Mariana Islands': 'MP',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Palau': 'PW',
+    'Pennsylvania': 'PA',
+    'Puerto Rico': 'PR',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virgin Islands': 'VI',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY',
+};
 
-// export const states = [
-//     ['Arizona', 'AZ'],
-//     ['Alabama', 'AL'],
-//     ['Alaska', 'AK'],
-//     ['Arkansas', 'AR'],
-//     ['California', 'CA'],
-//     ['Colorado', 'CO'],
-//     ['Connecticut', 'CT'],
-//     ['Delaware', 'DE'],
-//     ['Florida', 'FL'],
-//     ['Georgia', 'GA'],
-//     ['Hawaii', 'HI'],
-//     ['Idaho', 'ID'],
-//     ['Illinois', 'IL'],
-//     ['Indiana', 'IN'],
-//     ['Iowa', 'IA'],
-//     ['Kansas', 'KS'],
-//     ['Kentucky', 'KY'],
-//     ['Louisiana', 'LA'],
-//     ['Maine', 'ME'],
-//     ['Maryland', 'MD'],
-//     ['Massachusetts', 'MA'],
-//     ['Michigan', 'MI'],
-//     ['Minnesota', 'MN'],
-//     ['Mississippi', 'MS'],
-//     ['Missouri', 'MO'],
-//     ['Montana', 'MT'],
-//     ['Nebraska', 'NE'],
-//     ['Nevada', 'NV'],
-//     ['New Hampshire', 'NH'],
-//     ['New Jersey', 'NJ'],
-//     ['New Mexico', 'NM'],
-//     ['New York', 'NY'],
-//     ['North Carolina', 'NC'],
-//     ['North Dakota', 'ND'],
-//     ['Ohio', 'OH'],
-//     ['Oklahoma', 'OK'],
-//     ['Oregon', 'OR'],
-//     ['Pennsylvania', 'PA'],
-//     ['Rhode Island', 'RI'],
-//     ['South Carolina', 'SC'],
-//     ['South Dakota', 'SD'],
-//     ['Tennessee', 'TN'],
-//     ['Texas', 'TX'],
-//     ['Utah', 'UT'],
-//     ['Vermont', 'VT'],
-//     ['Virginia', 'VA'],
-//     ['Washington', 'WA'],
-//     ['West Virginia', 'WV'],
-//     ['Wisconsin', 'WI'],
-//     ['Wyoming', 'WY'],
-// ];
+export const stateAbbreviationsFullNames = {
+    "AL": "Alabama",
+    "AK": "Alaska",
+    "AS": "American Samoa",
+    "AZ": "Arizona",
+    "AR": "Arkansas",
+    "CA": "California",
+    "CO": "Colorado",
+    "CT": "Connecticut",
+    "DE": "Delaware",
+    "DC": "District Of Columbia",
+    "FM": "Federated States Of Micronesia",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "GU": "Guam",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "ME": "Maine",
+    "MH": "Marshall Islands",
+    "MD": "Maryland",
+    "MA": "Massachusetts",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MS": "Mississippi",
+    "MO": "Missouri",
+    "MT": "Montana",
+    "NE": "Nebraska",
+    "NV": "Nevada",
+    "NH": "New Hampshire",
+    "NJ": "New Jersey",
+    "NM": "New Mexico",
+    "NY": "New York",
+    "NC": "North Carolina",
+    "ND": "North Dakota",
+    "MP": "Northern Mariana Islands",
+    "OH": "Ohio",
+    "OK": "Oklahoma",
+    "OR": "Oregon",
+    "PW": "Palau",
+    "PA": "Pennsylvania",
+    "PR": "Puerto Rico",
+    "RI": "Rhode Island",
+    "SC": "South Carolina",
+    "SD": "South Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
+    "VT": "Vermont",
+    "VI": "Virgin Islands",
+    "VA": "Virginia",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "WI": "Wisconsin",
+    "WY": "Wyoming"
+};

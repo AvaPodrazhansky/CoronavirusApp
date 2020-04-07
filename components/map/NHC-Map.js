@@ -12,11 +12,11 @@ import colors from '../../constants/Colors';
 
 const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
 
-    // React.useEffect(() => {
-    //     if (data.length === 0 && !isFetching) {
-    //         getData();
-    //     }
-    // }, []);
+    React.useEffect(() => {
+        if (data.length === 0 && !isFetching) {
+            getData();
+        }
+    }, [region]);
 
     if (isFetching === true) {
         return (
@@ -28,8 +28,9 @@ const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
     // TODO: Lock map so user doesnt accidentally scroll somewhere crazy
     return (
         <MapView
-            provider={PROVIDER_GOOGLE}
+            // provider={PROVIDER_GOOGLE}
             initialRegion={region}
+            // region={region}
             onRegionChange={setRegion}
             style={styles.mapStyle}
         >
@@ -37,8 +38,8 @@ const NHCMap = ({region, setRegion, data, isFetching, getData}) => {
                 data.map((item, index) => (
                     <Marker key={index}
                             coordinate={{
-                                latitude: item.geometry.location.lat,
-                                longitude: item.geometry.location.lng
+                                latitude: item.y,
+                                longitude: item.x
                             }}/>
                 ))
             }

@@ -1,56 +1,23 @@
 import * as React from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
-// import TotalCasesLineChart from '../components/charts/total-cases-line-chart';
-// import CaseByStateBarGraph from '../components/charts/case-by-state-bar-graph';
-// import CaseSummary from '../components/case-summary';
-// import OutcomeOfInfectedPieChart from '../components/charts/outcome-of-infected-pie-chart';
-// import CaseByStatePieChart from '../components/charts/case-by-state-pie-chart';
 import StateList from '../components/lists/State-List';
-// import StateTableSummary from '../components/tables/us-summary-table'
 import CaseSummaryCard from '../components/cards/CaseSummaryCard';
 import UnitedStatesMap from "../components/map/UnitedStatesMap";
 import {Card} from "react-native-elements";
-// import Svg, {Circle, Path, Rect} from "react-native-svg";
-
-const MyRectangle = () => {
-    return (
-        <View style={{flexDirection: 'row', height: 10}}>
-            <View style={{width: '10%', backgroundColor: '#ff0000'}}/>
-            <View style={{width: '20%', backgroundColor: '#00ff00'}}/>
-            <View style={{width: '20%', backgroundColor: '#0000ff'}}/>
-            <View style={{flex: 1, backgroundColor: '#cbcbcb'}}/>
-        </View>
-    )
-};
-
 
 //TODO: Change view with survey page button. It hides content at the bottom of the scroll view
-const HomeScreen = ({toSurvey}) => {
-    // console.log(this.props)
+const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                {/*<CaseSummary/>*/}
                 <CaseSummaryCard/>
-                {/*<MyRectangle/>*/}
                 <UnitedStatesMap/>
-                {/*<StateTableSummary/>*/}
-                <Card title={'State Data'}>
-                <StateList/>
+                <Card>
+                    <StateList/>
                 </Card>
-                {/*<CaseByStatePieChart/>*/}
-                {/*<OutcomeOfInfectedPieChart/>*/}
-                {/*<CaseByStateBarGraph/>*/}
-                {/*<CaseSummary/>*/}
-                {/*<TotalCasesLineChart/>*/}
             </ScrollView>
-
-            {/*<View style={styles.tabBarInfoContainer}>*/}
-            {/*    <Text style={styles.tabBarInfoText}>Self Diagnosis Survey:</Text>*/}
-            {/*    <Button title={'Survey Page'} onPress={toSurvey}/>*/}
-            {/*</View>*/}
         </View>
     );
 };

@@ -1,26 +1,44 @@
 import * as React from 'react';
-import MapView, {Overlay, Polygon, PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {Polygon} from 'react-native-maps';
 import connect from "react-redux/lib/connect/connect";
 import {StyleSheet} from 'react-native';
 import {Dimensions} from "react-native";
 import myMapStyle from './united-states-map-style';
 import {stateOverlays} from "./overlays/state-polygon-overlay-points";
-import MapPolygon from "react-native-maps/lib/components/MapPolygon";
-import {getCurrentCasesByStateData} from "../../selectors/dashboard/current-cases-by-state";
-import {statePopulations} from "../../constants/constant-list";
+import {
+    getCurrentCasesByStateData,
+    getMaxConfirmedValue,
+    getMaxDeathValue, getMaxRecoveredValue
+} from "../../selectors/dashboard/current-cases-by-state";
+import {CONFIRMED_TYPE, DEATHS_TYPE, RECOVERED_TYPE} from "../../constants/constant-list";
+import {getFocusedCaseType} from "../../selectors/dashboard/current-cases-us";
+import colors from '../../constants/Colors';
 
-const UnitedStatesMap = ({data}) => {
+const UnitedStatesMap = ({data, focusedCaseType, maxConfirmed, maxDeath, maxRecovered}) => {
 
-    // function _getOpacity(item) {
-    //     return item.confirmed / statePopulations[item.state] * 100
-    // }
+    function _getColor(item){
+        let color, value;
+        switch(focusedCaseType){
+            case CONFIRMED_TYPE:
+                value = item.confirmed / maxConfirmed;
+                color = colors.CONFIRMED;
+                break;
+            case DEATHS_TYPE:
+                value = item.deaths / maxDeath;
+                color = colors.DEAD;
+                break;
+            case RECOVERED_TYPE:
+                value = item.recovered / maxRecovered;
+                color = colors.RECOVERED;
+                break;
+        }
 
-    // const item = data[0]
-    // console.log(item)
-    // console.log(stateOverlays[item.state])
+        value = Math.round(value * 255);
+        return color + (value < 16 ? '0' + value.toString(16) : value.toString(16)).toUpperCase();
+
+    }
     return (
         <MapView
-            provider={PROVIDER_GOOGLE}
             region={
                 {
                     "latitude": 37.365526186827243,
@@ -35,33 +53,21 @@ const UnitedStatesMap = ({data}) => {
             // minZoomLevel={15}
             scrollEnabled={false}
         >
-            {/*{stateOverlays.map((item, index) => {*/}
-            {/*    return (*/}
-            {/*        <Polygon coordinates={item.point} key={index}*/}
-            {/*                 strokeColor={"rgba(255,0,0,0.31)"}*/}
-            {/*                 fillColor={"rgba(255,0,0,0.5)"}*/}
-            {/*                 strokeWidth={1}*/}
-            {/*        onPress={() => console.log(item.name)}/>*/}
-            {/*    )*/}
-            {/*})}*/}
 
-            {/*{data.map((item, index) => {*/}
-            {/*    return (*/}
-            {/*        <Polygon coordinates={stateOverlays[item.state].point} key={index}*/}
-            {/*                 strokeColor={"rgba(255,0,0,0.31)"}*/}
-            {/*                 fillColor={"rgba(255,0,0,0.5)"}*/}
-            {/*                 strokeWidth={1}*/}
-            {/*                 onPress={() => console.log(item.state)}/>*/}
-            {/*    )*/}
-            {/*})}*/}
-            {/*<Polygon coordinates={stateOverlays[item.state].point} key={1}*/}
-            {/*         strokeColor={() => {*/}
-            {/*             // const opacity = _getOpacity(item);*/}
-            {/*             return "rgba(255,0,0," + _getOpacity(item) + ")"*/}
-            {/*         }}*/}
-            {/*         fillColor={"rgba(255,0,0,0.5)"}*/}
-            {/*         strokeWidth={1}*/}
-            {/*         onPress={() => console.log(item.state)}/>*/}
+            {data.map((item, index) => {
+                if(stateOverlays[item.state] !== undefined){
+                    return (
+                        <Polygon coordinates={stateOverlays[item.state].point} key={index}
+                                 strokeColor={"rgb(73,73,73)"}
+                                 fillColor={_getColor(item)}
+                                 strokeWidth={1}
+                                 onPress={() => console.log(item.state)}/>
+                    )
+                } else {
+                    return null;
+                }
+
+            })}
         </MapView>
     );
 
@@ -88,7 +94,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    data: getCurrentCasesByStateData(state)
+    data: getCurrentCasesByStateData(state),
+    focusedCaseType: getFocusedCaseType(state),
+    maxConfirmed: getMaxConfirmedValue(state),
+    maxDeath: getMaxDeathValue(state),
+    maxRecovered: getMaxRecoveredValue(state)
 });
 
 const mapDispatchToProps = dispatch => ({});

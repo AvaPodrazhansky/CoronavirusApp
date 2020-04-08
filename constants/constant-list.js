@@ -8,16 +8,23 @@ export const termsTitleArray = [
     'statement.'
 ];
 export const termsArray = [
-    'The main purpose of the COVID-19 Self-Diagnosis is to help you make informed decisions regarding the important ' +
-    'process of seeking appropriate medical care. As such, this self-evaluation is neither intended to substitute ' +
-    'the advice of medical professionals nor to make a formal diagnosis on or treatment of COVID-19. Lastly, the ' +
-    'COVID-19 Self-Diagnosis is primarily intended for people who are currently located in the United States.',
-    'To the fullest extent provided by law, we hereby disclaim all warranties of any kind (whether expressed or ' +
-    'implied, statutory, or otherwise) including to but not limited to any warranties of merchantability, ' +
-    'non-infringement, and fitness for particular purpose. As such, your use of this self-evaluation is solely at ' +
+    'The main purpose of the Anti-Coronavirus (COVID-19) Assistant is to help people, who are currently located in ' +
+    'the United States, in making informed decisions regarding the important process of seeking appropriate medical ' +
+    'care. However, this self-evaluation is neither intended to substitute the advice of medical professionals nor ' +
+    'to provide a formal diagnosis on or treatment of COVID-19. ',
+    'To the fullest extent provided by law, we hereby disclaim all warranties of any kind (whether expressed ' +
+    'or implied, statutory, or otherwise) including to but not limited to any warranties of merchantability, ' +
+    'non-infringement, and fitness for a particular purpose. As such, your use of this self-evaluation is solely at ' +
     'your own risk.',
-    'We will not collect the data that you input within the self-evaluation and any personal information such as ' +
-    'your name, phone number, and address. The COVID-19 Self-Diagnosis is solely for your benefit.',
+    'Except for the location you provide to us, we will not collect any other personal information such as your ' +
+    'name, phone number, address, and other information that you provide by using this self-evaluation feature on ' +
+    'or through our APP. For the only information of your email address, we will not use or disclose it unless such ' +
+    'information is published, displayed, transmitted by yourself or any other third parties, or for purpose of ' +
+    'complying with any court order, law, or legal process, including to respond to any government or regulatory ' +
+    'request. If you do not agree with our above statements, your choice is not to use our APP. By accessing or ' +
+    'using this APP, you agree to these statements. The statements may change from time to time. Your continued use ' +
+    'of this App after we make changes is deemed to be acceptance of those changes, so please check the statements ' +
+    'periodically for updates.',
     ''
 ];
 export const ACCEPT_CONDITIONS = 'I accept.';

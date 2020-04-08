@@ -18,10 +18,10 @@ export const termsArray = [
     'your own risk.',
     'Except for the location you provide to us, we will not collect any other personal information such as your ' +
     'name, phone number, address, and other information that you provide by using this self-evaluation feature on ' +
-    'or through our APP. For the only information of your email address, we will not use or disclose it unless such ' +
+    'or through our App. For the only information of your email address, we will not use or disclose it unless such ' +
     'information is published, displayed, transmitted by yourself or any other third parties, or for purpose of ' +
     'complying with any court order, law, or legal process, including to respond to any government or regulatory ' +
-    'request. If you do not agree with our above statements, your choice is not to use our APP. By accessing or ' +
+    'request. If you do not agree with our above statements, your choice is not to use our App. By accessing or ' +
     'using this APP, you agree to these statements. The statements may change from time to time. Your continued use ' +
     'of this App after we make changes is deemed to be acceptance of those changes, so please check the statements ' +
     'periodically for updates.',

@@ -30,14 +30,14 @@ const HealthCenterScreen = ({isFetching, data, getData, error, locationError}) =
     } else if (error !== null) {
         return (
             <View style={styles.errorView}>
-                <Text>{NHC_LOADING_ERROR_MESSAGE}</Text>
-                <Button title={'Try Again'} onPress={getData}/>
+                <Text style={styles.errorText}>{NHC_LOADING_ERROR_MESSAGE}</Text>
+                <Button title={'Try Again'} onPress={getData} style={{margin: 20}}/>
             </View>
         )
     } else if (locationError === LOCATION_PERMISSION_DENIED){
         return (
             <View style={styles.errorView}>
-                <Text>{LOCATION_PERMISSION_DENIED}</Text>
+                <Text style={styles.errorText}>{LOCATION_PERMISSION_DENIED}</Text>
             </View>
         )
     }
@@ -73,9 +73,13 @@ const styles = StyleSheet.create({
 
     },
     errorView: {
-        justifyContent: "space-around",
+        justifyContent: "center",
         padding: 10,
         flex: 1,
+    },
+    errorText: {
+        textAlign: 'center',
+        fontSize: 20
     }
 });
 

@@ -25,10 +25,10 @@ const Root = ({
               }) => {
     React.useEffect(() => {
 
-        requestUserLocation();
+        // requestUserLocation();
 
         const _getLocationAsync = async () => {
-            let {status} = await Permissions.askAsync(Permissions.LOCATION).save();
+            let {status} = await Permissions.askAsync(Permissions.LOCATION);
             if (status !== 'granted') {
                 receiveUserLocationError(LOCATION_PERMISSION_DENIED)
             }
@@ -42,7 +42,7 @@ const Root = ({
                     }
                 }
             } else {
-                location = await Location.getCurrentPositionAsync({}).save();
+                location = await Location.getCurrentPositionAsync({});
             }
 
             // let location = await Location.watchPositionAsync();
@@ -51,8 +51,8 @@ const Root = ({
                 longitude: location.coords.longitude,
                 lat: location.coords.latitude,
                 lng: location.coords.longitude,
-                y: location.coords.latitude,
-                x: location.coords.longitude
+                x: location.coords.latitude,
+                y: location.coords.longitude
             });
         };
 

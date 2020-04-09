@@ -33,6 +33,7 @@ function fetchNHCList() {
 
         const route = 'healthcare?';
 
+        // The API has lat and lng backwards
         const params = {
             y: userLocationData.lat,
             x: userLocationData.lng

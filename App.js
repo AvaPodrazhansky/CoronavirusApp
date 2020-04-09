@@ -17,6 +17,12 @@ export default function App(props) {
     // Load any resources or data that we need prior to rendering the app
     React.useEffect(() => {
 
+        if (__DEV__) {
+            console.log('Development Mode');
+        } else {
+            console.log('Production Mode')
+        }
+
         async function loadResourcesAndDataAsync() {
             try {
                 SplashScreen.preventAutoHide();

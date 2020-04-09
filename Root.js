@@ -6,26 +6,21 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import {createStackNavigator} from '@react-navigation/stack';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import {isFetchingUserLocationSelector} from './selectors/user/user-location-retrieval';
 import {
     receiveUserLocationError,
     receiveUserLocationSuccess,
     requestUserLocation
 } from './actions/user/user-location-retrieval';
-import Spinner from './components/loading';
 import * as Constants from 'expo-constants';
-import colors from './constants/Colors';
 import {LOCATION_PERMISSION_DENIED} from "./constants/constant-list";
 
 const Stack = createStackNavigator();
 
 const Root = ({
-                  containerRef, initialNavigationState, requestUserLocation, receiveUserLocationSuccess,
-                  receiveUserLocationError, isFetching
+                  containerRef, initialNavigationState, receiveUserLocationSuccess,
+                  receiveUserLocationError
               }) => {
     React.useEffect(() => {
-
-        // requestUserLocation();
 
         const _getLocationAsync = async () => {
             let {status} = await Permissions.askAsync(Permissions.LOCATION);
@@ -60,12 +55,6 @@ const Root = ({
 
     }, []);
 
-    if (isFetching === true) {
-        return (
-            <Spinner color={colors.LIGHT_ORANGE}/>
-        )
-    }
-
     return (
         <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
@@ -87,7 +76,6 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = state => ({
-    isFetching: isFetchingUserLocationSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({

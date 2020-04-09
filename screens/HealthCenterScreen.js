@@ -13,15 +13,20 @@ import {
 import {fetchNHCList} from "../actions/national-health-center/nhc-list-retrieval";
 import {LOCATION_PERMISSION_DENIED, NHC_LOADING_ERROR_MESSAGE, NHC_RESULT_LENGTH} from "../constants/constant-list";
 import Spinner from "../components/loading";
-import {getUserLocationErrorMessage} from "../selectors/user/user-location-retrieval";
+import {
+    getUserLocationData,
+    getUserLocationErrorMessage,
+    isFetchingUserLocationSelector
+} from "../selectors/user/user-location-retrieval";
+import {fetchUserLocation} from "../actions/user/user-location-retrieval";
 
-const HealthCenterScreen = ({isFetching, data, getData, error, locationError}) => {
+const HealthCenterScreen = ({isFetching, data, getData, error, locationError, userLocation, getUserLocation}) => {
 
     React.useEffect(() => {
         if (data.length === 0 && !isFetching){
             getData();
         }
-    }, []);
+    }, [userLocation]);
 
     if(isFetching === true){
         return (
@@ -31,6 +36,8 @@ const HealthCenterScreen = ({isFetching, data, getData, error, locationError}) =
         return (
             <View style={styles.errorView}>
                 <Text style={styles.errorText}>{NHC_LOADING_ERROR_MESSAGE}</Text>
+                <Text>Lat: {userLocation.lat} Lng: {userLocation.lng}</Text>
+                <Text>Error: {error}</Text>
                 <Button title={'Try Again'} onPress={getData} style={{margin: 20}}/>
             </View>
         )
@@ -38,6 +45,7 @@ const HealthCenterScreen = ({isFetching, data, getData, error, locationError}) =
         return (
             <View style={styles.errorView}>
                 <Text style={styles.errorText}>{LOCATION_PERMISSION_DENIED}</Text>
+                <Button title={'Allow Location'} onPress={getUserLocation} style={{margin: 20}}/>
             </View>
         )
     }
@@ -74,7 +82,7 @@ const styles = StyleSheet.create({
     },
     errorView: {
         justifyContent: "center",
-        padding: 10,
+        padding: 15,
         flex: 1,
     },
     errorText: {
@@ -85,13 +93,15 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     data: getNHCListData(state).slice(0,NHC_RESULT_LENGTH),
-    isFetching: isFetchingNHCListSelector(state),
+    isFetching: isFetchingNHCListSelector(state) || isFetchingUserLocationSelector(state),
     error: getNHCListErrorMessage(state),
-    locationError: getUserLocationErrorMessage(state)
+    locationError: getUserLocationErrorMessage(state),
+    userLocation: getUserLocationData(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch(fetchNHCList())
+    getData: () => dispatch(fetchNHCList()),
+    getUserLocation: () => dispatch(fetchUserLocation())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HealthCenterScreen);

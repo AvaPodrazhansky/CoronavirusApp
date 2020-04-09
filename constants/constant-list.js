@@ -195,6 +195,9 @@ export const CALL_LABEL = 'Call';
 export const WEBSITE_LABEL = 'Website';
 export const DIRECTIONS_LABEL = 'Directions';
 export const LOCATION_PERMISSION_DENIED = 'Unable to find closest National Health Centers without location permission';
+export const USER_LOCATION_ERROR = 'Unable to access your location';
+export const ALLOW_LOCATION_LABEL = 'Allow Location';
+export const TRY_AGAIN_LABEL = 'Try Again';
 
 // News URLs
 export const DEFAULT_COVID_URL = 'https://media.npr.org/assets/img/2020/03/11/c_virus_outbreak_sq-428f510423dae3e93' +

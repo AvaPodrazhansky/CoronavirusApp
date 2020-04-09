@@ -10,7 +10,7 @@ const defaultState = {
         lat: 51.0,
         lng: -0.1
     },
-    errorMessage: null
+    errorMessage: 'error'
 };
 
 const userLocationRetrieval = (state = defaultState, action) => {

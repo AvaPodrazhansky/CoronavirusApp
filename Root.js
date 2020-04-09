@@ -13,7 +13,9 @@ import {
     requestUserLocation
 } from './actions/user/user-location-retrieval';
 import Spinner from './components/loading';
-import * as Constants from "expo-constants";
+import * as Constants from 'expo-constants';
+import colors from './constants/Colors';
+import {LOCATION_PERMISSION_DENIED} from "./constants/constant-list";
 
 const Stack = createStackNavigator();
 
@@ -26,9 +28,9 @@ const Root = ({
         requestUserLocation();
 
         const _getLocationAsync = async () => {
-            let {status} = await Permissions.askAsync(Permissions.LOCATION);
+            let {status} = await Permissions.askAsync(Permissions.LOCATION).save();
             if (status !== 'granted') {
-                receiveUserLocationError('Permission to access location was denied')
+                receiveUserLocationError(LOCATION_PERMISSION_DENIED)
             }
 
             let location;
@@ -40,7 +42,7 @@ const Root = ({
                     }
                 }
             } else {
-                location = await Location.getCurrentPositionAsync({});
+                location = await Location.getCurrentPositionAsync({}).save();
             }
 
             // let location = await Location.watchPositionAsync();
@@ -60,7 +62,7 @@ const Root = ({
 
     if (isFetching === true) {
         return (
-            <Spinner/>
+            <Spinner color={colors.LIGHT_ORANGE}/>
         )
     }
 

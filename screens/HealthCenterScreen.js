@@ -11,10 +11,11 @@ import {
     isFetchingNHCListSelector
 } from "../selectors/national-health-center/nhc-list-retrieval";
 import {fetchNHCList} from "../actions/national-health-center/nhc-list-retrieval";
-import {NHC_LOADING_ERROR_MESSAGE, NHC_RESULT_LENGTH} from "../constants/constant-list";
+import {LOCATION_PERMISSION_DENIED, NHC_LOADING_ERROR_MESSAGE, NHC_RESULT_LENGTH} from "../constants/constant-list";
 import Spinner from "../components/loading";
+import {getUserLocationErrorMessage} from "../selectors/user/user-location-retrieval";
 
-const HealthCenterScreen = ({isFetching, data, getData, error}) => {
+const HealthCenterScreen = ({isFetching, data, getData, error, locationError}) => {
 
     React.useEffect(() => {
         if (data.length === 0 && !isFetching){
@@ -31,6 +32,12 @@ const HealthCenterScreen = ({isFetching, data, getData, error}) => {
             <View style={styles.errorView}>
                 <Text>{NHC_LOADING_ERROR_MESSAGE}</Text>
                 <Button title={'Try Again'} onPress={getData}/>
+            </View>
+        )
+    } else if (locationError === LOCATION_PERMISSION_DENIED){
+        return (
+            <View style={styles.errorView}>
+                <Text>{LOCATION_PERMISSION_DENIED}</Text>
             </View>
         )
     }
@@ -75,7 +82,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     data: getNHCListData(state).slice(0,NHC_RESULT_LENGTH),
     isFetching: isFetchingNHCListSelector(state),
-    error: getNHCListErrorMessage(state)
+    error: getNHCListErrorMessage(state),
+    locationError: getUserLocationErrorMessage(state)
 });
 
 const mapDispatchToProps = dispatch => ({

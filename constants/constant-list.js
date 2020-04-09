@@ -194,6 +194,7 @@ export const NHC_LOADING_ERROR_MESSAGE = 'There was an error loading the closest
 export const CALL_LABEL = 'Call';
 export const WEBSITE_LABEL = 'Website';
 export const DIRECTIONS_LABEL = 'Directions';
+export const LOCATION_PERMISSION_DENIED = 'Unable to find closest National Health Centers without location permission';
 
 // News URLs
 export const DEFAULT_COVID_URL = 'https://media.npr.org/assets/img/2020/03/11/c_virus_outbreak_sq-428f510423dae3e93' +

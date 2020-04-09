@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import useLinking from './navigation/useLinking';
 import Root from "./Root";
 import {store} from './store-creator';
+import Spinner from './components/loading';
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -44,7 +45,7 @@ export default function App(props) {
     }, []);
 
     if (!isLoadingComplete && !props.skipLoadingScreen) {
-        return null;
+        return <Spinner/>;
     } else {
         return (
             <Provider store={store}>

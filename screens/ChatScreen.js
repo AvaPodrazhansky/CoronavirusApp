@@ -3,7 +3,7 @@ import { WebView } from 'react-native-webview';
 
 const ChatScreen = () => {
     return (
-    <WebView source={{ uri: 'https://healthbotcontainersample1dd0.azurewebsites.net/' }} />
+    <WebView source={{ uri: 'https://healthbotcontainersample4675.azurewebsites.net/' }} />
     );
 };
 

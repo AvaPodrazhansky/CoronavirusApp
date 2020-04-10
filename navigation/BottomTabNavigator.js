@@ -2,7 +2,6 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import MapScreen from '../screens/MapScreen';
 import SymptomSurveyScreen from '../screens/SurveyScreen'
 import NewsScreen from "../screens/NewsScreen";
 import ChatScreen from "../screens/ChatScreen";
@@ -27,14 +26,6 @@ export default function BottomTabNavigator({navigation, route}) {
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-home"/>,
                 }}
             />
-            {/*<BottomTab.Screen*/}
-            {/*    name="Map"*/}
-            {/*    component={MapScreen}*/}
-            {/*    options={{*/}
-            {/*        title: 'Map',*/}
-            {/*        tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="md-globe"/>,*/}
-            {/*    }}*/}
-            {/*/>*/}
             <BottomTab.Screen
                 name="Diagnosis"
                 component={SymptomSurveyScreen}

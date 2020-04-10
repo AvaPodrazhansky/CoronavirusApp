@@ -4,7 +4,6 @@ import connect from 'react-redux/lib/connect/connect';
 import {isFetchingNHCListSelector} from '../../selectors/national-health-center/nhc-list-retrieval';
 import {getUserLocationData} from "../../selectors/user/user-location-retrieval";
 import Spinner from '../loading';
-import {getNHCDetailsData, isFetchingNHCDetailsSelector} from "../../selectors/national-health-center/nhc-list-details";
 import NHCListItem from './NHC-List-Item';
 import {setRegion} from "../../actions/summary-map/map-regions";
 
@@ -51,8 +50,6 @@ const NHCList = ({isFetching, data, userLocation, setRegion}) => {
 const mapStateToProps = state => ({
     isFetching: isFetchingNHCListSelector(state),
     userLocation: getUserLocationData(state),
-    isFetchingDetails: isFetchingNHCDetailsSelector(state),
-    detailData: getNHCDetailsData(state)
 });
 
 const mapDispatchToProps = dispatch => ({

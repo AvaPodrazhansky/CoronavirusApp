@@ -7,8 +7,6 @@ import {getData, getErrorMessage, isFetchingSelector} from "../selectors/news/la
 import LatestNewsList from "../components/lists/Latest-News-List";
 import Spinner from "../components/loading";
 import PropTypes from "prop-types";
-import EmbeddedTweet from "../components/twitter-components";
-import {CDC_URL, WHO_URL} from "../constants/constant-list";
 
 const NewsScreen = ({getLatestNews, newsData, isFetching, errorMessage}) => {
     React.useEffect(() => {

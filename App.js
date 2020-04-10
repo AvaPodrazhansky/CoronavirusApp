@@ -50,13 +50,13 @@ export default function App(props) {
         loadResourcesAndDataAsync();
     }, []);
 
-    if (!isLoadingComplete && !props.skipLoadingScreen) {
-        return <Spinner/>;
-    } else {
+    // if (!isLoadingComplete && !props.skipLoadingScreen) {
+    //     return <Spinner/>;
+    // } else {
         return (
             <Provider store={store}>
                 <Root initialNavigationState={initialNavigationState} containerRef={containerRef}/>
             </Provider>
         );
-    }
+    // }
 }

@@ -10,7 +10,7 @@ export const store = (_composeDevTools ?
             allReducers,
             compose(
                 applyMiddleware(thunk),
-                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+                // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
             ),
         ) :
         createStore(

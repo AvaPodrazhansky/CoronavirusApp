@@ -1,35 +1,47 @@
 {
   "expo": {
     "name": "Anti-Coronavirus (COVID-19) Assistant",
+    "description": "This is a React Native application that assists users in matters regarding COVID-19.",
     "slug": "anti-coronavirus-covid-19-assistant",
-    "icon": "./assets/images/appstore.png",
+    "owner": "jbhatt2",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
+    "version": "2.0.0",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "1.0.0",
+    "githubUrl": "https://github.com/AvaPodrazhansky/CoronavirusApp",
     "orientation": "portrait",
-    "scheme": "myapp",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "icon": "./assets/images/icon.png",
+    "scheme": "covid",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
+    "splash": {
+      "backgroundColor": "#ffffff",
+      "resizeMode": "contain",
+      "image": "./assets/images/splash.png"
+    },
     "ios": {
       "bundleIdentifier": "com.globalvirustracker.mobile",
       "supportsTablet": false
     },
     "android": {
       "package": "com.globalvirustracker.mobile",
-      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png"
     }
   }
 }

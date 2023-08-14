@@ -1,14 +1,19 @@
-node_modules/**/*
-.expo/*
+# Debug
 npm-debug.*
+
+# Expo
+.expo/
+
+# Node Modules
+node_modules/
+
+# React Native
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
-web-report/
 
-# macOS
-.DS_Store
+# WebStorm
+.idea/

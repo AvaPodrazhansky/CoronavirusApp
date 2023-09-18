@@ -3,7 +3,7 @@
  * @author Jay Bhatt
  */
 
-import { StyleSheet, View, Image, Text } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 /**
  * The Chat Bot Screen component.

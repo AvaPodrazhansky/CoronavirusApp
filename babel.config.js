@@ -1,7 +1,9 @@
 /**
- * This file configures Babel. Babel is a JavaScript compiler that converts
- * ECMAScript 2015+ code into a backwards compatible version of JavaScript in
- * current and older browsers or environments.
+ * @file File that configures Babel.
+ * @description Babel is a JavaScript compiler that converts ECMAScript 2015+
+ *              code into a backwards compatible version of JavaScript in
+ *              current and older browsers or environments.
+ * @author Jay Bhatt
  */
 
 module.exports = (api) => {

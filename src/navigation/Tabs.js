@@ -10,6 +10,7 @@ import DiagnosisScreen from "../screens/DiagnosisScreen";
 import ClinicsScreen from "../screens/ClinicsScreen";
 import NewsScreen from "../screens/NewsScreen";
 import ChatBotScreen from "../screens/ChatBotScreen";
+import STRINGS from "../utils/strings";
 
 // Ensures proper rendering (and subsequent navigation) of the bottom bar tabs
 const BottomTab = createBottomTabNavigator();
@@ -25,10 +26,10 @@ const Tabs = () => {
     return (
         <BottomTab.Navigator initialRouteName="Home">
             <BottomTab.Screen
-                name="Home"
+                name={STRINGS.home}
                 component={HomeScreen}
                 options={{
-                    tabBarLabel: "Home",
+                    tabBarLabel: STRINGS.home,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="home"
@@ -39,10 +40,10 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Diagnosis"
+                name={STRINGS.diagnosis}
                 component={DiagnosisScreen}
                 options={{
-                    tabBarLabel: "Diagnosis",
+                    tabBarLabel: STRINGS.diagnosis,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="square-edit-outline"
@@ -53,10 +54,10 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Clinics"
+                name={STRINGS.clinics}
                 component={ClinicsScreen}
                 options={{
-                    tabBarLabel: "Clinics",
+                    tabBarLabel: STRINGS.clinics,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="heart-pulse"
@@ -67,10 +68,10 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="News"
+                name={STRINGS.news}
                 component={NewsScreen}
                 options={{
-                    tabBarLabel: "News",
+                    tabBarLabel: STRINGS.news,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="newspaper"
@@ -81,10 +82,10 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Chat Bot"
+                name={STRINGS.chatBot}
                 component={ChatBotScreen}
                 options={{
-                    tabBarLabel: "Chat Bot",
+                    tabBarLabel: STRINGS.chatBot,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="chat"

@@ -6,8 +6,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "../screens/HomeScreen.js";
-import SymptomSurveyScreen from "../screens/SymptomSurveyScreen";
-import HealthCenterScreen from "../screens/HealthCenterScreen";
+import DiagnosisScreen from "../screens/DiagnosisScreen";
+import ClinicsScreen from "../screens/ClinicsScreen";
 import NewsScreen from "../screens/NewsScreen";
 import ChatBotScreen from "../screens/ChatBotScreen";
 
@@ -39,8 +39,8 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Symptom Survey"
-                component={SymptomSurveyScreen}
+                name="Diagnosis"
+                component={DiagnosisScreen}
                 options={{
                     tabBarLabel: "Diagnosis",
                     tabBarIcon: ({ color, size }) => (
@@ -53,8 +53,8 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Health Center"
-                component={HealthCenterScreen}
+                name="Clinics"
+                component={ClinicsScreen}
                 options={{
                     tabBarLabel: "Clinics",
                     tabBarIcon: ({ color, size }) => (
@@ -81,10 +81,10 @@ const Tabs = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Chat"
+                name="Chat Bot"
                 component={ChatBotScreen}
                 options={{
-                    tabBarLabel: "Chat",
+                    tabBarLabel: "Chat Bot",
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="chat"

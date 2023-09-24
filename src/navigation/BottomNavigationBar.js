@@ -17,8 +17,8 @@ const mainTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: COLORS.primaryApplicationColor,
-        background: COLORS.primaryApplicationColor,
+        primary: COLORS.applicationBackground,
+        background: COLORS.applicationBackground,
     },
 };
 

@@ -4,6 +4,7 @@
  */
 
 import { Image, StyleSheet, Text, View } from "react-native";
+import STRINGS from "../utils/strings";
 
 /**
  * The Chat Bot Screen component.
@@ -18,7 +19,7 @@ const ChatBotScreen = () => {
                 source={require("../../assets/images/phone.png")}
                 style={styles.image}
             />
-            <Text>The chat bot is currently unavailable.</Text>
+            <Text>{STRINGS.chatBotUnavailable}</Text>
         </View>
     );
 };

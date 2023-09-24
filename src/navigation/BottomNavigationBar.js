@@ -5,7 +5,7 @@
 
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import Tabs from "./Tabs";
-import colors from "../theme/colors";
+import COLORS from "../utils/colors";
 
 /**
  * The main theme of the application.
@@ -17,8 +17,8 @@ const mainTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: colors.PRIMARY_APPLICATION_COLOR,
-        background: colors.PRIMARY_APPLICATION_COLOR,
+        primary: COLORS.primaryApplicationColor,
+        background: COLORS.primaryApplicationColor,
     },
 };
 

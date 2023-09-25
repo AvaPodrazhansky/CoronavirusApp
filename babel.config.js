@@ -14,5 +14,15 @@ module.exports = (api) => {
     return {
         // Allows Babel to transform React Native code in Expo projects
         presets: ["babel-preset-expo"],
+
+        // Allows Babel to access environment variables
+        plugins: [
+            [
+                "module:react-native-dotenv",
+                {
+                    moduleName: "@env",
+                },
+            ],
+        ],
     };
 };

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 ArticleListItem.propTypes = {
     url: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
     title: PropTypes.string.isRequired,
     isoDateString: PropTypes.string.isRequired,
 };

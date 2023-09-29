@@ -6,9 +6,10 @@
 import ROUTES from "../utils/routes";
 
 /**
- * Gets an array of COVID-19 news articles from the US.
+ * Fetches an array of COVID-19 news articles from the US.
  *
- * @returns {Promise<Object[]>}
+ * @returns {Promise<Object[]>} A promise that resolves with an array of
+ *                              COVID-19 news articles from the US.
  */
 export const fetchArticles = () =>
     /** @namespace resJson.articles **/

@@ -15,8 +15,8 @@ import moment from "moment";
  * @param {string} imageUrl The URL of the article image.
  * @param {string} title The title of the article.
  * @param {string} isoDateString An ISO string that represents the date and time
- *                               that the article was published.
- * @returns {JSX.Element} A component that represents a List Item for a single
+ *                               on which the article was published.
+ * @returns {JSX.Element} A component that represents a list item for a single
  *                        news article.
  * @constructor
  */

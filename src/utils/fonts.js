@@ -6,7 +6,7 @@
 import * as Font from "expo-font";
 
 /**
- * An array that asynchronously preloads the specified fonts.
+ * An array of promises that asynchronously preload the specified fonts.
  *
  * @type {Promise<void>[]}
  */

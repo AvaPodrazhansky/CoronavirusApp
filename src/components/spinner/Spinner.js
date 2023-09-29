@@ -9,7 +9,7 @@ import COLORS from "../../utils/colors";
 /**
  * The Spinner component.
  *
- * @returns {JSX.Element} A component that represents the Spinner.
+ * @returns {JSX.Element} A component that represents a loading spinner.
  * @constructor
  */
 const Spinner = () => {

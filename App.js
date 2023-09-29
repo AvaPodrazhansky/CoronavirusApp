@@ -1,62 +1,46 @@
-import * as React from 'react';
-import {SplashScreen} from 'expo';
-import * as Font from 'expo-font';
-import {FontAwesome, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
-import {Provider} from 'react-redux';
-import useLinking from './navigation/useLinking';
-import Root from "./Root";
-import {store} from './store-creator';
-import Spinner from './components/loading';
+/**
+ * @file File with the main component of the React Native application.
+ * @author Jay Bhatt
+ */
 
-export default function App(props) {
-    const [isLoadingComplete, setLoadingComplete] = React.useState(false);
-    const [initialNavigationState, setInitialNavigationState] = React.useState();
-    const containerRef = React.useRef();
-    const {getInitialState} = useLinking(containerRef);
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import store from "./src/store/store";
+import FONT_ASSETS from "./src/utils/fonts";
+import BottomNavigationBar from "./src/navigation/BottomNavigationBar";
+import Spinner from "./src/components/spinner/Spinner";
 
-    // Load any resources or data that we need prior to rendering the app
-    React.useEffect(() => {
+/**
+ * The main component of the React Native application.
+ *
+ * @returns {JSX.Element} The main component of the React Native application.
+ * @constructor
+ */
+const App = () => {
+    const [loading, setLoading] = useState(true);
 
-        if (__DEV__) {
-            console.log('Development Mode');
-        } else {
-            console.log('Production Mode')
-        }
+    /**
+     * Loads all application assets.
+     *
+     * @returns {Promise<void>} A promise which fulfills when the asset loading
+     *                          has completed.
+     */
+    const loadAssets = async () => {
+        await Promise.all([...FONT_ASSETS]);
+        setLoading(false);
+    };
 
-        async function loadResourcesAndDataAsync() {
-            try {
-                SplashScreen.preventAutoHide();
-
-                // Load our initial navigation state
-                setInitialNavigationState(await getInitialState());
-
-                // Load fonts
-                await Font.loadAsync({
-                    ...Ionicons.font,
-                    'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-                    ...MaterialCommunityIcons.font,
-                    ...FontAwesome.font
-                });
-
-            } catch (e) {
-                // We might want to provide this error information to an error reporting service
-                console.warn(e);
-            } finally {
-                setLoadingComplete(true);
-                SplashScreen.hide();
-            }
-        }
-
-        loadResourcesAndDataAsync();
+    useEffect(() => {
+        loadAssets().catch((err) => console.error(err));
     }, []);
 
-    // if (!isLoadingComplete && !props.skipLoadingScreen) {
-    //     return <Spinner/>;
-    // } else {
-        return (
-            <Provider store={store}>
-                <Root initialNavigationState={initialNavigationState} containerRef={containerRef}/>
-            </Provider>
-        );
-    // }
-}
+    return loading ? (
+        <Spinner />
+    ) : (
+        <Provider store={store}>
+            <BottomNavigationBar />
+        </Provider>
+    );
+};
+
+export default App;

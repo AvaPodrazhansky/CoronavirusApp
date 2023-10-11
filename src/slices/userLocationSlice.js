@@ -17,7 +17,7 @@ import STRINGS from "../utils/strings";
 const initialState = {
     // The variable status consists of the following three states: "loading",
     // "resolved", and "rejected".
-    status: STRINGS.userLocation.status.loading,
+    status: STRINGS.status.loading,
     userLocation: {
         latitude: 37.78825,
         longitude: -122.4324,
@@ -48,7 +48,7 @@ const userLocationSlice = createSlice({
          * @param {Object} state The state of **userLocationSlice**.
          */
         userLocationLoading: (state) => {
-            state.status = STRINGS.userLocation.status.loading;
+            state.status = STRINGS.status.loading;
             state.errorMessage = "";
         },
 
@@ -61,7 +61,7 @@ const userLocationSlice = createSlice({
          *                        longitude and latitude.
          */
         userLocationResolved: (state, action) => {
-            state.status = STRINGS.userLocation.status.resolved;
+            state.status = STRINGS.status.resolved;
             state.errorMessage = "";
 
             state.userLocation.latitude = action.payload.latitude;
@@ -77,7 +77,7 @@ const userLocationSlice = createSlice({
          *                        message.
          */
         userLocationRejected: (state, action) => {
-            state.status = STRINGS.userLocation.status.rejected;
+            state.status = STRINGS.status.rejected;
             state.errorMessage = action.payload;
         },
     },
